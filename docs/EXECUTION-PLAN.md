@@ -397,9 +397,19 @@ Do not ship both in this task.
 
 ---
 
-### TASK-007 — AU legal facts hub
+### TASK-007 — ✅ AU legal facts hub
 
-- [ ] **Status:** pending
+- [x] **Status:** done
+
+**Shipped:** `/au/are-peptides-legal` — facts-only. Makes **no** substance-specific
+legal claim: it states what PepExact is/isn't (measurement tool, not a seller,
+not legal advice), explains legality is substance/form/jurisdiction-specific and
+only the regulator can answer, and points to primary regulators. All four links
+verified to load in-session on 2026-07-17 (TGA home via browser; FDA home, FDA
+drug-approval page, and ClinicalTrials.gov via HTTP 200). Article + Breadcrumb +
+FAQ schema; sitemap + low-key footer link. Deeper AU scheduling detail was
+deliberately omitted (not invented) and left as a `TODO(human)` in-code for
+human verification per §5 / §9.
 
 **Depends on:** TASK-006  
 
