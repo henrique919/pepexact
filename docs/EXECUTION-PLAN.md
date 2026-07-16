@@ -432,9 +432,19 @@ human verification per §5 / §9.
 
 ---
 
-### TASK-008 — Money-page layout polish
+### TASK-008 — ✅ Money-page layout polish
 
-- [ ] **Status:** pending
+- [x] **Status:** done
+
+**Shipped:** tool-first hero tightened with a text-only trust strip (CWV-safe,
+no CLS, no client JS added); stronger closing "Related tools & guides" block
+(reconstitution, converters, all three guides) alongside the compound chips.
+Hierarchy is calculator → math → FAQ → related compounds/tools → soft waitlist
+CTA. The soft waitlist CTA remains the contextual post-result `AppCta` inside
+the calculator (kept there so it appears the moment a result is computed, and
+stays consistent across every calculator page — not duplicated). `PeptideCalculator`
+and `@pepexact/engine` untouched, so shareable `?vial=…&water=…&dose=…` query
+URLs and all math are preserved. Page still prerenders SSG.
 
 **Depends on:** TASK-007  
 
