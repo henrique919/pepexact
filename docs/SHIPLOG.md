@@ -20,4 +20,4 @@ Agents: after each task, add one row (newest at the bottom).
 | 2026-07-17 | TASK-V2-008 patch | 8da03a1 | Fixed the homepage defect found above: `alternates.canonical` + Organization/WebSite JSON-LD (new helpers in `site.ts`). Closed v2-008's nav gap: header gains a "Compounds" link to a new `#compounds` anchor on the hub. |
 | 2026-07-17 | TASK-V2-009 typed route registry | 4e99415 | `routes.ts` single source of truth; shared `Breadcrumbs` + `RelatedTools`; sitemap/footer/CompoundLinks/compound template + all tool/guide/AU pages retrofit. Build: 21 static routes. Merged PR #12 → `6c015f6`; prod SSG confirmed. |
 | 2026-07-17 | TASK-V2-010 sitemap + metadata audit | 33da22d | `npm run audit:routes` static guard; prod 16/16 HTTP 200 + self-canonical + SSG; ROUTES.md refreshed. Merged PR #13 → `2d83545`. |
-| 2026-07-17 | TASK-V2-011 printable syringe chart | _pending_ | `/guides/syringe-units-chart` — U-100 units→mL tables, print CSS, schema, §5-clean. |
+| 2026-07-17 | TASK-V2-011 printable syringe chart | 4d6ecc5 | `/guides/syringe-units-chart` — U-100 units→mL tables, print CSS, schema, §5-clean. |
