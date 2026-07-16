@@ -165,6 +165,90 @@ export const compounds: Compound[] = [
       },
     ],
   },
+  {
+    slug: "tb-500",
+    name: "TB-500",
+    title: "TB-500 calculator — vial, water, dose → syringe units",
+    metaDescription:
+      "Free TB-500 measurement calculator: enter vial size (mg), water (mL), and a dose to get exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
+    intro:
+      "Enter your TB-500 vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
+    summary:
+      "TB-500 reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
+    example: GENERIC_EXAMPLE,
+    aboutParagraphs: [
+      "TB-500 is a synthetic peptide related to a fragment of thymosin beta-4, a protein that occurs naturally in the body. It has been examined in laboratory research.",
+      "TB-500 vials are commonly labelled in milligrams — for example 2 mg, 5 mg, or 10 mg. Enter whatever your vial actually says and the calculator handles the rest.",
+      MEASUREMENT_PARAGRAPH,
+      MG_MCG_PARAGRAPH,
+    ],
+    sources: [
+      {
+        label: "PubMed — thymosin beta-4 research literature",
+        url: "https://pubmed.ncbi.nlm.nih.gov/?term=thymosin+beta-4",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I calculate TB-500 syringe units?",
+        a: "Concentration is vial milligrams ÷ water millilitres; volume is your dose ÷ that concentration; units are volume in mL × 100 on a U-100 insulin syringe. PepExact runs all three steps and shows the working.",
+      },
+      {
+        q: "How much water should I use to reconstitute TB-500?",
+        a: "The water volume is your choice and changes only the concentration, not how much peptide is in the vial. More water makes each draw larger and easier to read; less water makes it smaller. The reconstitution calculator solves for the water volume that lands a dose on a round number of units.",
+      },
+      {
+        q: "Why do TB-500 unit counts differ between calculators?",
+        a: "Usually a different water volume, a different syringe type, or a mix-up between mg and mcg. Because PepExact shows every step, you can see which number produced the result instead of trusting it blindly.",
+      },
+      {
+        q: "Does PepExact recommend a TB-500 dose?",
+        a: "No. It is a measurement calculator only. It converts a vial, a water volume, and a dose you already have into syringe units, and never suggests a dose.",
+      },
+    ],
+  },
+  {
+    slug: "ghk-cu",
+    name: "GHK-Cu",
+    title: "GHK-Cu calculator — vial, water, dose → syringe units",
+    metaDescription:
+      "Free GHK-Cu measurement calculator: enter vial size (mg), water (mL), and a dose to get exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
+    intro:
+      "Enter your GHK-Cu vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
+    summary:
+      "GHK-Cu reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
+    example: GENERIC_EXAMPLE,
+    aboutParagraphs: [
+      "GHK-Cu (copper tripeptide-1) is a copper-binding peptide best known as an ingredient in cosmetic skincare. It has also been studied in laboratory research.",
+      "GHK-Cu vials are commonly labelled in milligrams. Enter whatever your vial actually says, along with the water you added and the dose you are measuring, and the calculator does the rest.",
+      MEASUREMENT_PARAGRAPH,
+      MG_MCG_PARAGRAPH,
+    ],
+    sources: [
+      {
+        label: "PubMed — GHK-Cu / copper peptide research literature",
+        url: "https://pubmed.ncbi.nlm.nih.gov/?term=GHK-Cu+copper+peptide",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I calculate GHK-Cu syringe units?",
+        a: "Concentration is vial milligrams ÷ water millilitres; volume is your dose ÷ that concentration; units are volume in mL × 100 on a U-100 insulin syringe. PepExact runs all three steps and shows the working.",
+      },
+      {
+        q: "How much water should I use to reconstitute GHK-Cu?",
+        a: "The water volume is your choice and changes only the concentration, not how much peptide is in the vial. More water makes each draw larger and easier to read; less water makes it smaller. The reconstitution calculator solves for the water volume that lands a dose on a round number of units.",
+      },
+      {
+        q: "Why do GHK-Cu unit counts differ between calculators?",
+        a: "Usually a different water volume, a different syringe type, or a mix-up between mg and mcg. Because PepExact shows every step, you can see which number produced the result instead of trusting it blindly.",
+      },
+      {
+        q: "Does PepExact recommend how to use GHK-Cu?",
+        a: "No. It is a measurement calculator only. It converts a vial, a water volume, and a dose you already have into syringe units, and never suggests a dose or a way to use anything.",
+      },
+    ],
+  },
 ];
 
 export const compoundBySlug = new Map(compounds.map((c) => [c.slug, c]));
