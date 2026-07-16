@@ -536,11 +536,11 @@ adopted as the operative rules going forward — they refine, not replace, §5.
 | TASK-V2-013 | AU regulatory facts hub | ✅ shipped baseline (= old TASK-007), **content-expansion optional** | Deliberately makes zero substance-specific TGA scheduling claim (`TODO(human)` left in code). v2 wants actual Poisons Standard scheduling detail — real work, gated on verifying each claim against tga.gov.au / legislation.gov.au in-session; not invented. |
 | TASK-V2-014 | Money page polish | ✅ shipped (= old TASK-008) | No formal before/after Lighthouse mobile numbers were recorded — functional/content verification only. Optional follow-up if Henry wants the CWV numbers on file. |
 | TASK-V2-015 | Favicon / OG / social preview assets | ✅ **shipped** | Agent-generated teal-on-paper assets (human authorized 2026-07-17): `icon.svg` syringe-tick, `apple-icon.tsx`, shared `og.tsx` ImageResponse (1200×630 + title slot), root + money-page `opengraph-image`, `twitter-image`, root `twitter.card=summary_large_image`. Audit extended. |
-| TASK-V2-016 | Waitlist conversion tweaks (UTM) | ⬜ **next unblocked task** | CTA already renders post-result only (`AppCta` inside the calculator's result block) — that part of the goal is already true. UTM params not yet appended. |
-| TASK-V2-017 | iOS MVP spec doc | ⬜ pending (blocked on V2-016) | Docs-only, no app code. |
+| TASK-V2-016 | Waitlist conversion tweaks (UTM) | ✅ **shipped** | `AppCta` stays post-result; continuity copy; `min-h` CLS reserve; UTM on http(s) waitlist URL (`utm_source=pepexact&utm_medium=web&utm_campaign=waitlist&utm_content=[route]`). |
+| TASK-V2-017 | iOS MVP spec doc | ⬜ **next unblocked task** | Docs-only, no app code. |
 
-**Pick order from here:** TASK-V2-006/007 skipped (HV-1 gate). Next: TASK-V2-016
-(waitlist UTM/CLS), then V2-017 (iOS MVP spec).
+**Pick order from here:** TASK-V2-006/007 skipped (HV-1 gate). Next: TASK-V2-017
+(iOS MVP spec).
 
 ### TASK-V2-009 — ✅ Typed route registry + breadcrumbs / related-tools
 
@@ -596,3 +596,15 @@ asserts brand files + twitter metadata exist. Cleared prior NEEDS HUMAN stop
 (human authorized agent-generated assets).
 
 **Unlocks:** TASK-V2-016
+
+### TASK-V2-016 — ✅ Waitlist conversion tweaks (UTM)
+
+- [x] **Status:** done
+
+**Shipped:** `AppCta` remains after a successful calculator result. Continuity
+copy (web → iPhone, same measurement math — no health promises). `min-h`
+reserves CTA paint space. For http(s) `NEXT_PUBLIC_WAITLIST_URL`, appends
+`utm_source=pepexact&utm_medium=web&utm_campaign=waitlist&utm_content=[route]`
+from `usePathname()`. mailto fallback unchanged (no UTM).
+
+**Unlocks:** TASK-V2-017
