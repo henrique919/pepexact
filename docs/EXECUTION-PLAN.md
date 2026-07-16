@@ -488,4 +488,57 @@ URLs and all math are preserved. Page still prerenders SSG.
 - Reconstitution optimizer (Pro)
 - Vendor/affiliate programs
 - Thin content farms / automated compound spam
+
+---
+
+## 11. Plan v2 (received 2026-07-17) — reconciliation & new queue
+
+Henry supplied a fuller, more rigorous 17-task execution plan (v1.0,
+`PEPEXACT-EXECUTION-PLAN.md`, "Executor: Cursor/Sonnet loop") after §1–10's
+queue was already fully shipped. Several of its tasks describe work that
+already exists under different numbering — rebuilding those would be
+regression risk for no benefit, so this section reconciles v2 against
+reality before picking up execution. v2 tasks are tracked as **TASK-V2-NNN**
+to avoid colliding with the completed TASK-001…008/004B above. v2's global
+rules (external link allowlist, stricter copy rules, stop conditions) are
+adopted as the operative rules going forward — they refine, not replace, §5.
+
+**Known deviations from v2's text** (noted once, not re-litigated):
+- Repo uses **npm** (`package-lock.json`, no `pnpm-lock.yaml`) — verify with
+  `npm test` / `npm run build`, not `pnpm`.
+- Live converter routes are `/reconstitution-calculator`, `/mg-to-mcg-converter`,
+  `/syringe-units-calculator` (v2's `/mg-to-mcg` / `/syringe-units` examples
+  don't match reality — v2 itself flags exact paths may differ). Never
+  changed; recorded in `docs/ROUTES.md`.
+- Compound scope includes **three pages beyond v2's §4 table**:
+  `melanotan-2`, `mots-c`, `aod-9604` — added under a prior human directive
+  (2026-07-17, same day) with its own content policy (§4 of this doc,
+  above). Not in v2's list; not removed. Live and in scope; TASK-V2-009's
+  registry and TASK-V2-010's audit must cover all 7 compound pages, not just
+  v2's 4.
+
+### Reconciliation table
+
+| v2 task | Title | Status | Notes |
+|---|---|---|---|
+| TASK-V2-001 | Compound page template | ✅ **already shipped** (= old TASK-001) | Different shape (single `compounds.ts` data array + `CompoundExample`/`sources[]` vs v2's per-file `citations[]`), functionally equivalent: SSG, disclaimer, FAQ schema, related tools. Gap: no lint/type enforcement of the external-link allowlist on `sources[].url` — see TASK-V2-009B below. |
+| TASK-V2-002 | `/calculator/retatrutide` | ✅ shipped (= old TASK-002) | Shorter than v2's 400–700 word target; sourced to ClinicalTrials.gov. Not rewritten solely to hit a word count. |
+| TASK-V2-003 | `/calculator/bpc-157` | ✅ shipped (= old TASK-003) | Deliberately PubMed-only (no TGA/FDA scheduling claim) per the conservative cite-or-omit call made at ship time. v2 wants TGA Poisons Standard + FDA compounding-list citations — genuine content-expansion opportunity, gated on verifying both in-session; not done automatically. |
+| TASK-V2-004 | `/calculator/tb-500` | ✅ shipped (= old TASK-004, half) | No WADA Prohibited List citation yet — same in-session-verification gate as above. |
+| TASK-V2-005 | `/calculator/ghk-cu` | ✅ shipped (= old TASK-004, half) | — |
+| TASK-V2-006 | `/calculator/semaglutide` | 🔒 **BLOCKED — HV-1 not recorded in SHIPLOG.md** | Do not pick up until a SHIPLOG line records Henry's explicit HV-1 approval. |
+| TASK-V2-007 | `/calculator/tirzepatide` | 🔒 **BLOCKED** (depends on TASK-V2-006) | Same gate. |
+| TASK-V2-008 | Homepage/nav/footer IA | ✅ shipped (= old TASK-005), **2 small gaps patched this session** | Header nav gains a "Compounds" link; homepage gains Organization/WebSite JSON-LD (v2 acceptance criteria items not in the original pass). |
+| TASK-V2-009 | Related-tools + breadcrumbs consistency (typed route registry) | ⬜ **next unblocked task** | Genuinely new — no `routes.ts` registry exists yet; breadcrumbs are hand-written per page. |
+| TASK-V2-010 | Sitemap + metadata audit | ⬜ pending (blocked on V2-009) | `docs/ROUTES.md` created this session (baseline); full audit script still to build. |
+| TASK-V2-011 | Printable syringe units chart | ⬜ pending (blocked on V2-010) | Genuinely new; the *other* link-magnet option from old TASK-006 (which shipped "why calculators disagree" instead). |
+| TASK-V2-012 | "Why calculators disagree" guide | ✅ shipped (= old TASK-006) | Already live at `/guides/why-calculators-disagree` with Article+Breadcrumb+FAQ schema. |
+| TASK-V2-013 | AU regulatory facts hub | ✅ shipped baseline (= old TASK-007), **content-expansion optional** | Deliberately makes zero substance-specific TGA scheduling claim (`TODO(human)` left in code). v2 wants actual Poisons Standard scheduling detail — real work, gated on verifying each claim against tga.gov.au / legislation.gov.au in-session; not invented. |
+| TASK-V2-014 | Money page polish | ✅ shipped (= old TASK-008) | No formal before/after Lighthouse mobile numbers were recorded — functional/content verification only. Optional follow-up if Henry wants the CWV numbers on file. |
+| TASK-V2-015 | Favicon / OG / social preview assets | ⬜ pending (unblocked, depends on V2-008 ✅) | Genuinely new. |
+| TASK-V2-016 | Waitlist conversion tweaks (UTM) | ⬜ pending (blocked on V2-014 ✅ + V2-015 ⬜) | CTA already renders post-result only (`AppCta` inside the calculator's result block) — that part of the goal is already true. UTM params not yet appended. |
+| TASK-V2-017 | iOS MVP spec doc | ⬜ pending (blocked on V2-016) | Docs-only, no app code. |
+
+**Pick order from here:** TASK-V2-006/007 skipped (HV-1 gate). TASK-V2-009 is
+the lowest-numbered unblocked, not-yet-done task — pick up there.
 - Invented efficacy or safety claims
