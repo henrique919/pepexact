@@ -86,9 +86,33 @@ Examples: `/calculator/retatrutide`, `/calculator/bpc-157`, `/calculator/tb-500`
 | 2 | `bpc-157` | bpc-157 calculator / reconstitution | Strong long-tail cluster | Same; no recovery/protocol copy |
 | 3 | `tb-500` | tb-500 calculator / units | Adjacent research-peptide demand | Same; no stacks |
 | 4 | `ghk-cu` | ghk-cu calculator / reconstitution | Adjacent demand | Same; no topical/injectable advice |
+| 5 | `melanotan-2` | melanotan 2 / mt2 calculator / units | Added scope (human, 2026-07-17) | Same; no tanning/efficacy or scare copy |
+| 6 | `mots-c` | mots-c calculator / reconstitution | Added scope (human, 2026-07-17) | Same; keep minimal — little clean popular fact |
+| 7 | `aod-9604` | aod-9604 calculator / units | Added scope (human, 2026-07-17) | Same; no fat-loss/efficacy claims |
 | Later | tirzepatide / semaglutide | only if demand warrants | Optional; not in this queue | Strictly measurement framing; no therapy claims |
 
 Compound pages **preload** vial/water/dose defaults solely so the tool demos arithmetic. Label clearly as example inputs for the calculator.
+
+### Compound "about" content policy (human-directed, 2026-07-17)
+
+The three added compounds (melanotan-2, mots-c, aod-9604) ship as their own
+`/calculator/[slug]` pages via the shared template, under these guardrails
+(supersede any convenience, sit **inside** §5, do not relax it):
+
+- Calculator-first. "About" is a short section under the tool, not an essay.
+- Popular, high-level context only: 1–2 neutral sentences on what the compound
+  is commonly called / what class of molecule it is, plus measurement-relevant
+  notes (common vial label sizes, mg/mcg or IU confusion, reconstitution framing).
+- Any status/fact claim must link a reputable **primary source** (ClinicalTrials.gov,
+  PubMed, government body) inline — never invented. If it can't be said calmly in
+  one neutral sentence with a source, **omit it**.
+- **Still absolute:** no doses/protocols/stacks/cycles/"how much"; no
+  buy/sourcing/vendor/affiliate; no before/after, hype, or efficacy promises;
+  no scare-copy or doom framing; no fake citations.
+- If a compound has almost no clean popular facts, keep its page **arithmetic-only**
+  rather than padding.
+
+Tracked as **TASK-004B** (after TASK-004). All seven compound pages honour this policy.
 
 ---
 
@@ -191,9 +215,18 @@ yet (kept unlisted per acceptance; TASK-002 is the first real consumer).
 
 ---
 
-### TASK-002 — `/calculator/retatrutide`
+### TASK-002 — ✅ `/calculator/retatrutide`
 
-- [ ] **Status:** pending
+- [x] **Status:** done
+
+**Shipped:** dynamic SSG route `apps/web/src/app/calculator/[slug]/page.tsx`
+(`generateStaticParams` + `generateMetadata`, `dynamicParams = false`) driven by
+a pure data map `apps/web/src/lib/compounds.ts`. First entry `retatrutide`:
+unique title/H1/meta/canonical, FAQ JSON-LD, generic labelled example inputs, a
+single calm sourced status line (ClinicalTrials.gov, 34 real studies), no
+protocols/vendor/invented claims. `routes` in `site.ts` now spreads
+`compoundRoutes`, so the slug is in the sitemap. Template `CompoundCalculatorPage`
+refactored from raw-JSX props to the structured `Compound` record.
 
 **Depends on:** TASK-001  
 
