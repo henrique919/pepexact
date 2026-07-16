@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Card } from "@/components/ui";
+import CompoundLinks from "@/components/CompoundLinks";
 import { siteName } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -68,6 +69,17 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
+      </section>
+
+      <section>
+        <h2 className="mb-2 text-xs font-semibold uppercase tracking-wider text-ink-soft">
+          Compound calculators
+        </h2>
+        <p className="mb-4 max-w-xl text-sm text-ink-soft">
+          The same calculator, opened on a specific compound name. Each shows
+          the working and never suggests a dose.
+        </p>
+        <CompoundLinks />
       </section>
 
       <section>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PeptideCalculator from "@/components/PeptideCalculator";
+import CompoundLinks from "@/components/CompoundLinks";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd, faqJsonLd, webAppJsonLd } from "@/lib/site";
 
@@ -103,6 +104,16 @@ export default function Page() {
             </details>
           ))}
         </div>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-semibold">Compound calculators</h2>
+        <p className="text-ink-soft">
+          Prefer to start from a specific compound name? These open the same
+          calculator, on the same engine — the math is identical, only the
+          heading changes.
+        </p>
+        <CompoundLinks />
       </section>
 
       <p className="text-xs text-ink-soft">
