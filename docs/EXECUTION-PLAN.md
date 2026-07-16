@@ -535,12 +535,13 @@ adopted as the operative rules going forward — they refine, not replace, §5.
 | TASK-V2-012 | "Why calculators disagree" guide | ✅ shipped (= old TASK-006) | Already live at `/guides/why-calculators-disagree` with Article+Breadcrumb+FAQ schema. |
 | TASK-V2-013 | AU regulatory facts hub | ✅ shipped baseline (= old TASK-007), **content-expansion optional** | Deliberately makes zero substance-specific TGA scheduling claim (`TODO(human)` left in code). v2 wants actual Poisons Standard scheduling detail — real work, gated on verifying each claim against tga.gov.au / legislation.gov.au in-session; not invented. |
 | TASK-V2-014 | Money page polish | ✅ shipped (= old TASK-008) | No formal before/after Lighthouse mobile numbers were recorded — functional/content verification only. Optional follow-up if Henry wants the CWV numbers on file. |
-| TASK-V2-015 | Favicon / OG / social preview assets | ⬜ pending (unblocked, depends on V2-008 ✅) | Genuinely new. |
+| TASK-V2-015 | Favicon / OG / social preview assets | 🛑 **NEEDS HUMAN** (asset design) | Unblocked by deps, but §6 stop condition: no favicon/icon/OG image assets in repo; `layout.tsx` has only bare `openGraph.siteName`/`type`. Needs brand assets (favicon.ico / apple-touch / og.png) or an explicit "generate simple SVG wordmark yourself" directive before an agent proceeds. |
 | TASK-V2-016 | Waitlist conversion tweaks (UTM) | ⬜ pending (blocked on V2-014 ✅ + V2-015 ⬜) | CTA already renders post-result only (`AppCta` inside the calculator's result block) — that part of the goal is already true. UTM params not yet appended. |
 | TASK-V2-017 | iOS MVP spec doc | ⬜ pending (blocked on V2-016) | Docs-only, no app code. |
 
 **Pick order from here:** TASK-V2-006/007 skipped (HV-1 gate). TASK-V2-009…011 ✅.
-Next: TASK-V2-015 (favicon / OG assets), then V2-016 / V2-017.
+**Stopped:** TASK-V2-015 needs human brand assets (or an explicit generate-assets
+go-ahead). V2-016/017 stay blocked behind V2-015.
 
 ### TASK-V2-009 — ✅ Typed route registry + breadcrumbs / related-tools
 
