@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/site";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import RelatedTools from "@/components/RelatedTools";
+import { articleJsonLd, faqJsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Why two peptide calculators give different answers",
@@ -36,17 +38,8 @@ export default function Page() {
             "The five reasons peptide calculators disagree — water volume, mg vs mcg, syringe type, rounding, and the meaning of 'units' — explained with measurement math only.",
         })}
       />
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Guides", path: "/guides/why-calculators-disagree" },
-          {
-            name: "Why calculators disagree",
-            path: "/guides/why-calculators-disagree",
-          },
-        ])}
-      />
       <JsonLd data={faqJsonLd(faqs)} />
+      <Breadcrumbs path="/guides/why-calculators-disagree" />
 
       <header>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -183,6 +176,8 @@ export default function Page() {
           ))}
         </div>
       </section>
+
+      <RelatedTools path="/guides/why-calculators-disagree" />
 
       <p className="text-xs text-ink-soft">
         This guide explains measurement arithmetic only. It is not medical

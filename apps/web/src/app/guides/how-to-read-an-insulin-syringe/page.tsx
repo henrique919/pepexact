@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import Syringe from "@/components/Syringe";
-import { articleJsonLd, breadcrumbJsonLd } from "@/lib/site";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import RelatedTools from "@/components/RelatedTools";
+import { articleJsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "How to read an insulin syringe — U-100, units, and tick marks",
@@ -23,16 +25,7 @@ export default function Page() {
             "What U-100 means, how syringe sizes differ, and how to read the markings accurately.",
         })}
       />
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Guides", path: "/guides/how-to-read-an-insulin-syringe" },
-          {
-            name: "How to read an insulin syringe",
-            path: "/guides/how-to-read-an-insulin-syringe",
-          },
-        ])}
-      />
+      <Breadcrumbs path="/guides/how-to-read-an-insulin-syringe" />
 
       <header>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -136,6 +129,8 @@ export default function Page() {
           shows the full working from vial to units.
         </p>
       </section>
+
+      <RelatedTools path="/guides/how-to-read-an-insulin-syringe" />
 
       <p className="text-xs text-ink-soft">
         This guide covers reading measurements only. It is not medical advice

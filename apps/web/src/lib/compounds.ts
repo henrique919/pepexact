@@ -28,11 +28,6 @@ export interface CompoundFaq {
   a: string;
 }
 
-export interface CompoundLink {
-  href: string;
-  label: string;
-}
-
 export interface Compound {
   /** URL slug — page lives at /calculator/{slug}. */
   slug: string;
@@ -57,8 +52,6 @@ export interface Compound {
   /** Primary-source links backing any status/fact claim above. */
   sources?: CompoundSource[];
   faqs?: CompoundFaq[];
-  relatedTools?: CompoundLink[];
-  relatedGuides?: CompoundLink[];
 }
 
 /**
@@ -374,11 +367,3 @@ export const compounds: Compound[] = [
 ];
 
 export const compoundBySlug = new Map(compounds.map((c) => [c.slug, c]));
-
-export const compoundRoutes = compounds.map((c) => `/calculator/${c.slug}`);
-
-/** Compact nav links (name + href) for footer / homepage / hub cross-linking. */
-export const compoundNav = compounds.map((c) => ({
-  name: c.name,
-  href: `/calculator/${c.slug}`,
-}));

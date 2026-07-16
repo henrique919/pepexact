@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import ReconstitutionCalculator from "@/components/ReconstitutionCalculator";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbJsonLd, webAppJsonLd } from "@/lib/site";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import RelatedTools from "@/components/RelatedTools";
+import { webAppJsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Reconstitution Calculator — how much water to add",
@@ -21,15 +23,7 @@ export default function Page() {
             "Calculate how much bacteriostatic water to add to a peptide vial so each dose lands on an easy-to-read syringe mark.",
         })}
       />
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          {
-            name: "Reconstitution Calculator",
-            path: "/reconstitution-calculator",
-          },
-        ])}
-      />
+      <Breadcrumbs path="/reconstitution-calculator" />
 
       <header>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -63,6 +57,8 @@ export default function Page() {
           out clean.
         </p>
       </section>
+
+      <RelatedTools path="/reconstitution-calculator" />
 
       <p className="text-xs text-ink-soft">
         PepExact is a measurement tool, not medical advice. It calculates

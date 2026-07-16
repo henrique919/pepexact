@@ -1,36 +1,10 @@
-import Link from "next/link";
-import type { MassUnit } from "@pepexact/engine";
 import PeptideCalculator from "./PeptideCalculator";
 import { Note } from "./ui";
 import JsonLd from "./JsonLd";
-import { breadcrumbJsonLd, faqJsonLd, webAppJsonLd } from "@/lib/site";
+import Breadcrumbs from "./Breadcrumbs";
+import RelatedTools from "./RelatedTools";
+import { faqJsonLd, webAppJsonLd } from "@/lib/site";
 import type { Compound } from "@/lib/compounds";
-
-export interface CompoundExample {
-  vial: string;
-  water: string;
-  dose: string;
-  doseUnit: MassUnit;
-}
-
-export interface RelatedLink {
-  href: string;
-  label: string;
-}
-
-const DEFAULT_TOOLS: RelatedLink[] = [
-  { href: "/reconstitution-calculator", label: "Reconstitution calculator" },
-  { href: "/mg-to-mcg-converter", label: "mg to mcg converter" },
-  { href: "/syringe-units-calculator", label: "Syringe units calculator" },
-];
-
-const DEFAULT_GUIDES: RelatedLink[] = [
-  { href: "/guides/mg-vs-mcg", label: "mg vs mcg, explained" },
-  {
-    href: "/guides/how-to-read-an-insulin-syringe",
-    label: "How to read an insulin syringe",
-  },
-];
 
 /**
  * Shared shell for every /calculator/[slug] compound page. Consumes a pure
@@ -38,7 +12,8 @@ const DEFAULT_GUIDES: RelatedLink[] = [
  * JSON-LD, the engine-backed calculator (optionally preset with a generic,
  * clearly-labelled example so the arithmetic is visible), a short calm
  * "about" section, an optional primary-source list, a measurement-focused
- * FAQ, related tools/guides, and the standing disclaimer.
+ * FAQ, related tools/guides (from the routes.ts registry — TASK-V2-009), and
+ * the standing disclaimer.
  *
  * Copy rules (docs/EXECUTION-PLAN.md §5) are enforced by what this template
  * does NOT render: no dose recommendations, no protocols, no vendor links.
@@ -54,8 +29,6 @@ export default function CompoundCalculatorPage({ compound }: { compound: Compoun
     aboutParagraphs,
     sources = [],
     faqs = [],
-    relatedTools = DEFAULT_TOOLS,
-    relatedGuides = DEFAULT_GUIDES,
   } = compound;
 
   const path = `/calculator/${slug}`;
@@ -69,14 +42,9 @@ export default function CompoundCalculatorPage({ compound }: { compound: Compoun
           description: summary,
         })}
       />
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Peptide Calculator", path: "/peptide-calculator" },
-          { name: `${name} Calculator`, path },
-        ])}
-      />
       {faqs.length > 0 && <JsonLd data={faqJsonLd(faqs)} />}
+
+      <Breadcrumbs path={path} />
 
       <header>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -152,30 +120,7 @@ export default function CompoundCalculatorPage({ compound }: { compound: Compoun
         </section>
       )}
 
-      <section className="space-y-4">
-        <h2 className="text-xl font-semibold">Related tools</h2>
-        <ul className="list-disc space-y-1 pl-5 text-ink-soft">
-          <li>
-            <Link href="/peptide-calculator" className="text-accent hover:underline">
-              Peptide calculator (all compounds)
-            </Link>
-          </li>
-          {relatedTools.map((t) => (
-            <li key={t.href}>
-              <Link href={t.href} className="text-accent hover:underline">
-                {t.label}
-              </Link>
-            </li>
-          ))}
-          {relatedGuides.map((g) => (
-            <li key={g.href}>
-              <Link href={g.href} className="text-accent hover:underline">
-                {g.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <RelatedTools path={path} />
 
       <p className="text-xs text-ink-soft">
         PepExact is a measurement tool, not medical advice. It never suggests

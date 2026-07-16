@@ -529,8 +529,8 @@ adopted as the operative rules going forward — they refine, not replace, §5.
 | TASK-V2-006 | `/calculator/semaglutide` | 🔒 **BLOCKED — HV-1 not recorded in SHIPLOG.md** | Do not pick up until a SHIPLOG line records Henry's explicit HV-1 approval. |
 | TASK-V2-007 | `/calculator/tirzepatide` | 🔒 **BLOCKED** (depends on TASK-V2-006) | Same gate. |
 | TASK-V2-008 | Homepage/nav/footer IA | ✅ **fully shipped + patched** (= old TASK-005 + this session's patch) | Header nav now has a "Compounds" link (→ `/peptide-calculator#compounds`); homepage now has `alternates.canonical` + Organization/WebSite JSON-LD. Audit in `docs/ROUTES.md` found the homepage had neither before this patch. |
-| TASK-V2-009 | Related-tools + breadcrumbs consistency (typed route registry) | ⬜ **next unblocked task** | Genuinely new — no `routes.ts` registry exists yet; breadcrumbs are hand-written per page. |
-| TASK-V2-010 | Sitemap + metadata audit | ⬜ pending (blocked on V2-009) | `docs/ROUTES.md` created this session (baseline); full audit script still to build. |
+| TASK-V2-009 | Related-tools + breadcrumbs consistency (typed route registry) | ✅ **shipped** | `apps/web/src/lib/routes.ts` is the single route registry (`allRoutes` / `routePaths` / `breadcrumbTrail` / `relatedFor`). Shared `Breadcrumbs` + `RelatedTools` components retrofit every tool, guide, regulatory, hub, and compound page. Sitemap + footer + `CompoundLinks` consume the registry. Covers all 7 compound pages. Residual gap: no type/lint allowlist on `sources[].url` (noted as V2-009B opportunity; not blocking). |
+| TASK-V2-010 | Sitemap + metadata audit | ⬜ **next unblocked task** | `docs/ROUTES.md` baseline exists; sitemap now driven by `routePaths` from `routes.ts`. Full audit still to run/refresh. |
 | TASK-V2-011 | Printable syringe units chart | ⬜ pending (blocked on V2-010) | Genuinely new; the *other* link-magnet option from old TASK-006 (which shipped "why calculators disagree" instead). |
 | TASK-V2-012 | "Why calculators disagree" guide | ✅ shipped (= old TASK-006) | Already live at `/guides/why-calculators-disagree` with Article+Breadcrumb+FAQ schema. |
 | TASK-V2-013 | AU regulatory facts hub | ✅ shipped baseline (= old TASK-007), **content-expansion optional** | Deliberately makes zero substance-specific TGA scheduling claim (`TODO(human)` left in code). v2 wants actual Poisons Standard scheduling detail — real work, gated on verifying each claim against tga.gov.au / legislation.gov.au in-session; not invented. |
@@ -539,6 +539,22 @@ adopted as the operative rules going forward — they refine, not replace, §5.
 | TASK-V2-016 | Waitlist conversion tweaks (UTM) | ⬜ pending (blocked on V2-014 ✅ + V2-015 ⬜) | CTA already renders post-result only (`AppCta` inside the calculator's result block) — that part of the goal is already true. UTM params not yet appended. |
 | TASK-V2-017 | iOS MVP spec doc | ⬜ pending (blocked on V2-016) | Docs-only, no app code. |
 
-**Pick order from here:** TASK-V2-006/007 skipped (HV-1 gate). TASK-V2-009 is
-the lowest-numbered unblocked, not-yet-done task — pick up there.
-- Invented efficacy or safety claims
+**Pick order from here:** TASK-V2-006/007 skipped (HV-1 gate). TASK-V2-009 ✅.
+Next: TASK-V2-010 (sitemap + metadata audit), then V2-011 / V2-015 / V2-016 / V2-017.
+
+### TASK-V2-009 — ✅ Typed route registry + breadcrumbs / related-tools
+
+- [x] **Status:** done
+
+**Shipped:** `apps/web/src/lib/routes.ts` owns every public path (home, hub,
+converters, all 7 compounds, guides, AU regulatory). `Breadcrumbs` emits
+visible trail + BreadcrumbList JSON-LD from `breadcrumbTrail(path)`.
+`RelatedTools` renders the internal-link graph from `relatedFor(path)`.
+Retrofit: hub, 3 converters, 3 guides, AU hub, compound template, sitemap,
+footer, `CompoundLinks`. Removed per-page hand-written crumb/related lists
+and dead `relatedTools`/`relatedGuides` compound fields.
+
+**Acceptance met:** one registry; no hand-drift between nav/footer/sitemap/
+breadcrumbs/related; `npm test` + `npm run build` green (21 static routes).
+
+**Unlocks:** TASK-V2-010

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, siteName } from "@/lib/site";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import RelatedTools from "@/components/RelatedTools";
+import { articleJsonLd, faqJsonLd, siteName } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Are peptides legal in Australia? What PepExact can and can't tell you",
@@ -66,14 +67,8 @@ export default function Page() {
             "A facts-only explainer: PepExact is a measurement tool, not a seller or legal adviser. Legality of a specific peptide is a question for the TGA. Links to primary regulators.",
         })}
       />
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Australia", path: "/au/are-peptides-legal" },
-          { name: "Are peptides legal?", path: "/au/are-peptides-legal" },
-        ])}
-      />
       <JsonLd data={faqJsonLd(faqs)} />
+      <Breadcrumbs path="/au/are-peptides-legal" />
 
       <header>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -173,21 +168,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold">Related tools</h2>
-        <ul className="list-disc space-y-1 pl-5 text-ink-soft">
-          <li>
-            <Link href="/peptide-calculator" className="text-accent hover:underline">
-              Peptide calculator
-            </Link>
-          </li>
-          <li>
-            <Link href="/guides/mg-vs-mcg" className="text-accent hover:underline">
-              mg vs mcg, explained
-            </Link>
-          </li>
-        </ul>
-      </section>
+      <RelatedTools path="/au/are-peptides-legal" />
 
       <p className="text-xs text-ink-soft">
         {siteName} is a measurement tool, not medical or legal advice. It does

@@ -3,7 +3,9 @@ import Link from "next/link";
 import PeptideCalculator from "@/components/PeptideCalculator";
 import CompoundLinks from "@/components/CompoundLinks";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbJsonLd, faqJsonLd, webAppJsonLd } from "@/lib/site";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import RelatedTools from "@/components/RelatedTools";
+import { faqJsonLd, webAppJsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Peptide Calculator — mg to syringe units, instantly",
@@ -42,13 +44,8 @@ export default function Page() {
             "Free peptide dose calculator: vial mg, water mL, and dose in — exact U-100 syringe units out, with the math shown.",
         })}
       />
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Peptide Calculator", path: "/peptide-calculator" },
-        ])}
-      />
       <JsonLd data={faqJsonLd(faqs)} />
+      <Breadcrumbs path="/peptide-calculator" />
 
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -130,54 +127,7 @@ export default function Page() {
         <CompoundLinks />
       </section>
 
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold">Related tools &amp; guides</h2>
-        <ul className="list-disc space-y-1 pl-5 text-ink-soft">
-          <li>
-            <Link
-              href="/reconstitution-calculator"
-              className="text-accent hover:underline"
-            >
-              Reconstitution calculator
-            </Link>{" "}
-            — work backwards from the draw you want to the water to add.
-          </li>
-          <li>
-            <Link
-              href="/mg-to-mcg-converter"
-              className="text-accent hover:underline"
-            >
-              mg ⇄ mcg converter
-            </Link>{" "}
-            ·{" "}
-            <Link
-              href="/syringe-units-calculator"
-              className="text-accent hover:underline"
-            >
-              syringe units ⇄ mL
-            </Link>
-          </li>
-          <li>
-            <Link href="/guides/mg-vs-mcg" className="text-accent hover:underline">
-              mg vs mcg
-            </Link>{" "}
-            ·{" "}
-            <Link
-              href="/guides/how-to-read-an-insulin-syringe"
-              className="text-accent hover:underline"
-            >
-              how to read an insulin syringe
-            </Link>{" "}
-            ·{" "}
-            <Link
-              href="/guides/why-calculators-disagree"
-              className="text-accent hover:underline"
-            >
-              why calculators disagree
-            </Link>
-          </li>
-        </ul>
-      </section>
+      <RelatedTools path="/peptide-calculator" heading="Related tools & guides" />
 
       <p className="text-xs text-ink-soft">
         PepExact is a measurement tool, not medical advice. It never suggests

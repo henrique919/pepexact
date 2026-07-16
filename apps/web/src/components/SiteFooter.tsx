@@ -1,30 +1,15 @@
 import Link from "next/link";
 import { siteHandle, siteName } from "@/lib/site";
-import { compoundNav } from "@/lib/compounds";
+import { allRoutes } from "@/lib/routes";
 
 const tools = [
-  { href: "/peptide-calculator", label: "Peptide calculator" },
-  { href: "/reconstitution-calculator", label: "Reconstitution calculator" },
-  { href: "/mg-to-mcg-converter", label: "mg to mcg converter" },
-  { href: "/syringe-units-calculator", label: "Syringe units calculator" },
+  allRoutes.find((r) => r.path === "/peptide-calculator")!,
+  ...allRoutes.filter((r) => r.kind === "converter"),
 ];
-
-const compounds = compoundNav.map((c) => ({
-  href: c.href,
-  label: `${c.name} calculator`,
-}));
-
+const compounds = allRoutes.filter((r) => r.kind === "compound");
 const guides = [
-  { href: "/guides/mg-vs-mcg", label: "mg vs mcg, explained" },
-  {
-    href: "/guides/how-to-read-an-insulin-syringe",
-    label: "How to read an insulin syringe",
-  },
-  {
-    href: "/guides/why-calculators-disagree",
-    label: "Why calculators disagree",
-  },
-  { href: "/au/are-peptides-legal", label: "Are peptides legal? (AU)" },
+  ...allRoutes.filter((r) => r.kind === "guide"),
+  ...allRoutes.filter((r) => r.kind === "regulatory"),
 ];
 
 export default function SiteFooter() {
@@ -38,8 +23,8 @@ export default function SiteFooter() {
             </h2>
             <ul className="space-y-2 text-sm">
               {tools.map((t) => (
-                <li key={t.href}>
-                  <Link href={t.href} className="text-ink-soft hover:text-ink">
+                <li key={t.path}>
+                  <Link href={t.path} className="text-ink-soft hover:text-ink">
                     {t.label}
                   </Link>
                 </li>
@@ -52,8 +37,8 @@ export default function SiteFooter() {
             </h2>
             <ul className="space-y-2 text-sm">
               {compounds.map((c) => (
-                <li key={c.href}>
-                  <Link href={c.href} className="text-ink-soft hover:text-ink">
+                <li key={c.path}>
+                  <Link href={c.path} className="text-ink-soft hover:text-ink">
                     {c.label}
                   </Link>
                 </li>
@@ -66,8 +51,8 @@ export default function SiteFooter() {
             </h2>
             <ul className="space-y-2 text-sm">
               {guides.map((g) => (
-                <li key={g.href}>
-                  <Link href={g.href} className="text-ink-soft hover:text-ink">
+                <li key={g.path}>
+                  <Link href={g.path} className="text-ink-soft hover:text-ink">
                     {g.label}
                   </Link>
                 </li>

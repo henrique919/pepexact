@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
-import { routes, siteUrl } from "@/lib/site";
+import { siteUrl } from "@/lib/site";
+import { routePaths } from "@/lib/routes";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map((path) => ({
+  return routePaths.map((path) => ({
     url: `${siteUrl}${path === "/" ? "" : path}`,
     lastModified: new Date(),
     changeFrequency: "weekly",
