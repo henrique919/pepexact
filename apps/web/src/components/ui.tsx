@@ -106,6 +106,14 @@ export function Stat({
   );
 }
 
+export function Note({ children }: { children: ReactNode }) {
+  return (
+    <p className="rounded-xl bg-accent-soft/60 px-4 py-3 text-sm text-ink-soft">
+      {children}
+    </p>
+  );
+}
+
 export function Warnings({ items }: { items: string[] }) {
   if (items.length === 0) return null;
   return (

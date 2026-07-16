@@ -7,4 +7,4 @@ Agents: after each task, add one row (newest at the bottom).
 
 | Date | Task | Commit | Notes |
 |---|---|---|---|
-| | | | |
+| 2026-07-17 | TASK-001 Compound page template | cc30807 | Shared `CompoundCalculatorPage` template + `PeptideCalculator` initial-value props. No route shipped yet (kept unlisted per acceptance); TASK-002 is the first consumer. |
