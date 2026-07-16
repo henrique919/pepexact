@@ -17,10 +17,11 @@ every registry path has an App Router page and a self-canonical, and that every
 `page.tsx` is registered (TASK-V2-010).
 
 **Last audited against prod:** 2026-07-17 (post TASK-V2-009 deploy `6c015f6`).
-All 16 routes HTTP 200, self-canonical present, `X-Nextjs-Prerender: 1` (SSG).
-BreadcrumbList JSON-LD on every non-home page; homepage has Organization +
-WebSite only (intentional — no one-item "Home" crumb). Sitemap.xml lists all
-16 URLs. Hub shows visible breadcrumbs + "Related tools & guides".
+All then-live routes HTTP 200, self-canonical present, `X-Nextjs-Prerender: 1`
+(SSG). BreadcrumbList JSON-LD on every non-home page; homepage has Organization
++ WebSite only (intentional — no one-item "Home" crumb). Hub shows visible
+breadcrumbs + "Related tools & guides". TASK-V2-011 adds
+`/guides/syringe-units-chart` (17 indexable routes; re-audit after deploy).
 
 | Route | Role | Title | Canonical | Schema types | Notes |
 |---|---|---|---|---|---|
@@ -38,14 +39,14 @@ WebSite only (intentional — no one-item "Home" crumb). Sitemap.xml lists all
 | `/calculator/aod-9604` | Compound preset | AOD-9604 calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Same as above. Sourced: PubMed. |
 | `/guides/mg-vs-mcg` | Guide | mg vs mcg — the 1,000× difference, explained | self | Article, BreadcrumbList | |
 | `/guides/how-to-read-an-insulin-syringe` | Guide | How to read an insulin syringe — U-100, units, and tick marks | self | Article, BreadcrumbList | |
-| `/guides/why-calculators-disagree` | Guide / link magnet | Why two peptide calculators give different answers | self | Article, BreadcrumbList, FAQPage | Chosen over the printable-chart option in old TASK-006. Printable chart is now separately queued as TASK-V2-011. |
+| `/guides/why-calculators-disagree` | Guide / link magnet | Why two peptide calculators give different answers | self | Article, BreadcrumbList, FAQPage | Chosen over the printable-chart option in old TASK-006. |
+| `/guides/syringe-units-chart` | Guide / link magnet | Printable U-100 syringe units chart — units to mL | self | Article, BreadcrumbList, FAQPage | TASK-V2-011. Printable units→mL tables; measurement-only. |
 | `/au/are-peptides-legal` | AU facts hub | Are peptides legal in Australia? What PepExact can and can't tell you | self | Article, BreadcrumbList, FAQPage | Makes no substance-specific legal claim (§5-safe cite-or-omit). `TODO(human)` left in code for verified expansion. |
 
 **Not yet built (v2 §3 IA):**
 - `/calculator/semaglutide`, `/calculator/tirzepatide` — 🔒 blocked on HV-1 (not recorded in `docs/SHIPLOG.md`)
-- `/guides/syringe-units-chart` (printable chart) — queued as TASK-V2-011
 - `/guides/peptides-us-regulations` — backlog per v2 §7 Q6 (only after AU hub proves pattern/demand)
 
-**Sitemap:** `apps/web/src/app/sitemap.ts` maps `routePaths` 1:1, `lastModified: new Date()`, priority 1 for `/peptide-calculator`, 0.7 elsewhere. Verified 16/16 URLs present at `/sitemap.xml` on 2026-07-17 (post V2-009). `robots.txt` references the sitemap (`apps/web/src/app/robots.ts`).
+**Sitemap:** `apps/web/src/app/sitemap.ts` maps `routePaths` 1:1, `lastModified: new Date()`, priority 1 for `/peptide-calculator`, 0.7 elsewhere. 17 indexable routes after TASK-V2-011. `robots.txt` references the sitemap (`apps/web/src/app/robots.ts`).
 
 **Alias domains** (`.com.au` / `.online` / `.au`): not verified in this audit — needs DNS-level check, out of scope for an agent session (v2 §7 Q3, human-owned).

@@ -93,8 +93,8 @@ for (const file of walkPages(webApp)) {
   }
 }
 
-if (allPaths.length < 16) {
-  errors.push(`expected ≥16 routes, found ${allPaths.length}`);
+if (allPaths.length < 17) {
+  errors.push(`expected ≥17 routes, found ${allPaths.length}`);
 }
 
 if (errors.length) {
