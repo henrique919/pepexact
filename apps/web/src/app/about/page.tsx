@@ -59,8 +59,18 @@ export default function Page() {
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">Contact</h2>
         <p className="text-ink-soft">
-          {siteHandle} on X. For product updates, use the waitlist link on the
-          calculator after a result.
+          See{" "}
+          <Link href="/contact" className="text-accent hover:underline">
+            Contact
+          </Link>{" "}
+          ({siteHandle}). How we write:{" "}
+          <Link
+            href="/editorial-policy"
+            className="text-accent hover:underline"
+          >
+            editorial policy
+          </Link>
+          .
         </p>
       </section>
 

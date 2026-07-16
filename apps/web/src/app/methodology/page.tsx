@@ -6,7 +6,7 @@ import { siteName } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Calculation methodology — how PepExact does the arithmetic",
   description:
-    "How PepExact converts vial mg, water mL, and a user-supplied dose into concentration, volume, and U-100 syringe units. Transparent formulas only — no dosing advice.",
+    "How PepExact converts vial mg, water mL, and a user-supplied dose into concentration, volume, and U-100 syringe units. Formulas, units, rounding, validation, and limitations — no dosing advice.",
   alternates: { canonical: "/methodology" },
 };
 
@@ -47,32 +47,83 @@ export default function Page() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold">Units and validation</h2>
+        <h2 className="text-xl font-semibold">Supported units and assumptions</h2>
+        <ul className="list-disc space-y-2 pl-5 text-ink-soft">
+          <li>Mass: milligrams (mg) and micrograms (mcg); 1 mg = 1,000 mcg</li>
+          <li>Volume: millilitres (mL)</li>
+          <li>
+            Syringe scale: <strong className="text-ink">U-100</strong> — 100
+            units per mL (1 unit = 0.01 mL), for 0.3 / 0.5 / 1.0 mL barrels
+          </li>
+        </ul>
         <p className="text-ink-soft">
-          Milligrams and micrograms differ by 1,000 (1 mg = 1,000 mcg). Mixing
-          them up is the most common arithmetic slip — see{" "}
+          See{" "}
           <Link href="/guides/mg-vs-mcg" className="text-accent hover:underline">
             mg vs mcg
+          </Link>{" "}
+          and{" "}
+          <Link
+            href="/guides/how-to-read-an-insulin-syringe"
+            className="text-accent hover:underline"
+          >
+            how to read an insulin syringe
           </Link>
-          . The engine warns on empty or invalid inputs, draws that exceed a
-          common syringe capacity, and other measurable inconsistencies; it still
-          does not recommend what you should enter.
+          .
         </p>
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold">Engine parity</h2>
+        <h2 className="text-xl font-semibold">Rounding and display</h2>
+        <p className="text-ink-soft">
+          The shared engine rounds intermediate values for display (for example
+          units to a practical number of decimals) using a stable{" "}
+          <code>roundTo</code> helper. Visible working steps use locale-stable
+          formatting. If a result falls between syringe tick marks, a warning may
+          note the nearest whole unit — that is measurement feedback, not a dose
+          recommendation.
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Input validation</h2>
+        <p className="text-ink-soft">
+          Non-positive or non-finite inputs are rejected. The engine may warn
+          when a calculated draw exceeds a selected syringe capacity, when a dose
+          exceeds the vial mass entered, or when a draw is extremely small. Warnings
+          do not invent missing inputs or choose values for you.
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Engine testing and parity</h2>
         <p className="text-ink-soft">
           Web calculators call the shared <code>@pepexact/engine</code> package.
-          The same formulas are covered by automated tests in the repo so future
-          clients (including a planned iOS app) can stay numerically aligned.
-          Compound pages use the same calculator; only headings and educational
-          context change.
+          Automated tests cover unit conversion, draw calculation, diluent
+          calculation, and round-trip consistency so future clients (including a
+          planned iOS app) can stay numerically aligned. Compound pages use the
+          same calculator; only headings and educational context change.
         </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Limitations</h2>
+        <ul className="list-disc space-y-2 pl-5 text-ink-soft">
+          <li>Does not verify product identity, purity, or sterility</li>
+          <li>Does not determine legality or regulatory approval</li>
+          <li>Does not recommend peptides, amounts, water volumes, or protocols</li>
+          <li>Assumes U-100 unless you convert for another scale yourself</li>
+        </ul>
         <p className="text-ink-soft">
-          Try it on the{" "}
+          Try the{" "}
           <Link href="/peptide-calculator" className="text-accent hover:underline">
             peptide calculator
+          </Link>
+          . Policy:{" "}
+          <Link
+            href="/editorial-policy"
+            className="text-accent hover:underline"
+          >
+            editorial policy
           </Link>
           .
         </p>
