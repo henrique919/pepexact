@@ -5,15 +5,18 @@ export const siteName = "PepExact";
 
 export const siteHandle = "@pepexact";
 
+import { compoundRoutes } from "./compounds";
+
 export const routes = [
   "/",
   "/peptide-calculator",
   "/reconstitution-calculator",
   "/mg-to-mcg-converter",
   "/syringe-units-calculator",
+  ...compoundRoutes,
   "/guides/mg-vs-mcg",
   "/guides/how-to-read-an-insulin-syringe",
-] as const;
+];
 
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   return {
