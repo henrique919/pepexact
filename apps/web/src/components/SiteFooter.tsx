@@ -24,6 +24,7 @@ const guides = [
     href: "/guides/why-calculators-disagree",
     label: "Why calculators disagree",
   },
+  { href: "/au/are-peptides-legal", label: "Are peptides legal? (AU)" },
 ];
 
 export default function SiteFooter() {
