@@ -154,9 +154,20 @@ Execute in order. Each task is one PR-sized unit.
 
 ---
 
-### TASK-001 — Compound page template
+### TASK-001 — ✅ Compound page template
 
-- [ ] **Status:** pending
+- [x] **Status:** done
+
+**Shipped:** `apps/web/src/components/CompoundCalculatorPage.tsx` is the shared
+template (props: `slug`, `name`, `intro`, `summary`, `example`, `aboutHeading`,
+`aboutBody`, `faqs`, `relatedTools`, `relatedGuides`). It renders JSON-LD
+(WebApplication + Breadcrumb + FAQ), the `PeptideCalculator` (now accepting
+optional `initialVial`/`initialWater`/`initialDose`/`initialDoseUnit` props),
+a `Note` example-input callout when `example` is set, measurement-context
+copy, FAQ accordion, related tools/guides, and the standing disclaimer.
+Per-compound pages live at `apps/web/src/app/calculator/{slug}/page.tsx` and
+just supply `metadata` + a `CompoundCalculatorPage` call — no route shipped
+yet (kept unlisted per acceptance; TASK-002 is the first real consumer).
 
 **Depends on:** none  
 
