@@ -37,6 +37,8 @@ breadcrumbs + "Related tools & guides". TASK-V2-011 adds
 | `/calculator/melanotan-2` | Compound preset | Melanotan II calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Added under human directive 2026-07-17; not in v2's §4 table but in scope. Sourced: PubMed. |
 | `/calculator/mots-c` | Compound preset | MOTS-c calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Same as above. Kept minimal (§4 policy: little clean popular fact). Sourced: PubMed. |
 | `/calculator/aod-9604` | Compound preset | AOD-9604 calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Same as above. Sourced: PubMed. |
+| `/calculator/semaglutide` | Compound preset | Semaglutide calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | HV-1 unlocked 2026-07-17. Sourced: ClinicalTrials.gov. Measurement-only; no therapy claims. |
+| `/calculator/tirzepatide` | Compound preset | Tirzepatide calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Same gate/ship as semaglutide. Sourced: ClinicalTrials.gov. |
 | `/guides/mg-vs-mcg` | Guide | mg vs mcg — the 1,000× difference, explained | self | Article, BreadcrumbList | |
 | `/guides/how-to-read-an-insulin-syringe` | Guide | How to read an insulin syringe — U-100, units, and tick marks | self | Article, BreadcrumbList | |
 | `/guides/why-calculators-disagree` | Guide / link magnet | Why two peptide calculators give different answers | self | Article, BreadcrumbList, FAQPage | Chosen over the printable-chart option in old TASK-006. |
@@ -44,10 +46,9 @@ breadcrumbs + "Related tools & guides". TASK-V2-011 adds
 | `/au/are-peptides-legal` | AU facts hub | Are peptides legal in Australia? What PepExact can and can't tell you | self | Article, BreadcrumbList, FAQPage | Makes no substance-specific legal claim (§5-safe cite-or-omit). `TODO(human)` left in code for verified expansion. |
 
 **Not yet built (v2 §3 IA):**
-- `/calculator/semaglutide`, `/calculator/tirzepatide` — 🔒 blocked on HV-1 (not recorded in `docs/SHIPLOG.md`)
 - `/guides/peptides-us-regulations` — backlog per v2 §7 Q6 (only after AU hub proves pattern/demand)
 
-**Sitemap:** `apps/web/src/app/sitemap.ts` maps `routePaths` 1:1, `lastModified: new Date()`, priority 1 for `/peptide-calculator`, 0.7 elsewhere. 17 indexable routes after TASK-V2-011. `robots.txt` references the sitemap (`apps/web/src/app/robots.ts`).
+**Sitemap:** `apps/web/src/app/sitemap.ts` maps `routePaths` 1:1, `lastModified: new Date()`, priority 1 for `/peptide-calculator`, 0.7 elsewhere. 19 indexable routes after TASK-V2-006/007 (semaglutide + tirzepatide). `robots.txt` references the sitemap (`apps/web/src/app/robots.ts`).
 
 **Brand / social (TASK-V2-015):** `app/icon.svg`, `apple-icon.tsx`, root + `/peptide-calculator` `opengraph-image.tsx` (next/og 1200×630 via `lib/og.tsx`), `twitter-image.tsx`, root layout `twitter.card=summary_large_image`. Verify live: `/icon.svg`, `/apple-icon`, `/opengraph-image`, `/twitter-image`.
 
