@@ -49,4 +49,6 @@ breadcrumbs + "Related tools & guides". TASK-V2-011 adds
 
 **Sitemap:** `apps/web/src/app/sitemap.ts` maps `routePaths` 1:1, `lastModified: new Date()`, priority 1 for `/peptide-calculator`, 0.7 elsewhere. 17 indexable routes after TASK-V2-011. `robots.txt` references the sitemap (`apps/web/src/app/robots.ts`).
 
+**Brand / social (TASK-V2-015):** `app/icon.svg`, `apple-icon.tsx`, root + `/peptide-calculator` `opengraph-image.tsx` (next/og 1200×630 via `lib/og.tsx`), `twitter-image.tsx`, root layout `twitter.card=summary_large_image`. Verify live: `/icon.svg`, `/apple-icon`, `/opengraph-image`, `/twitter-image`.
+
 **Alias domains** (`.com.au` / `.online` / `.au`): not verified in this audit — needs DNS-level check, out of scope for an agent session (v2 §7 Q3, human-owned).
