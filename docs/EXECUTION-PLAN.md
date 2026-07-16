@@ -326,9 +326,17 @@ prop, "tan" inside "Melanotan").
 
 ---
 
-### TASK-005 — Homepage / nav IA + related-tools consistency
+### TASK-005 — ✅ Homepage / nav IA + related-tools consistency
 
-- [ ] **Status:** pending
+- [x] **Status:** done
+
+**Shipped:** new shared `CompoundLinks` component (chip links, reads the single
+`compoundNav` source) surfaces the compound cluster on the homepage and the hub
+(`/peptide-calculator`). Footer gained a "Compounds" column (grid → 3 cols,
+stacks on mobile). Hub-and-spoke internal linking now complete: hub → all 7
+compounds, each compound → hub (via template related-tools) + converters +
+guides. Header left minimal to avoid mobile clutter. No card spam — compounds
+render as compact chips, not cards.
 
 **Depends on:** TASK-004  
 
