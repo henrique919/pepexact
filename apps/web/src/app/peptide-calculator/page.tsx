@@ -10,7 +10,7 @@ import { faqJsonLd, webAppJsonLd } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Peptide Calculator — mg to syringe units, instantly",
   description:
-    "Free peptide dose calculator. Enter vial size, water, and dose to get exact syringe units, concentration, and doses per vial — with the math shown. No login, no sales.",
+    "Free peptide measurement calculator. Enter vial size, water, and a dose to get exact U-100 syringe units, concentration, and the math shown. No login, no sales, no dosing advice.",
   alternates: { canonical: "/peptide-calculator" },
 };
 
@@ -41,7 +41,7 @@ export default function Page() {
           name: "PepExact Peptide Calculator",
           path: "/peptide-calculator",
           description:
-            "Free peptide dose calculator: vial mg, water mL, and dose in — exact U-100 syringe units out, with the math shown.",
+            "Free peptide measurement calculator: vial mg, water mL, and dose in — exact U-100 syringe units out, with the math shown.",
         })}
       />
       <JsonLd data={faqJsonLd(faqs)} />

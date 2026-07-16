@@ -16,40 +16,45 @@ that produces; it is not itself the source of truth for the sitemap.
 every registry path has an App Router page and a self-canonical, and that every
 `page.tsx` is registered (TASK-V2-010).
 
-**Last audited against prod:** 2026-07-17 (post TASK-V2-009 deploy `6c015f6`).
-All then-live routes HTTP 200, self-canonical present, `X-Nextjs-Prerender: 1`
-(SSG). BreadcrumbList JSON-LD on every non-home page; homepage has Organization
-+ WebSite only (intentional — no one-item "Home" crumb). Hub shows visible
-breadcrumbs + "Related tools & guides". TASK-V2-011 adds
-`/guides/syringe-units-chart` (17 indexable routes; re-audit after deploy).
+**Geo positioning:** Core tools are geo-neutral (US / UK / AU). Regulatory
+deep-dive for Australia remains at `/au/are-peptides-legal`; global regulator
+links live at `/guides/peptide-regulators` (FDA + MHRA + TGA).
 
 | Route | Role | Title | Canonical | Schema types | Notes |
 |---|---|---|---|---|---|
-| `/` | Home | PepExact — the independent peptide calculator | self | Organization, WebSite | Canonical + schema shipped in TASK-V2-008 patch. |
-| `/peptide-calculator` | Hub / money page | Peptide Calculator — mg to syringe units, instantly | self | WebApplication, BreadcrumbList, FAQPage | Flagship. Do not move this URL. |
-| `/reconstitution-calculator` | Converter (target draw → water) | Reconstitution Calculator — how much water to add | self | WebApplication, BreadcrumbList | |
-| `/mg-to-mcg-converter` | Converter | mg to mcg Converter — milligrams to micrograms | self | WebApplication, BreadcrumbList | Live path differs from v2 plan's example `/mg-to-mcg` — this is the real one; never renamed. |
-| `/syringe-units-calculator` | Converter | Syringe Units Calculator — U-100 units to mL | self | WebApplication, BreadcrumbList | Live path differs from v2 plan's example `/syringe-units` — this is the real one; never renamed. |
-| `/calculator/retatrutide` | Compound preset | Retatrutide calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Sourced: ClinicalTrials.gov. |
-| `/calculator/bpc-157` | Compound preset | BPC-157 calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Sourced: PubMed. |
-| `/calculator/tb-500` | Compound preset | TB-500 calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Sourced: PubMed. |
-| `/calculator/ghk-cu` | Compound preset | GHK-Cu calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Sourced: PubMed. |
-| `/calculator/melanotan-2` | Compound preset | Melanotan II calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Added under human directive 2026-07-17; not in v2's §4 table but in scope. Sourced: PubMed. |
-| `/calculator/mots-c` | Compound preset | MOTS-c calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Same as above. Kept minimal (§4 policy: little clean popular fact). Sourced: PubMed. |
-| `/calculator/aod-9604` | Compound preset | AOD-9604 calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Same as above. Sourced: PubMed. |
-| `/calculator/semaglutide` | Compound preset | Semaglutide calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | HV-1 unlocked 2026-07-17. Sourced: ClinicalTrials.gov. Measurement-only; no therapy claims. |
-| `/calculator/tirzepatide` | Compound preset | Tirzepatide calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Same gate/ship as semaglutide. Sourced: ClinicalTrials.gov. |
+| `/` | Home | PepExact — the independent peptide calculator | self | Organization (+logo), WebSite | |
+| `/peptide-calculator` | Hub / money page | Peptide Calculator — mg to syringe units, instantly | self | WebApplication, BreadcrumbList, FAQPage | Flagship. Measurement framing in meta. |
+| `/reconstitution-calculator` | Converter | Reconstitution Calculator — how much water to add | self | WebApplication, BreadcrumbList | |
+| `/mg-to-mcg-converter` | Converter | mg to mcg Converter — milligrams to micrograms | self | WebApplication, BreadcrumbList | |
+| `/syringe-units-calculator` | Converter | Syringe Units Calculator — U-100 units to mL | self | WebApplication, BreadcrumbList | |
+| `/calculator/retatrutide` | Compound preset | Retatrutide calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | Aliases: reta peptide. ClinicalTrials.gov. |
+| `/calculator/bpc-157` | Compound preset | BPC-157 calculator — reconstitution & syringe units | self | WebApplication, BreadcrumbList, FAQPage | BPC 157 intent. PubMed. |
+| `/calculator/tb-500` | Compound preset | TB-500 calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | PubMed. |
+| `/calculator/ghk-cu` | Compound preset | GHK-Cu calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | PubMed. |
+| `/calculator/melanotan-2` | Compound preset | Melanotan II calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | PubMed. |
+| `/calculator/mots-c` | Compound preset | MOTS-c calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | PubMed. |
+| `/calculator/aod-9604` | Compound preset | AOD-9604 calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | PubMed. |
+| `/calculator/semaglutide` | Compound preset | Semaglutide calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | HV-1. ClinicalTrials.gov. |
+| `/calculator/tirzepatide` | Compound preset | Tirzepatide calculator — vial, water, dose → syringe units | self | WebApplication, BreadcrumbList, FAQPage | HV-1. ClinicalTrials.gov. |
 | `/guides/mg-vs-mcg` | Guide | mg vs mcg — the 1,000× difference, explained | self | Article, BreadcrumbList | |
-| `/guides/how-to-read-an-insulin-syringe` | Guide | How to read an insulin syringe — U-100, units, and tick marks | self | Article, BreadcrumbList | |
-| `/guides/why-calculators-disagree` | Guide / link magnet | Why two peptide calculators give different answers | self | Article, BreadcrumbList, FAQPage | Chosen over the printable-chart option in old TASK-006. |
-| `/guides/syringe-units-chart` | Guide / link magnet | Printable U-100 syringe units chart — units to mL | self | Article, BreadcrumbList, FAQPage | TASK-V2-011. Printable units→mL tables; measurement-only. |
-| `/au/are-peptides-legal` | AU facts hub | Are peptides legal in Australia? What PepExact can and can't tell you | self | Article, BreadcrumbList, FAQPage | Makes no substance-specific legal claim (§5-safe cite-or-omit). `TODO(human)` left in code for verified expansion. |
+| `/guides/how-to-read-an-insulin-syringe` | Guide | How to read an insulin syringe | self | Article, BreadcrumbList | |
+| `/guides/why-calculators-disagree` | Guide | Why two peptide calculators give different answers | self | Article, BreadcrumbList, FAQPage | |
+| `/guides/syringe-units-chart` | Guide | Printable U-100 syringe units chart | self | Article, BreadcrumbList, FAQPage | |
+| `/guides/peptide-regulators` | Guide | Peptide regulators — FDA, MHRA, and TGA | self | Article, BreadcrumbList, FAQPage | Geo-neutral; no substance-specific claims. |
+| `/au/are-peptides-legal` | AU facts hub | Are peptides legal in Australia? | self | Article, BreadcrumbList, FAQPage | Cross-links global regulators guide. |
+| `/about` | Trust | About PepExact | self | BreadcrumbList | |
+| `/methodology` | Trust | Calculation methodology | self | BreadcrumbList | |
+| `/privacy` | Trust | Privacy | self | BreadcrumbList | |
+| `/terms` | Trust | Terms of use | self | BreadcrumbList | |
 
-**Not yet built (v2 §3 IA):**
-- `/guides/peptides-us-regulations` — backlog per v2 §7 Q6 (only after AU hub proves pattern/demand)
+**Sitemap:** `sitemap.ts` maps `routePaths` 1:1 with a **stable** `SITEMAP_LASTMOD`
+(not `new Date()` on every deploy). `robots.txt` references the sitemap.
 
-**Sitemap:** `apps/web/src/app/sitemap.ts` maps `routePaths` 1:1, `lastModified: new Date()`, priority 1 for `/peptide-calculator`, 0.7 elsewhere. 19 indexable routes after TASK-V2-006/007 (semaglutide + tirzepatide). `robots.txt` references the sitemap (`apps/web/src/app/robots.ts`).
+**Brand / social:** `/icon.svg`, `/apple-icon`, `/opengraph-image`, `/twitter-image`.
+Organization JSON-LD includes `logo`.
 
-**Brand / social (TASK-V2-015):** `app/icon.svg`, `apple-icon.tsx`, root + `/peptide-calculator` `opengraph-image.tsx` (next/og 1200×630 via `lib/og.tsx`), `twitter-image.tsx`, root layout `twitter.card=summary_large_image`. Verify live: `/icon.svg`, `/apple-icon`, `/opengraph-image`, `/twitter-image`.
+**Human ops:** After deploy, submit sitemap in Google Search Console and request
+indexing for `/`, `/peptide-calculator`, `/calculator/retatrutide`,
+`/calculator/bpc-157`, `/guides/peptide-regulators`.
 
-**Alias domains** (`.com.au` / `.online` / `.au`): not verified in this audit — needs DNS-level check, out of scope for an agent session (v2 §7 Q3, human-owned).
+**Alias domains** (`.com.au` / `.online` / `.au`): human-owned DNS check.

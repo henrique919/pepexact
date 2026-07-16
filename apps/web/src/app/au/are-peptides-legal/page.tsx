@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedTools from "@/components/RelatedTools";
@@ -128,8 +129,15 @@ export default function Page() {
           </a>{" "}
           is the Australian Government authority that regulates medicines,
           medical devices, and biologicals. It is the source of record for what
-          is approved, scheduled, or unapproved in Australia. In the United
-          States, the equivalent regulator is the FDA.
+          is approved, scheduled, or unapproved in Australia. For the United
+          States (FDA) and United Kingdom (MHRA) alongside the TGA, see{" "}
+          <Link
+            href="/guides/peptide-regulators"
+            className="text-accent hover:underline"
+          >
+            peptide regulators
+          </Link>
+          .
         </p>
         <ul className="list-disc space-y-1 pl-5 text-ink-soft">
           {sources.map((s) => (
@@ -174,7 +182,14 @@ export default function Page() {
         {siteName} is a measurement tool, not medical or legal advice. It does
         not sell peptides and does not tell you what, how much, or whether to
         take anything. For regulatory questions, consult the TGA (Australia) or
-        the relevant authority in your country.
+        see{" "}
+        <Link
+          href="/guides/peptide-regulators"
+          className="text-accent hover:underline"
+        >
+          FDA, MHRA, and TGA
+        </Link>
+        .
       </p>
     </article>
   );

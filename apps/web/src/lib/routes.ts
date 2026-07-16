@@ -12,7 +12,8 @@ export type RouteKind =
   | "converter"
   | "compound"
   | "guide"
-  | "regulatory";
+  | "regulatory"
+  | "info";
 
 export interface RouteEntry {
   path: string;
@@ -62,6 +63,11 @@ const GUIDES: RouteEntry[] = [
     label: "Printable U-100 syringe units chart",
     kind: "guide",
   },
+  {
+    path: "/guides/peptide-regulators",
+    label: "Peptide regulators (FDA, MHRA, TGA)",
+    kind: "guide",
+  },
 ];
 
 const REGULATORY: RouteEntry[] = [
@@ -70,6 +76,13 @@ const REGULATORY: RouteEntry[] = [
     label: "Are peptides legal? (AU)",
     kind: "regulatory",
   },
+];
+
+const INFO: RouteEntry[] = [
+  { path: "/about", label: "About PepExact", kind: "info" },
+  { path: "/methodology", label: "Methodology", kind: "info" },
+  { path: "/privacy", label: "Privacy", kind: "info" },
+  { path: "/terms", label: "Terms", kind: "info" },
 ];
 
 const COMPOUND_ROUTES: RouteEntry[] = compounds.map((c) => ({
@@ -85,6 +98,7 @@ export const allRoutes: RouteEntry[] = [
   ...COMPOUND_ROUTES,
   ...GUIDES,
   ...REGULATORY,
+  ...INFO,
 ];
 
 /** Flat path list, consumed by the sitemap. */
@@ -141,19 +155,24 @@ const CONVERTER_GUIDE: Record<string, RouteEntry> = {
   "/syringe-units-calculator": GUIDES[3], // printable units chart
 };
 
-/** Each guide/regulatory page links the tools it actually references. */
+/** Each guide/regulatory/info page links the tools it actually references. */
 const REFERENCED_TOOLS: Record<string, RouteEntry[]> = {
   "/guides/mg-vs-mcg": [HUB, CONVERTERS[1]],
   "/guides/how-to-read-an-insulin-syringe": [HUB, CONVERTERS[2]],
   "/guides/why-calculators-disagree": [HUB, CONVERTERS[2]],
   "/guides/syringe-units-chart": [HUB, CONVERTERS[2]],
+  "/guides/peptide-regulators": [HUB],
   "/au/are-peptides-legal": [HUB],
+  "/about": [HUB],
+  "/methodology": [HUB],
+  "/privacy": [HUB],
+  "/terms": [HUB],
 };
 
 /**
  * compound → hub + 2 rotating siblings + 1 converter (+ the most measurement
- * -relevant guide); converter → hub + 1 guide; guide/regulatory → the tools
- * it references; hub → every converter + every guide.
+ * -relevant guide); converter → hub + 1 guide; guide/regulatory/info → the
+ * tools it references; hub → every converter + every guide.
  */
 export function relatedFor(path: string): RelatedLinks {
   const entry = findRoute(path);
@@ -173,7 +192,11 @@ export function relatedFor(path: string): RelatedLinks {
     return { tools: [HUB], guides: [CONVERTER_GUIDE[path]] };
   }
 
-  if (entry.kind === "guide" || entry.kind === "regulatory") {
+  if (
+    entry.kind === "guide" ||
+    entry.kind === "regulatory" ||
+    entry.kind === "info"
+  ) {
     return { tools: REFERENCED_TOOLS[path] ?? [HUB], guides: [] };
   }
 
