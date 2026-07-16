@@ -53,6 +53,9 @@ npm run build   # production build (all routes static)
   results (`AppCta`, `data-cta="web-to-app"`). Use a Google Form, Typeform, or
   similar. If unset, the CTA falls back to
   `mailto:hello@pepexact.com?subject=PepExact%20iOS%20waitlist`.
+  For http(s) URLs, `AppCta` appends UTM params:
+  `utm_source=pepexact&utm_medium=web&utm_campaign=waitlist&utm_content=[route]`
+  (route = pathname without leading slash).
   Example (Vercel → Project → Settings → Environment Variables):
 
   ```

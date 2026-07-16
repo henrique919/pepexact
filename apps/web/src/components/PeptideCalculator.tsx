@@ -217,6 +217,7 @@ export default function PeptideCalculator({
             </div>
           </Card>
 
+          {/* min-h on AppCta reserves paint space (CLS) once the result block mounts */}
           <AppCta />
         </>
       )}
