@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PeptideCalculator from "@/components/PeptideCalculator";
 import CompoundLinks from "@/components/CompoundLinks";
 import JsonLd from "@/components/JsonLd";
@@ -85,7 +86,15 @@ export default function Page() {
         <p className="text-ink-soft">
           The most common error is a units mix-up: 1 mg is 1,000 mcg, so
           confusing the two shifts a dose by a factor of a thousand. PepExact
-          keeps mg and mcg explicit at every step.
+          keeps mg and mcg explicit at every step. If another calculator gave
+          you a different number, here is{" "}
+          <Link
+            href="/guides/why-calculators-disagree"
+            className="text-accent hover:underline"
+          >
+            why two calculators disagree
+          </Link>
+          .
         </p>
       </section>
 

@@ -16,6 +16,7 @@ export const routes = [
   ...compoundRoutes,
   "/guides/mg-vs-mcg",
   "/guides/how-to-read-an-insulin-syringe",
+  "/guides/why-calculators-disagree",
 ];
 
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {

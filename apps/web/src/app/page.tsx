@@ -132,6 +132,14 @@ export default function HomePage() {
               How to read an insulin syringe (U-100, units, and tick marks)
             </Link>
           </li>
+          <li>
+            <Link
+              href="/guides/why-calculators-disagree"
+              className="text-accent hover:underline"
+            >
+              Why two calculators give different answers for the same dose
+            </Link>
+          </li>
         </ul>
       </section>
     </div>
