@@ -251,9 +251,14 @@ refactored from raw-JSX props to the structured `Compound` record.
 
 ---
 
-### TASK-003 — `/calculator/bpc-157`
+### TASK-003 — ✅ `/calculator/bpc-157`
 
-- [ ] **Status:** pending
+- [x] **Status:** done
+
+**Shipped:** `bpc-157` entry added to `compounds.ts` (identity as a synthetic
+peptide examined in lab/animal research + measurement notes; PubMed source
+pointer; no recovery/healing/protocol copy). Route prerenders SSG via the
+existing `[slug]` page; slug in sitemap via `compoundRoutes`.
 
 **Depends on:** TASK-002  
 
