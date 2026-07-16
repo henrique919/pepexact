@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import { siteName, siteUrl } from "@/lib/site";
+import { siteHandle, siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -15,6 +15,12 @@ export const metadata: Metadata = {
   openGraph: {
     siteName,
     type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: siteHandle,
+    creator: siteHandle,
   },
 };
 

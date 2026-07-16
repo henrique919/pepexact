@@ -97,6 +97,25 @@ if (allPaths.length < 17) {
   errors.push(`expected ≥17 routes, found ${allPaths.length}`);
 }
 
+// Brand / social assets (TASK-V2-015)
+const brandAssets = [
+  "apps/web/src/app/icon.svg",
+  "apps/web/src/app/apple-icon.tsx",
+  "apps/web/src/app/opengraph-image.tsx",
+  "apps/web/src/app/twitter-image.tsx",
+  "apps/web/src/lib/og.tsx",
+];
+for (const rel of brandAssets) {
+  if (!fs.existsSync(path.join(root, rel))) {
+    errors.push(`missing brand asset ${rel}`);
+  }
+}
+
+const layoutSrc = read(path.join(webApp, "layout.tsx"));
+if (!/twitter:\s*\{/.test(layoutSrc) || !layoutSrc.includes("summary_large_image")) {
+  errors.push("root layout.tsx missing twitter.card summary_large_image");
+}
+
 if (errors.length) {
   console.error("audit-routes FAILED:");
   for (const e of errors) console.error(`  - ${e}`);
@@ -105,3 +124,4 @@ if (errors.length) {
 
 console.log(`audit-routes OK — ${allPaths.length} routes, all pages have canonicals.`);
 for (const p of allPaths) console.log(`  ${p}`);
+console.log("  brand: icon.svg + apple-icon + opengraph/twitter images");
