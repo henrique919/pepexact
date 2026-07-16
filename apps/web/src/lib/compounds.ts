@@ -364,6 +364,88 @@ export const compounds: Compound[] = [
       },
     ],
   },
+  {
+    slug: "semaglutide",
+    name: "Semaglutide",
+    title: "Semaglutide calculator — vial, water, dose → syringe units",
+    metaDescription:
+      "Free semaglutide measurement calculator: enter vial size (mg), water (mL), and a dose to get exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
+    intro:
+      "Enter your semaglutide vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
+    summary:
+      "Semaglutide reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
+    example: GENERIC_EXAMPLE,
+    aboutParagraphs: [
+      "Semaglutide is a synthetic peptide that acts as a glucagon-like peptide-1 (GLP-1) receptor agonist and has been studied extensively in clinical trials.",
+      MEASUREMENT_PARAGRAPH,
+      MG_MCG_PARAGRAPH,
+    ],
+    sources: [
+      {
+        label: "ClinicalTrials.gov — semaglutide studies",
+        url: "https://clinicaltrials.gov/search?term=semaglutide",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I work out semaglutide syringe units?",
+        a: "Three steps of arithmetic. Concentration: vial milligrams ÷ water millilitres. Volume: your dose ÷ that concentration. Units: volume in mL × 100, because a U-100 syringe holds 100 units per mL. PepExact does all three and shows the working.",
+      },
+      {
+        q: "How much water do I add to a semaglutide vial?",
+        a: "That is your choice, and it changes the concentration rather than the amount of peptide in the vial. More water makes each draw larger and easier to read; less water makes it smaller. The reconstitution calculator works backwards from the units you want to a water volume.",
+      },
+      {
+        q: "Why do two people get different units for the same semaglutide dose?",
+        a: "Because units depend on concentration, which depends on how much water was added. The same dose from a vial mixed with 1 mL versus 2 mL of water lands on a different number of units. Always recalculate when the vial or water changes.",
+      },
+      {
+        q: "Does PepExact recommend a semaglutide dose?",
+        a: "No. PepExact is a measurement tool. It converts numbers you already have into syringe units and never suggests what or how much to take.",
+      },
+    ],
+  },
+  {
+    slug: "tirzepatide",
+    name: "Tirzepatide",
+    title: "Tirzepatide calculator — vial, water, dose → syringe units",
+    metaDescription:
+      "Free tirzepatide measurement calculator: enter vial size (mg), water (mL), and a dose to get exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
+    intro:
+      "Enter your tirzepatide vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
+    summary:
+      "Tirzepatide reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
+    example: GENERIC_EXAMPLE,
+    aboutParagraphs: [
+      "Tirzepatide is a synthetic peptide that acts on both glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) receptors and has been studied extensively in clinical trials.",
+      MEASUREMENT_PARAGRAPH,
+      MG_MCG_PARAGRAPH,
+    ],
+    sources: [
+      {
+        label: "ClinicalTrials.gov — tirzepatide studies",
+        url: "https://clinicaltrials.gov/search?term=tirzepatide",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I work out tirzepatide syringe units?",
+        a: "Three steps of arithmetic. Concentration: vial milligrams ÷ water millilitres. Volume: your dose ÷ that concentration. Units: volume in mL × 100, because a U-100 syringe holds 100 units per mL. PepExact does all three and shows the working.",
+      },
+      {
+        q: "How much water do I add to a tirzepatide vial?",
+        a: "That is your choice, and it changes the concentration rather than the amount of peptide in the vial. More water makes each draw larger and easier to read; less water makes it smaller. The reconstitution calculator works backwards from the units you want to a water volume.",
+      },
+      {
+        q: "Why do two people get different units for the same tirzepatide dose?",
+        a: "Because units depend on concentration, which depends on how much water was added. The same dose from a vial mixed with 1 mL versus 2 mL of water lands on a different number of units. Always recalculate when the vial or water changes.",
+      },
+      {
+        q: "Does PepExact recommend a tirzepatide dose?",
+        a: "No. PepExact is a measurement tool. It converts numbers you already have into syringe units and never suggests what or how much to take.",
+      },
+    ],
+  },
 ];
 
 export const compoundBySlug = new Map(compounds.map((c) => [c.slug, c]));

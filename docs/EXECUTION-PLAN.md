@@ -89,7 +89,8 @@ Examples: `/calculator/retatrutide`, `/calculator/bpc-157`, `/calculator/tb-500`
 | 5 | `melanotan-2` | melanotan 2 / mt2 calculator / units | Added scope (human, 2026-07-17) | Same; no tanning/efficacy or scare copy |
 | 6 | `mots-c` | mots-c calculator / reconstitution | Added scope (human, 2026-07-17) | Same; keep minimal — little clean popular fact |
 | 7 | `aod-9604` | aod-9604 calculator / units | Added scope (human, 2026-07-17) | Same; no fat-loss/efficacy claims |
-| Later | tirzepatide / semaglutide | only if demand warrants | Optional; not in this queue | Strictly measurement framing; no therapy claims |
+| 8 | `semaglutide` | semaglutide calculator / reconstitution / units | HV-1 unlocked 2026-07-17 | Strictly measurement framing; no therapy claims |
+| 9 | `tirzepatide` | tirzepatide calculator / reconstitution / units | HV-1 unlocked 2026-07-17 | Same |
 
 Compound pages **preload** vial/water/dose defaults solely so the tool demos arithmetic. Label clearly as example inputs for the calculator.
 
@@ -514,8 +515,8 @@ adopted as the operative rules going forward — they refine, not replace, §5.
   `melanotan-2`, `mots-c`, `aod-9604` — added under a prior human directive
   (2026-07-17, same day) with its own content policy (§4 of this doc,
   above). Not in v2's list; not removed. Live and in scope; TASK-V2-009's
-  registry and TASK-V2-010's audit must cover all 7 compound pages, not just
-  v2's 4.
+  registry and TASK-V2-010's audit must cover all compound pages (now 9 after
+  V2-006/007), not just v2's original 4.
 
 ### Reconciliation table
 
@@ -526,8 +527,8 @@ adopted as the operative rules going forward — they refine, not replace, §5.
 | TASK-V2-003 | `/calculator/bpc-157` | ✅ shipped (= old TASK-003) | Deliberately PubMed-only (no TGA/FDA scheduling claim) per the conservative cite-or-omit call made at ship time. v2 wants TGA Poisons Standard + FDA compounding-list citations — genuine content-expansion opportunity, gated on verifying both in-session; not done automatically. |
 | TASK-V2-004 | `/calculator/tb-500` | ✅ shipped (= old TASK-004, half) | No WADA Prohibited List citation yet — same in-session-verification gate as above. |
 | TASK-V2-005 | `/calculator/ghk-cu` | ✅ shipped (= old TASK-004, half) | — |
-| TASK-V2-006 | `/calculator/semaglutide` | 🔒 **BLOCKED — HV-1 not recorded in SHIPLOG.md** | Do not pick up until a SHIPLOG line records Henry's explicit HV-1 approval. |
-| TASK-V2-007 | `/calculator/tirzepatide` | 🔒 **BLOCKED** (depends on TASK-V2-006) | Same gate. |
+| TASK-V2-006 | `/calculator/semaglutide` | ✅ **shipped** (HV-1 approved 2026-07-17) | Data entry in `compounds.ts`; ClinicalTrials.gov sourced; §5 measurement-only. |
+| TASK-V2-007 | `/calculator/tirzepatide` | ✅ **shipped** (with V2-006) | Same. |
 | TASK-V2-008 | Homepage/nav/footer IA | ✅ **fully shipped + patched** (= old TASK-005 + this session's patch) | Header nav now has a "Compounds" link (→ `/peptide-calculator#compounds`); homepage now has `alternates.canonical` + Organization/WebSite JSON-LD. Audit in `docs/ROUTES.md` found the homepage had neither before this patch. |
 | TASK-V2-009 | Related-tools + breadcrumbs consistency (typed route registry) | ✅ **shipped** | `apps/web/src/lib/routes.ts` is the single route registry (`allRoutes` / `routePaths` / `breadcrumbTrail` / `relatedFor`). Shared `Breadcrumbs` + `RelatedTools` components retrofit every tool, guide, regulatory, hub, and compound page. Sitemap + footer + `CompoundLinks` consume the registry. Covers all 7 compound pages. Residual gap: no type/lint allowlist on `sources[].url` (noted as V2-009B opportunity; not blocking). |
 | TASK-V2-010 | Sitemap + metadata audit | ✅ **shipped** | `npm run audit:routes` (`scripts/audit-routes.mjs`) locks registry↔pages↔canonicals. Prod re-audit 2026-07-17 post V2-009: 16/16 HTTP 200, self-canonical, SSG (`X-Nextjs-Prerender: 1`), sitemap 16 URLs. `docs/ROUTES.md` refreshed. |
@@ -539,8 +540,23 @@ adopted as the operative rules going forward — they refine, not replace, §5.
 | TASK-V2-016 | Waitlist conversion tweaks (UTM) | ✅ **shipped** | `AppCta` stays post-result; continuity copy; `min-h` CLS reserve; UTM on http(s) waitlist URL (`utm_source=pepexact&utm_medium=web&utm_campaign=waitlist&utm_content=[route]`). |
 | TASK-V2-017 | iOS MVP spec doc | ✅ **shipped** | `docs/ios-mvp-spec.md` — screens, engine contract, parity fixtures note, §5 compliance. No iOS app code. |
 
-**Pick order from here:** TASK-V2-006/007 skipped (HV-1 gate). v2 queue complete
-aside from HV-1-gated V2-006/007.
+**Pick order from here:** v2 queue complete (V2-006/007 unlocked by HV-1 and shipped).
+
+### TASK-V2-006 — ✅ `/calculator/semaglutide`
+
+- [x] **Status:** done (HV-1 approved in SHIPLOG 2026-07-17)
+
+**Shipped:** `semaglutide` entry in `compounds.ts` — GLP-1 receptor agonist
+identity, ClinicalTrials.gov source, generic labelled example, measurement FAQs.
+SSG via shared `[slug]` route; sitemap via `routes.ts` / `compoundRoutes`.
+§5-clean: no therapy, brand, dose, or sourcing copy.
+
+### TASK-V2-007 — ✅ `/calculator/tirzepatide`
+
+- [x] **Status:** done (shipped with V2-006)
+
+**Shipped:** `tirzepatide` entry — dual GIP/GLP-1 receptor agonist identity,
+ClinicalTrials.gov source, same template pattern as semaglutide. §5-clean.
 
 ### TASK-V2-009 — ✅ Typed route registry + breadcrumbs / related-tools
 
@@ -618,4 +634,4 @@ optional converters / disclaimer), `@pepexact/engine` contract, parity fixture
 note pointing at `packages/engine/test/engine.test.ts`, §5 compliance, visual
 constraints, milestones, open human decisions. **No iOS app code.**
 
-**Unlocks:** none in this queue (HV-1 still gates V2-006/007).
+**Unlocks:** none — v2 queue complete (V2-006/007 shipped after HV-1).
