@@ -530,8 +530,8 @@ adopted as the operative rules going forward — they refine, not replace, §5.
 | TASK-V2-007 | `/calculator/tirzepatide` | 🔒 **BLOCKED** (depends on TASK-V2-006) | Same gate. |
 | TASK-V2-008 | Homepage/nav/footer IA | ✅ **fully shipped + patched** (= old TASK-005 + this session's patch) | Header nav now has a "Compounds" link (→ `/peptide-calculator#compounds`); homepage now has `alternates.canonical` + Organization/WebSite JSON-LD. Audit in `docs/ROUTES.md` found the homepage had neither before this patch. |
 | TASK-V2-009 | Related-tools + breadcrumbs consistency (typed route registry) | ✅ **shipped** | `apps/web/src/lib/routes.ts` is the single route registry (`allRoutes` / `routePaths` / `breadcrumbTrail` / `relatedFor`). Shared `Breadcrumbs` + `RelatedTools` components retrofit every tool, guide, regulatory, hub, and compound page. Sitemap + footer + `CompoundLinks` consume the registry. Covers all 7 compound pages. Residual gap: no type/lint allowlist on `sources[].url` (noted as V2-009B opportunity; not blocking). |
-| TASK-V2-010 | Sitemap + metadata audit | ⬜ **next unblocked task** | `docs/ROUTES.md` baseline exists; sitemap now driven by `routePaths` from `routes.ts`. Full audit still to run/refresh. |
-| TASK-V2-011 | Printable syringe units chart | ⬜ pending (blocked on V2-010) | Genuinely new; the *other* link-magnet option from old TASK-006 (which shipped "why calculators disagree" instead). |
+| TASK-V2-010 | Sitemap + metadata audit | ✅ **shipped** | `npm run audit:routes` (`scripts/audit-routes.mjs`) locks registry↔pages↔canonicals. Prod re-audit 2026-07-17 post V2-009: 16/16 HTTP 200, self-canonical, SSG (`X-Nextjs-Prerender: 1`), sitemap 16 URLs. `docs/ROUTES.md` refreshed. |
+| TASK-V2-011 | Printable syringe units chart | ⬜ **next unblocked task** | Genuinely new; the *other* link-magnet option from old TASK-006 (which shipped "why calculators disagree" instead). |
 | TASK-V2-012 | "Why calculators disagree" guide | ✅ shipped (= old TASK-006) | Already live at `/guides/why-calculators-disagree` with Article+Breadcrumb+FAQ schema. |
 | TASK-V2-013 | AU regulatory facts hub | ✅ shipped baseline (= old TASK-007), **content-expansion optional** | Deliberately makes zero substance-specific TGA scheduling claim (`TODO(human)` left in code). v2 wants actual Poisons Standard scheduling detail — real work, gated on verifying each claim against tga.gov.au / legislation.gov.au in-session; not invented. |
 | TASK-V2-014 | Money page polish | ✅ shipped (= old TASK-008) | No formal before/after Lighthouse mobile numbers were recorded — functional/content verification only. Optional follow-up if Henry wants the CWV numbers on file. |
@@ -539,8 +539,9 @@ adopted as the operative rules going forward — they refine, not replace, §5.
 | TASK-V2-016 | Waitlist conversion tweaks (UTM) | ⬜ pending (blocked on V2-014 ✅ + V2-015 ⬜) | CTA already renders post-result only (`AppCta` inside the calculator's result block) — that part of the goal is already true. UTM params not yet appended. |
 | TASK-V2-017 | iOS MVP spec doc | ⬜ pending (blocked on V2-016) | Docs-only, no app code. |
 
-**Pick order from here:** TASK-V2-006/007 skipped (HV-1 gate). TASK-V2-009 ✅.
-Next: TASK-V2-010 (sitemap + metadata audit), then V2-011 / V2-015 / V2-016 / V2-017.
+**Pick order from here:** TASK-V2-006/007 skipped (HV-1 gate). TASK-V2-009 ✅,
+TASK-V2-010 ✅. Next: TASK-V2-011 (printable syringe chart), then V2-015 / V2-016 /
+V2-017.
 
 ### TASK-V2-009 — ✅ Typed route registry + breadcrumbs / related-tools
 
@@ -558,3 +559,15 @@ and dead `relatedTools`/`relatedGuides` compound fields.
 breadcrumbs/related; `npm test` + `npm run build` green (21 static routes).
 
 **Unlocks:** TASK-V2-010
+
+### TASK-V2-010 — ✅ Sitemap + metadata audit
+
+- [x] **Status:** done
+
+**Shipped:** `scripts/audit-routes.mjs` + `npm run audit:routes` — asserts every
+`routes.ts` path has an App Router page with a self-canonical, and every
+`page.tsx` is registered. Re-audited production after V2-009 merge: 16/16
+routes 200 + SSG + canonical; sitemap.xml lists all 16; `docs/ROUTES.md`
+updated. No metadata defects found that needed a code fix.
+
+**Unlocks:** TASK-V2-011
