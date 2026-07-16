@@ -249,6 +249,128 @@ export const compounds: Compound[] = [
       },
     ],
   },
+  {
+    slug: "melanotan-2",
+    name: "Melanotan II",
+    title: "Melanotan II calculator — vial, water, dose → syringe units",
+    metaDescription:
+      "Free Melanotan II (MT2) measurement calculator: enter vial size (mg), water (mL), and a dose to get exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
+    intro:
+      "Enter your Melanotan II vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
+    summary:
+      "Melanotan II reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
+    example: GENERIC_EXAMPLE,
+    aboutParagraphs: [
+      "Melanotan II (also written Melanotan 2 or MT2) is a synthetic peptide analog of alpha-melanocyte-stimulating hormone (α-MSH), a naturally occurring hormone.",
+      "Melanotan II vials are commonly labelled in milligrams — often 10 mg. Enter whatever your vial actually says, along with the water you added and the dose you are measuring.",
+      MEASUREMENT_PARAGRAPH,
+      MG_MCG_PARAGRAPH,
+    ],
+    sources: [
+      {
+        label: "PubMed — melanotan II research literature",
+        url: "https://pubmed.ncbi.nlm.nih.gov/?term=melanotan+II",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I calculate Melanotan II syringe units?",
+        a: "Concentration is vial milligrams ÷ water millilitres; volume is your dose ÷ that concentration; units are volume in mL × 100 on a U-100 insulin syringe. PepExact runs all three steps and shows the working.",
+      },
+      {
+        q: "How much water should I use to reconstitute a Melanotan II vial?",
+        a: "The water volume is your choice and changes only the concentration, not how much peptide is in the vial. More water makes each draw larger and easier to read; less water makes it smaller. The reconstitution calculator solves for the water volume that lands a dose on a round number of units.",
+      },
+      {
+        q: "Why do Melanotan II unit counts differ between calculators?",
+        a: "Usually a different water volume, a different syringe type, or a mix-up between mg and mcg. Because PepExact shows every step, you can see which number produced the result instead of trusting it blindly.",
+      },
+      {
+        q: "Does PepExact recommend a Melanotan II dose?",
+        a: "No. It is a measurement calculator only. It converts a vial, a water volume, and a dose you already have into syringe units, and never suggests a dose.",
+      },
+    ],
+  },
+  {
+    slug: "mots-c",
+    name: "MOTS-c",
+    title: "MOTS-c calculator — vial, water, dose → syringe units",
+    metaDescription:
+      "Free MOTS-c measurement calculator: enter vial size (mg), water (mL), and a dose to get exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
+    intro:
+      "Enter your MOTS-c vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
+    summary:
+      "MOTS-c reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
+    example: GENERIC_EXAMPLE,
+    aboutParagraphs: [
+      "MOTS-c is a mitochondrial-derived peptide — a short peptide linked to mitochondrial DNA — that has been examined in laboratory research.",
+      "MOTS-c vials are commonly labelled in milligrams. Enter whatever your vial actually says, along with your water and dose, and the calculator does the rest.",
+      MEASUREMENT_PARAGRAPH,
+      MG_MCG_PARAGRAPH,
+    ],
+    sources: [
+      {
+        label: "PubMed — MOTS-c research literature",
+        url: "https://pubmed.ncbi.nlm.nih.gov/?term=MOTS-c",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I calculate MOTS-c syringe units?",
+        a: "Concentration is vial milligrams ÷ water millilitres; volume is your dose ÷ that concentration; units are volume in mL × 100 on a U-100 insulin syringe. PepExact runs all three steps and shows the working.",
+      },
+      {
+        q: "How much water should I use to reconstitute MOTS-c?",
+        a: "The water volume is your choice and changes only the concentration, not how much peptide is in the vial. More water makes each draw larger and easier to read; less water makes it smaller. The reconstitution calculator solves for the water volume that lands a dose on a round number of units.",
+      },
+      {
+        q: "Does PepExact recommend a MOTS-c dose?",
+        a: "No. It is a measurement calculator only. It converts a vial, a water volume, and a dose you already have into syringe units, and never suggests a dose.",
+      },
+    ],
+  },
+  {
+    slug: "aod-9604",
+    name: "AOD-9604",
+    title: "AOD-9604 calculator — vial, water, dose → syringe units",
+    metaDescription:
+      "Free AOD-9604 measurement calculator: enter vial size (mg), water (mL), and a dose to get exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
+    intro:
+      "Enter your AOD-9604 vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
+    summary:
+      "AOD-9604 reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
+    example: GENERIC_EXAMPLE,
+    aboutParagraphs: [
+      "AOD-9604 is a synthetic peptide based on a fragment of human growth hormone (hGH), sometimes written as the hGH 176–191 fragment. It has been examined in laboratory and clinical research.",
+      "AOD-9604 vials are commonly labelled in milligrams. Enter whatever your vial actually says, along with your water and dose, and the calculator does the rest.",
+      MEASUREMENT_PARAGRAPH,
+      MG_MCG_PARAGRAPH,
+    ],
+    sources: [
+      {
+        label: "PubMed — AOD-9604 research literature",
+        url: "https://pubmed.ncbi.nlm.nih.gov/?term=AOD9604",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I calculate AOD-9604 syringe units?",
+        a: "Concentration is vial milligrams ÷ water millilitres; volume is your dose ÷ that concentration; units are volume in mL × 100 on a U-100 insulin syringe. PepExact runs all three steps and shows the working.",
+      },
+      {
+        q: "How much water should I use to reconstitute AOD-9604?",
+        a: "The water volume is your choice and changes only the concentration, not how much peptide is in the vial. More water makes each draw larger and easier to read; less water makes it smaller. The reconstitution calculator solves for the water volume that lands a dose on a round number of units.",
+      },
+      {
+        q: "Why do AOD-9604 unit counts differ between calculators?",
+        a: "Usually a different water volume, a different syringe type, or a mix-up between mg and mcg. Because PepExact shows every step, you can see which number produced the result instead of trusting it blindly.",
+      },
+      {
+        q: "Does PepExact recommend an AOD-9604 dose?",
+        a: "No. It is a measurement calculator only. It converts a vial, a water volume, and a dose you already have into syringe units, and never suggests a dose.",
+      },
+    ],
+  },
 ];
 
 export const compoundBySlug = new Map(compounds.map((c) => [c.slug, c]));
