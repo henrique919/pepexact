@@ -49,9 +49,9 @@ npm run build   # production build (all routes static)
 - `NEXT_PUBLIC_SITE_URL` — defaults to `https://pepexact.com` (used in canonical
   URLs, JSON-LD, sitemap). Override only if needed for staging. Set this in the
   Vercel project env for Production.
-- `NEXT_PUBLIC_WAITLIST_URL` — URL for the “Coming soon — get notified” CTA on
-  calculator results (`AppCta`, `data-cta="web-to-app"`). Use a Google Form,
-  Typeform, or similar. If unset, the CTA falls back to
+- `NEXT_PUBLIC_WAITLIST_URL` — URL for the “Join waitlist” CTA on calculator
+  results (`AppCta`, `data-cta="web-to-app"`). Use a Google Form, Typeform, or
+  similar. If unset, the CTA falls back to
   `mailto:hello@pepexact.com?subject=PepExact%20iOS%20waitlist`.
   Example (Vercel → Project → Settings → Environment Variables):
 

@@ -24,7 +24,7 @@ export default function AppCta() {
           : {})}
         className="shrink-0 rounded-xl bg-accent px-4 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
       >
-        Coming soon — get notified
+        Join waitlist
       </a>
     </div>
   );
