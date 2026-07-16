@@ -1,0 +1,12 @@
+{
+  "name": "pepexact",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "dev": "npm run dev --workspace @pepexact/web",
+    "build": "npm run build --workspace @pepexact/web",
+    "start": "npm run start --workspace @pepexact/web",
+    "test": "npm run test --workspace @pepexact/engine"
+  }
+}
