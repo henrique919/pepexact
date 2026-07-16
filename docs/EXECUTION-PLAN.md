@@ -528,7 +528,7 @@ adopted as the operative rules going forward — they refine, not replace, §5.
 | TASK-V2-005 | `/calculator/ghk-cu` | ✅ shipped (= old TASK-004, half) | — |
 | TASK-V2-006 | `/calculator/semaglutide` | 🔒 **BLOCKED — HV-1 not recorded in SHIPLOG.md** | Do not pick up until a SHIPLOG line records Henry's explicit HV-1 approval. |
 | TASK-V2-007 | `/calculator/tirzepatide` | 🔒 **BLOCKED** (depends on TASK-V2-006) | Same gate. |
-| TASK-V2-008 | Homepage/nav/footer IA | ✅ shipped (= old TASK-005), **2 small gaps patched this session** | Header nav gains a "Compounds" link; homepage gains Organization/WebSite JSON-LD (v2 acceptance criteria items not in the original pass). |
+| TASK-V2-008 | Homepage/nav/footer IA | ✅ **fully shipped + patched** (= old TASK-005 + this session's patch) | Header nav now has a "Compounds" link (→ `/peptide-calculator#compounds`); homepage now has `alternates.canonical` + Organization/WebSite JSON-LD. Audit in `docs/ROUTES.md` found the homepage had neither before this patch. |
 | TASK-V2-009 | Related-tools + breadcrumbs consistency (typed route registry) | ⬜ **next unblocked task** | Genuinely new — no `routes.ts` registry exists yet; breadcrumbs are hand-written per page. |
 | TASK-V2-010 | Sitemap + metadata audit | ⬜ pending (blocked on V2-009) | `docs/ROUTES.md` created this session (baseline); full audit script still to build. |
 | TASK-V2-011 | Printable syringe units chart | ⬜ pending (blocked on V2-010) | Genuinely new; the *other* link-magnet option from old TASK-006 (which shipped "why calculators disagree" instead). |

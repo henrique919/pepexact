@@ -15,7 +15,7 @@ produces; it is not itself the source of truth for the sitemap.
 
 | Route | Role | Title | Canonical | Schema types | Notes |
 |---|---|---|---|---|---|
-| `/` | Home | PepExact — the independent peptide calculator | ❌ **missing** | ❌ **none** | Defect found in this audit — fixed same session (TASK-V2-008 patch: adds `alternates.canonical` + Organization/WebSite JSON-LD). |
+| `/` | Home | PepExact — the independent peptide calculator | self | Organization, WebSite | Was missing both at first audit (2026-07-17) — fixed same session, TASK-V2-008 patch. |
 | `/peptide-calculator` | Hub / money page | Peptide Calculator — mg to syringe units, instantly | self | WebApplication, BreadcrumbList, FAQPage | Flagship. Do not move this URL. |
 | `/reconstitution-calculator` | Converter (target draw → water) | Reconstitution Calculator — how much water to add | self | WebApplication, BreadcrumbList | |
 | `/mg-to-mcg-converter` | Converter | mg to mcg Converter — milligrams to micrograms | self | WebApplication, BreadcrumbList | Live path differs from v2 plan's example `/mg-to-mcg` — this is the real one; never renamed. |
