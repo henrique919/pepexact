@@ -22,11 +22,24 @@ import {
 
 const CAPACITIES: SyringeCapacity[] = [30, 50, 100];
 
-export default function PeptideCalculator() {
-  const [vial, setVial] = useState("5");
-  const [water, setWater] = useState("2");
-  const [dose, setDose] = useState("250");
-  const [doseUnit, setDoseUnit] = useState<MassUnit>("mcg");
+export interface PeptideCalculatorProps {
+  /** Preset starting values, e.g. for a compound page demoing the math. */
+  initialVial?: string;
+  initialWater?: string;
+  initialDose?: string;
+  initialDoseUnit?: MassUnit;
+}
+
+export default function PeptideCalculator({
+  initialVial = "5",
+  initialWater = "2",
+  initialDose = "250",
+  initialDoseUnit = "mcg",
+}: PeptideCalculatorProps = {}) {
+  const [vial, setVial] = useState(initialVial);
+  const [water, setWater] = useState(initialWater);
+  const [dose, setDose] = useState(initialDose);
+  const [doseUnit, setDoseUnit] = useState<MassUnit>(initialDoseUnit);
   const [syringe, setSyringe] = useState<SyringeCapacity>(100);
   const [copied, setCopied] = useState(false);
   const dirty = useRef(false);
