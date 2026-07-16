@@ -17,6 +17,7 @@ export const routes = [
   "/guides/mg-vs-mcg",
   "/guides/how-to-read-an-insulin-syringe",
   "/guides/why-calculators-disagree",
+  "/au/are-peptides-legal",
 ];
 
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
