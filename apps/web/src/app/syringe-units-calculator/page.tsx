@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import UnitsCalculator from "@/components/UnitsCalculator";
 import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import RelatedTools from "@/components/RelatedTools";
 import Link from "next/link";
-import { breadcrumbJsonLd, webAppJsonLd } from "@/lib/site";
+import { webAppJsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Syringe Units Calculator — U-100 units to mL",
@@ -24,15 +26,7 @@ export default function Page() {
             "Convert U-100 insulin syringe units to millilitres and back, with a rendered syringe.",
         })}
       />
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          {
-            name: "Syringe Units Calculator",
-            path: "/syringe-units-calculator",
-          },
-        ])}
-      />
+      <Breadcrumbs path="/syringe-units-calculator" />
 
       <header>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -76,6 +70,13 @@ export default function Page() {
           </Link>
         </p>
       </section>
+
+      <RelatedTools path="/syringe-units-calculator" />
+
+      <p className="text-xs text-ink-soft">
+        PepExact is a measurement tool, not medical advice. It converts units
+        from numbers you provide — it never suggests a dose.
+      </p>
     </div>
   );
 }

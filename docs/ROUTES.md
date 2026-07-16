@@ -6,10 +6,11 @@ state as last audited against production. Created for TASK-V2-001/010 (see
 retired, or its metadata changes — never rename/move a live URL without a
 301 redirect.
 
-Route list is generated at build time from `apps/web/src/lib/site.ts`
-(`routes`, which spreads `compoundRoutes` from `apps/web/src/lib/compounds.ts`)
-and consumed by `apps/web/src/app/sitemap.ts`. This file documents what that
-produces; it is not itself the source of truth for the sitemap.
+Route list is generated at build time from `apps/web/src/lib/routes.ts`
+(`allRoutes` / `routePaths`, which includes compound paths derived from
+`apps/web/src/lib/compounds.ts`) and consumed by `apps/web/src/app/sitemap.ts`,
+footer, breadcrumbs, and related-tools (TASK-V2-009). This file documents what
+that produces; it is not itself the source of truth for the sitemap.
 
 **Last audited against prod:** 2026-07-17 (curl, all 16 routes, HTTP 200).
 

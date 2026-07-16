@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
-import { articleJsonLd, breadcrumbJsonLd } from "@/lib/site";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import RelatedTools from "@/components/RelatedTools";
+import { articleJsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "mg vs mcg — the 1,000× difference, explained",
@@ -21,13 +23,7 @@ export default function Page() {
             "Milligrams and micrograms differ by a factor of 1,000. How to keep them straight when doing dose arithmetic.",
         })}
       />
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Guides", path: "/guides/mg-vs-mcg" },
-          { name: "mg vs mcg", path: "/guides/mg-vs-mcg" },
-        ])}
-      />
+      <Breadcrumbs path="/guides/mg-vs-mcg" />
 
       <header>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -130,21 +126,7 @@ export default function Page() {
         </p>
       </section>
 
-      <section className="space-y-4">
-        <h2 className="text-xl font-semibold">Related tools</h2>
-        <ul className="list-disc space-y-1 pl-5 text-ink-soft">
-          <li>
-            <Link href="/mg-to-mcg-converter" className="text-accent hover:underline">
-              mg ⇄ mcg converter
-            </Link>
-          </li>
-          <li>
-            <Link href="/peptide-calculator" className="text-accent hover:underline">
-              Peptide calculator
-            </Link>
-          </li>
-        </ul>
-      </section>
+      <RelatedTools path="/guides/mg-vs-mcg" />
 
       <p className="text-xs text-ink-soft">
         This guide covers measurement arithmetic only. It is not medical advice

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import MgMcgConverter from "@/components/MgMcgConverter";
 import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import RelatedTools from "@/components/RelatedTools";
 import Link from "next/link";
-import { breadcrumbJsonLd, webAppJsonLd } from "@/lib/site";
+import { webAppJsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "mg to mcg Converter — milligrams to micrograms",
@@ -33,12 +35,7 @@ export default function Page() {
             "Instant milligram to microgram conversion. 1 mg = 1,000 mcg.",
         })}
       />
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "mg to mcg Converter", path: "/mg-to-mcg-converter" },
-        ])}
-      />
+      <Breadcrumbs path="/mg-to-mcg-converter" />
 
       <header>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -80,6 +77,13 @@ export default function Page() {
           </Link>
         </p>
       </section>
+
+      <RelatedTools path="/mg-to-mcg-converter" />
+
+      <p className="text-xs text-ink-soft">
+        PepExact is a measurement tool, not medical advice. It converts units
+        from numbers you provide — it never suggests a dose.
+      </p>
     </div>
   );
 }
