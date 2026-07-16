@@ -2,12 +2,14 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Card } from "@/components/ui";
 import CompoundLinks from "@/components/CompoundLinks";
-import { siteName } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { organizationJsonLd, siteName, websiteJsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: `${siteName} — the independent peptide calculator`,
   description:
     "Vial, water, dose in — exact syringe units out, with the math shown. Free peptide calculator, reconstitution calculator, and unit converters. No sales, no advice.",
+  alternates: { canonical: "/" },
 };
 
 const tools = [
@@ -36,6 +38,9 @@ const tools = [
 export default function HomePage() {
   return (
     <div className="space-y-14">
+      <JsonLd data={organizationJsonLd()} />
+      <JsonLd data={websiteJsonLd()} />
+
       <section className="pt-6 text-center">
         <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
           Get the draw right.

@@ -11,6 +11,9 @@ export default function SiteHeader() {
           <Link href="/peptide-calculator" className="hover:text-ink">
             Calculator
           </Link>
+          <Link href="/peptide-calculator#compounds" className="hover:text-ink">
+            Compounds
+          </Link>
           <Link href="/reconstitution-calculator" className="hover:text-ink">
             Reconstitution
           </Link>

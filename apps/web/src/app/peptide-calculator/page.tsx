@@ -120,7 +120,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="space-y-3">
+      <section id="compounds" className="scroll-mt-20 space-y-3">
         <h2 className="text-xl font-semibold">Compound calculators</h2>
         <p className="text-ink-soft">
           Prefer to start from a specific compound name? These open the same
