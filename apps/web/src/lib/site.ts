@@ -53,6 +53,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: siteName,
     url: siteUrl,
+    logo: `${siteUrl}/icon.svg`,
     sameAs: [`https://x.com/${siteHandle.replace(/^@/, "")}`],
   };
 }

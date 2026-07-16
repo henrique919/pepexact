@@ -80,14 +80,14 @@ export const compounds: Compound[] = [
     name: "Retatrutide",
     title: "Retatrutide calculator — vial, water, dose → syringe units",
     metaDescription:
-      "Free retatrutide measurement calculator: enter vial size (mg), water (mL), and a dose to get exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
+      "Free retatrutide (reta peptide) measurement calculator: vial mg, water mL, and a dose → exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
     intro:
-      "Enter your retatrutide vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
+      "Enter your retatrutide (sometimes called reta peptide) vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
     summary:
       "Retatrutide reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
     example: GENERIC_EXAMPLE,
     aboutParagraphs: [
-      "Retatrutide (also written LY3437943) is an investigational peptide developed by Eli Lilly and studied in clinical trials; it is not a marketed medicine.",
+      "Retatrutide (also written LY3437943, and often searched as “reta peptide” or “peptide retatrutide”) is an investigational peptide developed by Eli Lilly and studied in clinical trials; it is not a marketed medicine.",
       MEASUREMENT_PARAGRAPH,
       MG_MCG_PARAGRAPH,
     ],
@@ -99,7 +99,7 @@ export const compounds: Compound[] = [
     ],
     faqs: [
       {
-        q: "How do I work out retatrutide syringe units?",
+        q: "How do I work out retatrutide (reta peptide) syringe units?",
         a: "Three steps of arithmetic. Concentration: vial milligrams ÷ water millilitres. Volume: your dose ÷ that concentration. Units: volume in mL × 100, because a U-100 syringe holds 100 units per mL. PepExact does all three and shows the working.",
       },
       {
@@ -119,17 +119,17 @@ export const compounds: Compound[] = [
   {
     slug: "bpc-157",
     name: "BPC-157",
-    title: "BPC-157 calculator — vial, water, dose → syringe units",
+    title: "BPC-157 calculator — reconstitution & syringe units",
     metaDescription:
-      "Free BPC-157 measurement calculator: enter vial size (mg), water (mL), and a dose to get exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
+      "Free BPC 157 calculator for reconstitution math: enter vial size (mg), water (mL), and a dose to get exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
     intro:
-      "Enter your BPC-157 vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
+      "Enter your BPC-157 (BPC 157) vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
     summary:
       "BPC-157 reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
     example: GENERIC_EXAMPLE,
     aboutParagraphs: [
-      "BPC-157 (sometimes written as “Body Protection Compound-157”) is a synthetic peptide that has been examined in laboratory and animal research.",
-      "BPC-157 vials are commonly labelled in milligrams — for example 5 mg or 10 mg. Enter whatever your vial actually says and the calculator handles the rest.",
+      "BPC-157 (also written BPC 157, sometimes expanded as “Body Protection Compound-157”) is a synthetic peptide that has been examined in laboratory and animal research.",
+      "BPC-157 vials are commonly labelled in milligrams — for example 5 mg or 10 mg — while individual amounts are often discussed in micrograms. Enter whatever your vial and dose labels actually say; keep mg and mcg distinct (1 mg = 1,000 mcg).",
       MEASUREMENT_PARAGRAPH,
       MG_MCG_PARAGRAPH,
     ],
@@ -141,8 +141,12 @@ export const compounds: Compound[] = [
     ],
     faqs: [
       {
-        q: "How do I calculate BPC-157 syringe units?",
+        q: "How do I calculate BPC 157 syringe units after reconstitution?",
         a: "Concentration is vial milligrams ÷ water millilitres; volume is your dose ÷ that concentration; units are volume in mL × 100 on a U-100 insulin syringe. PepExact runs all three steps and shows the working so you can check it.",
+      },
+      {
+        q: "Why does BPC-157 math mix mg and mcg?",
+        a: "Vials are usually labelled in mg; many target amounts are written in mcg. 1 mg equals 1,000 mcg. If those units are swapped, the result is off by a thousand. PepExact keeps both units visible in the working.",
       },
       {
         q: "How much water should I use to reconstitute BPC-157?",
