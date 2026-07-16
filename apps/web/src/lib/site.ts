@@ -62,6 +62,25 @@ export function faqJsonLd(faqs: { q: string; a: string }[]) {
   };
 }
 
+export function organizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteName,
+    url: siteUrl,
+    sameAs: [`https://x.com/${siteHandle.replace(/^@/, "")}`],
+  };
+}
+
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteName,
+    url: siteUrl,
+  };
+}
+
 export function articleJsonLd(opts: {
   headline: string;
   path: string;
