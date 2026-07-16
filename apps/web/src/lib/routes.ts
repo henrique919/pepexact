@@ -57,6 +57,11 @@ const GUIDES: RouteEntry[] = [
     label: "Why calculators disagree",
     kind: "guide",
   },
+  {
+    path: "/guides/syringe-units-chart",
+    label: "Printable U-100 syringe units chart",
+    kind: "guide",
+  },
 ];
 
 const REGULATORY: RouteEntry[] = [
@@ -133,7 +138,7 @@ export interface RelatedLinks {
 const CONVERTER_GUIDE: Record<string, RouteEntry> = {
   "/reconstitution-calculator": GUIDES[2], // why calculators disagree
   "/mg-to-mcg-converter": GUIDES[0], // mg vs mcg
-  "/syringe-units-calculator": GUIDES[1], // how to read a syringe
+  "/syringe-units-calculator": GUIDES[3], // printable units chart
 };
 
 /** Each guide/regulatory page links the tools it actually references. */
@@ -141,6 +146,7 @@ const REFERENCED_TOOLS: Record<string, RouteEntry[]> = {
   "/guides/mg-vs-mcg": [HUB, CONVERTERS[1]],
   "/guides/how-to-read-an-insulin-syringe": [HUB, CONVERTERS[2]],
   "/guides/why-calculators-disagree": [HUB, CONVERTERS[2]],
+  "/guides/syringe-units-chart": [HUB, CONVERTERS[2]],
   "/au/are-peptides-legal": [HUB],
 };
 

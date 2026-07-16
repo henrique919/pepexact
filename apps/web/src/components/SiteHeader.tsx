@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function SiteHeader() {
   return (
-    <header className="border-b border-line bg-surface/80 backdrop-blur">
+    <header className="no-print border-b border-line bg-surface/80 backdrop-blur">
       <div className="mx-auto flex w-full max-w-3xl items-center justify-between px-5 py-4">
         <Link href="/" className="text-xl font-semibold tracking-tight">
           Pep<span className="text-accent">Exact</span>

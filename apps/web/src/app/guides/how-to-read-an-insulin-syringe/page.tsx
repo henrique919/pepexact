@@ -122,7 +122,14 @@ export default function Page() {
           <Link href="/syringe-units-calculator" className="text-accent hover:underline">
             syringe units calculator
           </Link>{" "}
-          does the conversion instantly, and the{" "}
+          does the conversion instantly, the{" "}
+          <Link
+            href="/guides/syringe-units-chart"
+            className="text-accent hover:underline"
+          >
+            printable units chart
+          </Link>{" "}
+          lists every mark as mL, and the{" "}
           <Link href="/peptide-calculator" className="text-accent hover:underline">
             peptide calculator
           </Link>{" "}

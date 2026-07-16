@@ -14,7 +14,7 @@ const guides = [
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-line bg-surface">
+    <footer className="no-print border-t border-line bg-surface">
       <div className="mx-auto w-full max-w-3xl px-5 py-10">
         <div className="grid gap-8 sm:grid-cols-3">
           <div>

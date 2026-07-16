@@ -145,6 +145,14 @@ export default function HomePage() {
               Why two calculators give different answers for the same dose
             </Link>
           </li>
+          <li>
+            <Link
+              href="/guides/syringe-units-chart"
+              className="text-accent hover:underline"
+            >
+              Printable U-100 syringe units chart (units → mL)
+            </Link>
+          </li>
         </ul>
       </section>
     </div>
