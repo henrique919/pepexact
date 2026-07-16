@@ -47,9 +47,20 @@ npm run build   # production build (all routes static)
 ## Config
 
 - `NEXT_PUBLIC_SITE_URL` — defaults to `https://pepexact.com` (used in canonical
-  URLs, JSON-LD, sitemap). Override only if needed for staging.
-- App CTA: `src/components/AppCta.tsx` links to `#app` with `data-cta="web-to-app"` —
-  wire this to the waitlist + analytics event when instrumenting web→app conversion.
+  URLs, JSON-LD, sitemap). Override only if needed for staging. Set this in the
+  Vercel project env for Production.
+- `NEXT_PUBLIC_WAITLIST_URL` — URL for the “Coming soon — get notified” CTA on
+  calculator results (`AppCta`, `data-cta="web-to-app"`). Use a Google Form,
+  Typeform, or similar. If unset, the CTA falls back to
+  `mailto:hello@pepexact.com?subject=PepExact%20iOS%20waitlist`.
+  Example (Vercel → Project → Settings → Environment Variables):
+
+  ```
+  NEXT_PUBLIC_SITE_URL=https://pepexact.com
+  NEXT_PUBLIC_WAITLIST_URL=https://forms.gle/your-form-id
+  ```
+
+  After changing `NEXT_PUBLIC_*` vars, redeploy so the client bundle picks them up.
 
 ## Shareable results
 
