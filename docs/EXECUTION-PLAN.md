@@ -276,9 +276,14 @@ existing `[slug]` page; slug in sitemap via `compoundRoutes`.
 
 ---
 
-### TASK-004 — `/calculator/tb-500` + `/calculator/ghk-cu`
+### TASK-004 — ✅ `/calculator/tb-500` + `/calculator/ghk-cu`
 
-- [ ] **Status:** pending
+- [x] **Status:** done
+
+**Shipped:** `tb-500` (thymosin-beta-4-fragment identity, no stacks) and
+`ghk-cu` (copper-tripeptide / cosmetic-skincare identity, kept route-neutral —
+no topical-vs-injectable advice) added to `compounds.ts`. Both PubMed-sourced,
+measurement-only, SSG via the shared `[slug]` route, both in sitemap.
 
 **Depends on:** TASK-003  
 
