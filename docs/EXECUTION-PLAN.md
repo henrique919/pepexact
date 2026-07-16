@@ -361,9 +361,16 @@ render as compact chips, not cards.
 
 ---
 
-### TASK-006 — Link magnet page
+### TASK-006 — ✅ Link magnet page
 
-- [ ] **Status:** pending
+- [x] **Status:** done — shipped **`/guides/why-calculators-disagree`** (chose
+the measurement/rounding explanation over the printable syringe chart).
+
+**Shipped:** evergreen explainer of the five reasons peptide calculators
+disagree (water volume, mg/mcg, syringe type, rounding, meaning of "units"),
+Article + Breadcrumb + FAQPage schema, strong CTAs to `/peptide-calculator`
+and `/syringe-units-calculator`. Linked from homepage guides, footer guides,
+and a contextual money-page link. In sitemap. §5-clean (measurement only).
 
 **Depends on:** TASK-005  
 

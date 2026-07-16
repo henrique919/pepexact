@@ -20,6 +20,10 @@ const guides = [
     href: "/guides/how-to-read-an-insulin-syringe",
     label: "How to read an insulin syringe",
   },
+  {
+    href: "/guides/why-calculators-disagree",
+    label: "Why calculators disagree",
+  },
 ];
 
 export default function SiteFooter() {
