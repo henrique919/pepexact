@@ -12,11 +12,19 @@ Route list is generated at build time from `apps/web/src/lib/routes.ts`
 footer, breadcrumbs, and related-tools (TASK-V2-009). This file documents what
 that produces; it is not itself the source of truth for the sitemap.
 
-**Last audited against prod:** 2026-07-17 (curl, all 16 routes, HTTP 200).
+**Static guard:** `npm run audit:routes` (`scripts/audit-routes.mjs`) asserts
+every registry path has an App Router page and a self-canonical, and that every
+`page.tsx` is registered (TASK-V2-010).
+
+**Last audited against prod:** 2026-07-17 (post TASK-V2-009 deploy `6c015f6`).
+All 16 routes HTTP 200, self-canonical present, `X-Nextjs-Prerender: 1` (SSG).
+BreadcrumbList JSON-LD on every non-home page; homepage has Organization +
+WebSite only (intentional — no one-item "Home" crumb). Sitemap.xml lists all
+16 URLs. Hub shows visible breadcrumbs + "Related tools & guides".
 
 | Route | Role | Title | Canonical | Schema types | Notes |
 |---|---|---|---|---|---|
-| `/` | Home | PepExact — the independent peptide calculator | self | Organization, WebSite | Was missing both at first audit (2026-07-17) — fixed same session, TASK-V2-008 patch. |
+| `/` | Home | PepExact — the independent peptide calculator | self | Organization, WebSite | Canonical + schema shipped in TASK-V2-008 patch. |
 | `/peptide-calculator` | Hub / money page | Peptide Calculator — mg to syringe units, instantly | self | WebApplication, BreadcrumbList, FAQPage | Flagship. Do not move this URL. |
 | `/reconstitution-calculator` | Converter (target draw → water) | Reconstitution Calculator — how much water to add | self | WebApplication, BreadcrumbList | |
 | `/mg-to-mcg-converter` | Converter | mg to mcg Converter — milligrams to micrograms | self | WebApplication, BreadcrumbList | Live path differs from v2 plan's example `/mg-to-mcg` — this is the real one; never renamed. |
@@ -38,6 +46,6 @@ that produces; it is not itself the source of truth for the sitemap.
 - `/guides/syringe-units-chart` (printable chart) — queued as TASK-V2-011
 - `/guides/peptides-us-regulations` — backlog per v2 §7 Q6 (only after AU hub proves pattern/demand)
 
-**Sitemap:** `apps/web/src/app/sitemap.ts` maps `routes` 1:1, `lastModified: new Date()`, priority 1 for `/peptide-calculator`, 0.7 elsewhere. Verified 16/16 URLs present at `/sitemap.xml` on 2026-07-17. `robots.txt` references the sitemap (`apps/web/src/app/robots.ts`).
+**Sitemap:** `apps/web/src/app/sitemap.ts` maps `routePaths` 1:1, `lastModified: new Date()`, priority 1 for `/peptide-calculator`, 0.7 elsewhere. Verified 16/16 URLs present at `/sitemap.xml` on 2026-07-17 (post V2-009). `robots.txt` references the sitemap (`apps/web/src/app/robots.ts`).
 
 **Alias domains** (`.com.au` / `.online` / `.au`): not verified in this audit — needs DNS-level check, out of scope for an agent session (v2 §7 Q3, human-owned).
