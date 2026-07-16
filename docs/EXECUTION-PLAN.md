@@ -301,6 +301,27 @@ measurement-only, SSG via the shared `[slug]` route, both in sitemap.
 
 **Definition of done:** Both pages live; tests + build green; task checked; SHIPLOG appended.
 
+**Unlocks:** TASK-004B
+
+---
+
+### TASK-004B — ✅ `/calculator/melanotan-2` + `/calculator/mots-c` + `/calculator/aod-9604`
+
+- [x] **Status:** done
+
+**Depends on:** TASK-004 · **Added by:** human directive, 2026-07-17
+
+**Goal:** Three more compound pages via the shared template, under the §4
+"about" content policy: identity + measurement only, primary-source pointers,
+no efficacy/tanning/fat-loss/scare copy.
+
+**Shipped:** `melanotan-2` (α-MSH-analog identity, mg vial note; no
+tanning/efficacy copy), `mots-c` (mitochondrial-derived-peptide identity, kept
+minimal), `aod-9604` (hGH-fragment identity; no fat-loss/efficacy copy). All
+three PubMed-sourced, measurement-only, SSG via the `[slug]` route, all in
+sitemap. Forbidden-terms scan clean (only false positives: `dangerouslySetInnerHTML`
+prop, "tan" inside "Melanotan").
+
 **Unlocks:** TASK-005
 
 ---
