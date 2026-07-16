@@ -537,10 +537,10 @@ adopted as the operative rules going forward — they refine, not replace, §5.
 | TASK-V2-014 | Money page polish | ✅ shipped (= old TASK-008) | No formal before/after Lighthouse mobile numbers were recorded — functional/content verification only. Optional follow-up if Henry wants the CWV numbers on file. |
 | TASK-V2-015 | Favicon / OG / social preview assets | ✅ **shipped** | Agent-generated teal-on-paper assets (human authorized 2026-07-17): `icon.svg` syringe-tick, `apple-icon.tsx`, shared `og.tsx` ImageResponse (1200×630 + title slot), root + money-page `opengraph-image`, `twitter-image`, root `twitter.card=summary_large_image`. Audit extended. |
 | TASK-V2-016 | Waitlist conversion tweaks (UTM) | ✅ **shipped** | `AppCta` stays post-result; continuity copy; `min-h` CLS reserve; UTM on http(s) waitlist URL (`utm_source=pepexact&utm_medium=web&utm_campaign=waitlist&utm_content=[route]`). |
-| TASK-V2-017 | iOS MVP spec doc | ⬜ **next unblocked task** | Docs-only, no app code. |
+| TASK-V2-017 | iOS MVP spec doc | ✅ **shipped** | `docs/ios-mvp-spec.md` — screens, engine contract, parity fixtures note, §5 compliance. No iOS app code. |
 
-**Pick order from here:** TASK-V2-006/007 skipped (HV-1 gate). Next: TASK-V2-017
-(iOS MVP spec).
+**Pick order from here:** TASK-V2-006/007 skipped (HV-1 gate). v2 queue complete
+aside from HV-1-gated V2-006/007.
 
 ### TASK-V2-009 — ✅ Typed route registry + breadcrumbs / related-tools
 
@@ -608,3 +608,14 @@ reserves CTA paint space. For http(s) `NEXT_PUBLIC_WAITLIST_URL`, appends
 from `usePathname()`. mailto fallback unchanged (no UTM).
 
 **Unlocks:** TASK-V2-017
+
+### TASK-V2-017 — ✅ iOS MVP spec doc
+
+- [x] **Status:** done
+
+**Shipped:** `docs/ios-mvp-spec.md` — MVP screens (vials / editor / result /
+optional converters / disclaimer), `@pepexact/engine` contract, parity fixture
+note pointing at `packages/engine/test/engine.test.ts`, §5 compliance, visual
+constraints, milestones, open human decisions. **No iOS app code.**
+
+**Unlocks:** none in this queue (HV-1 still gates V2-006/007).
