@@ -1,15 +1,10 @@
-import type { ReactNode } from "react";
 import Link from "next/link";
 import type { MassUnit } from "@pepexact/engine";
 import PeptideCalculator from "./PeptideCalculator";
 import { Note } from "./ui";
 import JsonLd from "./JsonLd";
 import { breadcrumbJsonLd, faqJsonLd, webAppJsonLd } from "@/lib/site";
-
-export interface CompoundFaq {
-  q: string;
-  a: string;
-}
+import type { Compound } from "@/lib/compounds";
 
 export interface CompoundExample {
   vial: string;
@@ -38,44 +33,31 @@ const DEFAULT_GUIDES: RelatedLink[] = [
 ];
 
 /**
- * Shared shell for every /calculator/[slug] compound page: JSON-LD, intro,
- * the engine-backed calculator (optionally preset with labelled example
- * inputs), compound-specific measurement context, FAQ, related tools, and
- * the standing disclaimer. Per-slug page.tsx files supply copy/data only —
- * see /calculator/retatrutide for a reference usage.
+ * Shared shell for every /calculator/[slug] compound page. Consumes a pure
+ * data record (see src/lib/compounds.ts) — no per-page JSX — and renders
+ * JSON-LD, the engine-backed calculator (optionally preset with a generic,
+ * clearly-labelled example so the arithmetic is visible), a short calm
+ * "about" section, an optional primary-source list, a measurement-focused
+ * FAQ, related tools/guides, and the standing disclaimer.
+ *
+ * Copy rules (docs/EXECUTION-PLAN.md §5) are enforced by what this template
+ * does NOT render: no dose recommendations, no protocols, no vendor links.
  */
-export interface CompoundCalculatorPageProps {
-  /** URL slug, e.g. "retatrutide" — page lives at /calculator/{slug}. */
-  slug: string;
-  /** Display name, e.g. "Retatrutide". */
-  name: string;
-  /** One-paragraph intro under the H1. */
-  intro: string;
-  /** Short factual description reused for JSON-LD WebApplication + FAQPage context. */
-  summary: string;
-  /** Optional preset inputs, clearly labelled as examples, not a recommendation. */
-  example?: CompoundExample;
-  /** Heading for the measurement-context section (default: "About this calculation"). */
-  aboutHeading?: string;
-  /** Body of the measurement-context section — factual, arithmetic-only. */
-  aboutBody: ReactNode;
-  faqs?: CompoundFaq[];
-  relatedTools?: RelatedLink[];
-  relatedGuides?: RelatedLink[];
-}
+export default function CompoundCalculatorPage({ compound }: { compound: Compound }) {
+  const {
+    slug,
+    name,
+    intro,
+    summary,
+    example,
+    aboutHeading = "About this calculator",
+    aboutParagraphs,
+    sources = [],
+    faqs = [],
+    relatedTools = DEFAULT_TOOLS,
+    relatedGuides = DEFAULT_GUIDES,
+  } = compound;
 
-export default function CompoundCalculatorPage({
-  slug,
-  name,
-  intro,
-  summary,
-  example,
-  aboutHeading = "About this calculation",
-  aboutBody,
-  faqs = [],
-  relatedTools = DEFAULT_TOOLS,
-  relatedGuides = DEFAULT_GUIDES,
-}: CompoundCalculatorPageProps) {
   const path = `/calculator/${slug}`;
 
   return (
@@ -105,9 +87,9 @@ export default function CompoundCalculatorPage({
 
       {example && (
         <Note>
-          The fields below are example inputs so you can see the calculator
-          work — not a recommended dose. Clear them and enter your own vial,
-          water, and target dose.
+          The fields below are generic example numbers, filled in so you can see
+          the calculator work — they are not a recommended {name} dose. Clear
+          them and enter your own vial size, water, and dose.
         </Note>
       )}
 
@@ -120,7 +102,35 @@ export default function CompoundCalculatorPage({
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">{aboutHeading}</h2>
-        {aboutBody}
+        {aboutParagraphs.map((p) => (
+          <p key={p} className="text-ink-soft">
+            {p}
+          </p>
+        ))}
+        {sources.length > 0 && (
+          <div className="space-y-2">
+            <p className="text-sm font-medium text-ink">Primary sources</p>
+            <ul className="list-disc space-y-1 pl-5 text-sm text-ink-soft">
+              {sources.map((s) => (
+                <li key={s.url}>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="text-accent hover:underline"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="text-xs text-ink-soft">
+              PepExact does not assess whether any compound works or is
+              appropriate for anyone. These registries are the record for
+              research and regulatory status.
+            </p>
+          </div>
+        )}
       </section>
 
       {faqs.length > 0 && (
