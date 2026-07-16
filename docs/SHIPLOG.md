@@ -26,3 +26,4 @@ Agents: after each task, add one row (newest at the bottom).
 | 2026-07-17 | TASK-V2-016 waitlist UTM/CLS | 1d17577 | AppCta post-result; continuity copy; min-h CLS; UTM params on http(s) waitlist URL with utm_content=route. Merged PR #17 → `6f7b323`. |
 | 2026-07-17 | TASK-V2-017 iOS MVP spec | a977d91 | Docs-only: `docs/ios-mvp-spec.md` — screens, engine contract, parity fixtures, compliance. No app code. Merged PR #18 → `aa971fe`. |
 | 2026-07-17 | HV-1 APPROVED | — | Henry explicitly approved HV-1 (chat 2026-07-17): unlock TASK-V2-006 `/calculator/semaglutide` and TASK-V2-007 `/calculator/tirzepatide`. Strict §5 measurement framing; no therapy claims. |
+| 2026-07-17 | TASK-V2-006 + V2-007 sema/tirze | cb926c2 | HV-1 unlocked. `semaglutide` + `tirzepatide` in `compounds.ts` (ClinicalTrials.gov, measurement-only, no therapy/brand/dose copy). Merged PR #20 → `d8c01ba`; audit 19 routes. |
