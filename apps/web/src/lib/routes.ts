@@ -81,6 +81,8 @@ const REGULATORY: RouteEntry[] = [
 const INFO: RouteEntry[] = [
   { path: "/about", label: "About PepExact", kind: "info" },
   { path: "/methodology", label: "Methodology", kind: "info" },
+  { path: "/editorial-policy", label: "Editorial policy", kind: "info" },
+  { path: "/contact", label: "Contact", kind: "info" },
   { path: "/privacy", label: "Privacy", kind: "info" },
   { path: "/terms", label: "Terms", kind: "info" },
 ];
@@ -165,6 +167,8 @@ const REFERENCED_TOOLS: Record<string, RouteEntry[]> = {
   "/au/are-peptides-legal": [HUB],
   "/about": [HUB],
   "/methodology": [HUB],
+  "/editorial-policy": [HUB],
+  "/contact": [HUB],
   "/privacy": [HUB],
   "/terms": [HUB],
 };

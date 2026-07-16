@@ -28,6 +28,12 @@ export interface CompoundFaq {
   a: string;
 }
 
+/** Optional extra H2 blocks (identity / research context). Must stay §5-safe. */
+export interface CompoundSection {
+  heading: string;
+  paragraphs: string[];
+}
+
 export interface Compound {
   /** URL slug — page lives at /calculator/{slug}. */
   slug: string;
@@ -38,6 +44,8 @@ export interface Compound {
    * here (avoids double-branding). Pattern: "{Compound} calculator — …".
    */
   title: string;
+  /** Visible H1; defaults to "{name} calculator" if omitted. */
+  h1?: string;
   /** Meta description — measurement framing, no dosing promise. */
   metaDescription: string;
   /** One-paragraph intro under the H1. */
@@ -49,6 +57,8 @@ export interface Compound {
   aboutHeading?: string;
   /** Calm, popular, identity + measurement-relevance paragraphs. */
   aboutParagraphs: string[];
+  /** Extra sourced identity / research-context sections (no efficacy claims). */
+  sections?: CompoundSection[];
   /** Primary-source links backing any status/fact claim above. */
   sources?: CompoundSource[];
   faqs?: CompoundFaq[];
@@ -78,23 +88,46 @@ export const compounds: Compound[] = [
   {
     slug: "retatrutide",
     name: "Retatrutide",
-    title: "Retatrutide calculator — vial, water, dose → syringe units",
+    title: "Retatrutide calculator — reconstitution & syringe units",
+    h1: "Retatrutide calculator — reconstitution & syringe units",
     metaDescription:
-      "Free retatrutide (reta peptide) measurement calculator: vial mg, water mL, and a dose → exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
+      "Retatrutide (reta peptide) calculator: enter vial mg, water mL, and a user-supplied dose to get concentration, draw volume, and U-100 syringe units, with every step shown. No dosing advice.",
     intro:
-      "Enter your retatrutide (sometimes called reta peptide) vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
+      "Use this retatrutide measurement calculator when you already have a vial size, a water volume, and a target amount from an authorized source. PepExact returns concentration, draw volume, and U-100 syringe units — and shows the arithmetic. It does not choose a dose or protocol.",
     summary:
       "Retatrutide reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
     example: GENERIC_EXAMPLE,
+    aboutHeading: "What this retatrutide calculator does",
     aboutParagraphs: [
-      "Retatrutide (also written LY3437943, and often searched as “reta peptide” or “peptide retatrutide”) is an investigational peptide developed by Eli Lilly and studied in clinical trials; it is not a marketed medicine.",
+      "The compound name does not change the arithmetic. Retatrutide reconstitution math is the same three steps as any other peptide on PepExact: concentration from vial ÷ water, draw volume from dose ÷ concentration, then U-100 units from volume × 100.",
       MEASUREMENT_PARAGRAPH,
       MG_MCG_PARAGRAPH,
+    ],
+    sections: [
+      {
+        heading: "What retatrutide is (identity, not advice)",
+        paragraphs: [
+          "Retatrutide (also written LY3437943, and often searched as “reta peptide” or “peptide retatrutide”) is an investigational peptide developed by Eli Lilly. Public trial records describe it as an agonist that acts on GIP, GLP-1, and glucagon receptors.",
+          "It is studied in registered clinical trials; it is not presented here as a marketed medicine, and PepExact does not assess whether it is appropriate for anyone. For trial listings, use the ClinicalTrials.gov search linked below.",
+          "Popular interest in “reta peptide” math usually means converting a labelled vial mass and a chosen water volume into readable syringe marks. That conversion is what this page calculates — nothing more.",
+        ],
+      },
+      {
+        heading: "Research context (primary sources only)",
+        paragraphs: [
+          "Clinical trial registrations for retatrutide list study designs that measure outcomes related to body weight and glycemic markers, among other endpoints. That is a description of what trials record — not a claim that PepExact endorses use, predicts results, or recommends any amount.",
+          "If you need regulatory or medical status for a specific product or country, consult the relevant authority (for example FDA, MHRA, or TGA) and a licensed professional. PepExact does not provide that determination.",
+        ],
+      },
     ],
     sources: [
       {
         label: "ClinicalTrials.gov — retatrutide studies",
         url: "https://clinicaltrials.gov/search?term=retatrutide",
+      },
+      {
+        label: "PubMed — retatrutide literature",
+        url: "https://pubmed.ncbi.nlm.nih.gov/?term=retatrutide",
       },
     ],
     faqs: [
@@ -103,8 +136,12 @@ export const compounds: Compound[] = [
         a: "Three steps of arithmetic. Concentration: vial milligrams ÷ water millilitres. Volume: your dose ÷ that concentration. Units: volume in mL × 100, because a U-100 syringe holds 100 units per mL. PepExact does all three and shows the working.",
       },
       {
+        q: "Does the name retatrutide change the calculation?",
+        a: "No. PepExact uses the same engine for every compound page. Only the heading and educational context change; the formulas stay identical.",
+      },
+      {
         q: "How much water do I add to a retatrutide vial?",
-        a: "That is your choice, and it changes the concentration rather than the amount of peptide in the vial. More water makes each draw larger and easier to read; less water makes it smaller. The reconstitution calculator works backwards from the units you want to a water volume.",
+        a: "That is your choice, and it changes the concentration rather than the amount of peptide in the vial. More water makes each draw larger and easier to read; less water makes it smaller. The reconstitution calculator works backwards from the units you want to a water volume. PepExact does not recommend a water volume.",
       },
       {
         q: "Why do two people get different units for the same retatrutide dose?",
@@ -120,18 +157,36 @@ export const compounds: Compound[] = [
     slug: "bpc-157",
     name: "BPC-157",
     title: "BPC-157 calculator — reconstitution & syringe units",
+    h1: "BPC-157 calculator — reconstitution & syringe units",
     metaDescription:
-      "Free BPC 157 calculator for reconstitution math: enter vial size (mg), water (mL), and a dose to get exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
+      "BPC 157 calculator for reconstitution math: enter vial size (mg), water (mL), and a user-supplied dose to get concentration, draw volume, and U-100 syringe units, with every step shown. No dosing advice.",
     intro:
-      "Enter your BPC-157 (BPC 157) vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
+      "Use this BPC-157 (BPC 157) measurement calculator when you already have a vial size, a water volume, and a target amount from an authorized source. PepExact returns concentration, draw volume, and U-100 syringe units — with the math shown. It does not choose a dose or protocol.",
     summary:
       "BPC-157 reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
     example: GENERIC_EXAMPLE,
+    aboutHeading: "What this BPC-157 calculator does",
     aboutParagraphs: [
-      "BPC-157 (also written BPC 157, sometimes expanded as “Body Protection Compound-157”) is a synthetic peptide that has been examined in laboratory and animal research.",
+      "The compound name does not change the arithmetic. BPC-157 reconstitution math is the same three steps as any other peptide on PepExact: concentration from vial ÷ water, draw volume from dose ÷ concentration, then U-100 units from volume × 100.",
       "BPC-157 vials are commonly labelled in milligrams — for example 5 mg or 10 mg — while individual amounts are often discussed in micrograms. Enter whatever your vial and dose labels actually say; keep mg and mcg distinct (1 mg = 1,000 mcg).",
       MEASUREMENT_PARAGRAPH,
-      MG_MCG_PARAGRAPH,
+    ],
+    sections: [
+      {
+        heading: "What BPC-157 is (identity, not advice)",
+        paragraphs: [
+          "BPC-157 (also written BPC 157, sometimes expanded as “Body Protection Compound-157”) is a synthetic peptide sequence that appears in laboratory and animal research literature indexed on PubMed.",
+          "PepExact does not claim that BPC-157 treats, cures, or prevents any condition. This page exists so measurement arithmetic — vial, water, and a user-supplied amount — can be checked transparently.",
+          "Searches for a “BPC 157 calculator” usually mean converting labelled milligrams and a chosen water volume into U-100 syringe marks. That conversion is what this tool calculates.",
+        ],
+      },
+      {
+        heading: "Research context (primary sources only)",
+        paragraphs: [
+          "Published preclinical papers discuss BPC-157 in a range of experimental models. Those papers are not dosing instructions, and this site does not summarise them as medical guidance. Use the PubMed search below to read primary literature.",
+          "Regulatory status varies by country and presentation. PepExact does not determine legality or approval. See the FDA, MHRA, and TGA links on the peptide regulators guide when you need an authoritative government source.",
+        ],
+      },
     ],
     sources: [
       {
@@ -145,12 +200,16 @@ export const compounds: Compound[] = [
         a: "Concentration is vial milligrams ÷ water millilitres; volume is your dose ÷ that concentration; units are volume in mL × 100 on a U-100 insulin syringe. PepExact runs all three steps and shows the working so you can check it.",
       },
       {
+        q: "Does the name BPC-157 change the calculation?",
+        a: "No. PepExact uses the same engine for every compound page. Only the heading and educational context change; the formulas stay identical.",
+      },
+      {
         q: "Why does BPC-157 math mix mg and mcg?",
         a: "Vials are usually labelled in mg; many target amounts are written in mcg. 1 mg equals 1,000 mcg. If those units are swapped, the result is off by a thousand. PepExact keeps both units visible in the working.",
       },
       {
         q: "How much water should I use to reconstitute BPC-157?",
-        a: "The water volume is your choice and only changes the concentration, not how much peptide is in the vial. More water gives larger, easier-to-read draws; less water gives smaller ones. The reconstitution calculator solves for the water volume that lands a dose on a round number of units.",
+        a: "The water volume is your choice and only changes the concentration, not how much peptide is in the vial. More water gives larger, easier-to-read draws; less water gives smaller ones. The reconstitution calculator solves for the water volume that lands a dose on a round number of units. PepExact does not recommend a water volume.",
       },
       {
         q: "Why do BPC-157 unit counts differ between calculators?",

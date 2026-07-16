@@ -19,10 +19,22 @@ export async function generateMetadata({
   const { slug } = await params;
   const compound = compoundBySlug.get(slug);
   if (!compound) return {};
+  const path = `/calculator/${compound.slug}`;
   return {
     title: compound.title,
     description: compound.metaDescription,
-    alternates: { canonical: `/calculator/${compound.slug}` },
+    alternates: { canonical: path },
+    openGraph: {
+      title: compound.title,
+      description: compound.metaDescription,
+      url: path,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: compound.title,
+      description: compound.metaDescription,
+    },
   };
 }
 

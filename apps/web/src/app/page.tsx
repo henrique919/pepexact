@@ -82,8 +82,34 @@ export default function HomePage() {
         </h2>
         <p className="mb-4 max-w-xl text-sm text-ink-soft">
           The same calculator, opened on a specific compound name. Each shows
-          the working and never suggests a dose.
+          the working and never suggests a dose. High-interest entry pages:
         </p>
+        <ul className="mb-4 space-y-2 text-sm">
+          <li>
+            <Link
+              href="/calculator/bpc-157"
+              className="font-medium text-accent hover:underline"
+            >
+              BPC-157 calculator
+            </Link>
+            <span className="text-ink-soft">
+              {" "}
+              — reconstitution &amp; syringe units
+            </span>
+          </li>
+          <li>
+            <Link
+              href="/calculator/retatrutide"
+              className="font-medium text-accent hover:underline"
+            >
+              Retatrutide calculator
+            </Link>
+            <span className="text-ink-soft">
+              {" "}
+              — also searched as reta peptide
+            </span>
+          </li>
+        </ul>
         <CompoundLinks />
       </section>
 
