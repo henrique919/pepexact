@@ -50,15 +50,20 @@ export default function Page() {
       />
       <JsonLd data={faqJsonLd(faqs)} />
 
-      <header>
+      <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
           Peptide calculator
         </h1>
-        <p className="mt-2 max-w-xl text-ink-soft">
+        <p className="max-w-xl text-ink-soft">
           Enter what&apos;s in the vial, the water you added, and your dose.
           PepExact gives you the exact units on the syringe — and shows the
           math.
         </p>
+        <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs font-medium text-ink-soft">
+          <li>Free · no login</li>
+          <li>Every step shown</li>
+          <li>Nothing to sell you</li>
+        </ul>
       </header>
 
       <PeptideCalculator />
@@ -123,6 +128,55 @@ export default function Page() {
           heading changes.
         </p>
         <CompoundLinks />
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-semibold">Related tools &amp; guides</h2>
+        <ul className="list-disc space-y-1 pl-5 text-ink-soft">
+          <li>
+            <Link
+              href="/reconstitution-calculator"
+              className="text-accent hover:underline"
+            >
+              Reconstitution calculator
+            </Link>{" "}
+            — work backwards from the draw you want to the water to add.
+          </li>
+          <li>
+            <Link
+              href="/mg-to-mcg-converter"
+              className="text-accent hover:underline"
+            >
+              mg ⇄ mcg converter
+            </Link>{" "}
+            ·{" "}
+            <Link
+              href="/syringe-units-calculator"
+              className="text-accent hover:underline"
+            >
+              syringe units ⇄ mL
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/mg-vs-mcg" className="text-accent hover:underline">
+              mg vs mcg
+            </Link>{" "}
+            ·{" "}
+            <Link
+              href="/guides/how-to-read-an-insulin-syringe"
+              className="text-accent hover:underline"
+            >
+              how to read an insulin syringe
+            </Link>{" "}
+            ·{" "}
+            <Link
+              href="/guides/why-calculators-disagree"
+              className="text-accent hover:underline"
+            >
+              why calculators disagree
+            </Link>
+          </li>
+        </ul>
       </section>
 
       <p className="text-xs text-ink-soft">
