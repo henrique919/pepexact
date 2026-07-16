@@ -123,6 +123,48 @@ export const compounds: Compound[] = [
       },
     ],
   },
+  {
+    slug: "bpc-157",
+    name: "BPC-157",
+    title: "BPC-157 calculator — vial, water, dose → syringe units",
+    metaDescription:
+      "Free BPC-157 measurement calculator: enter vial size (mg), water (mL), and a dose to get exact U-100 syringe units and concentration, with the math shown. No dosing advice.",
+    intro:
+      "Enter your BPC-157 vial size, the water you added, and a dose. PepExact returns the exact units on a U-100 insulin syringe — and shows the arithmetic behind it.",
+    summary:
+      "BPC-157 reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
+    example: GENERIC_EXAMPLE,
+    aboutParagraphs: [
+      "BPC-157 (sometimes written as “Body Protection Compound-157”) is a synthetic peptide that has been examined in laboratory and animal research.",
+      "BPC-157 vials are commonly labelled in milligrams — for example 5 mg or 10 mg. Enter whatever your vial actually says and the calculator handles the rest.",
+      MEASUREMENT_PARAGRAPH,
+      MG_MCG_PARAGRAPH,
+    ],
+    sources: [
+      {
+        label: "PubMed — BPC-157 research literature",
+        url: "https://pubmed.ncbi.nlm.nih.gov/?term=BPC+157",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I calculate BPC-157 syringe units?",
+        a: "Concentration is vial milligrams ÷ water millilitres; volume is your dose ÷ that concentration; units are volume in mL × 100 on a U-100 insulin syringe. PepExact runs all three steps and shows the working so you can check it.",
+      },
+      {
+        q: "How much water should I use to reconstitute BPC-157?",
+        a: "The water volume is your choice and only changes the concentration, not how much peptide is in the vial. More water gives larger, easier-to-read draws; less water gives smaller ones. The reconstitution calculator solves for the water volume that lands a dose on a round number of units.",
+      },
+      {
+        q: "Why do BPC-157 unit counts differ between calculators?",
+        a: "Usually different assumptions about water volume, syringe type, or a mix-up between mg and mcg. Because PepExact shows every step, you can see exactly which number drove the result rather than trusting it blindly.",
+      },
+      {
+        q: "Does PepExact tell me how much BPC-157 to take?",
+        a: "No. It is a measurement calculator only. It converts a vial, a water volume, and a dose you already have into syringe units, and never recommends a dose.",
+      },
+    ],
+  },
 ];
 
 export const compoundBySlug = new Map(compounds.map((c) => [c.slug, c]));
