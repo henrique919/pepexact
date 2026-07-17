@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 const INK = "#15181a";
 const STEEL = "#4a5157";
-const SIGNAL = "#ff4d2e";
+const SIGNAL = "#c73a1f";
 
 // 180×180 Apple touch icon: graphite ground + the Index mark (no wordmark).
 export const size = { width: 180, height: 180 };

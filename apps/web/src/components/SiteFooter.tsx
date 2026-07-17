@@ -79,23 +79,29 @@ export default function SiteFooter() {
             </ul>
           </div>
         </div>
-        <p className="mt-10 text-xs leading-relaxed text-ink-soft">
-          {siteName} is an educational measurement tool. It does the arithmetic
-          of concentrations, volumes, and syringe units — nothing more. It is
-          not medical advice, it never suggests what or how much to take, and
-          it does not sell peptides. Regulations differ between countries —
-          including the United States (FDA), the United Kingdom (MHRA), and
-          Australia (TGA). See{" "}
-          <Link
-            href="/guides/peptide-regulators"
-            className="text-accent hover:underline"
-          >
-            peptide regulators
-          </Link>
-          . Speak with a licensed health professional about anything
-          health-related.
-        </p>
-        <p className="mt-4 text-xs text-ink-soft">
+        <div className="mt-10 space-y-3 text-sm leading-relaxed text-ink-soft">
+          <p>
+            {siteName} is an educational measurement tool. It does the arithmetic
+            of concentrations, volumes, and syringe units — nothing more.
+          </p>
+          <p>
+            It is not medical advice, it never suggests what or how much to take,
+            and it does not sell peptides.
+          </p>
+          <p>
+            Regulations differ between countries — including the United States
+            (FDA), the United Kingdom (MHRA), and Australia (TGA). See{" "}
+            <Link
+              href="/guides/peptide-regulators"
+              className="text-accent-deep hover:underline"
+            >
+              peptide regulators
+            </Link>
+            . Speak with a licensed health professional about anything
+            health-related.
+          </p>
+        </div>
+        <p className="mt-4 text-sm text-ink-soft">
           © {new Date().getFullYear()} {siteName}. Independent — nothing to
           sell you. {siteHandle}
         </p>

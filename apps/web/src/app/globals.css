@@ -14,9 +14,10 @@
   --color-line: #e2ded3;
   --color-steel: #8a9299;
 
-  /* "accent" == the Index signal. Kept under the old name for zero churn. */
-  --color-accent: #ff4d2e;       /* the reading + primary action */
-  --color-accent-deep: #e23a1e;  /* AA text / hover on paper */
+  /* "accent" == the Index signal. Values tuned for WCAG AA contrast:
+   * white on accent ≥ 4.5:1; accent-deep on paper ≥ 4.5:1. */
+  --color-accent: #c73a1f;       /* primary action fill (white text) */
+  --color-accent-deep: #a82f18;  /* links / hover on paper */
   --color-accent-soft: #fdeae6;  /* tints, focus rings, stat panels */
 
   --color-warn: #8a5d10;
@@ -51,7 +52,7 @@ html {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-ink);
   outline-offset: 2px;
 }
 

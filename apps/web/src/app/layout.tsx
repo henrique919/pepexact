@@ -41,7 +41,14 @@ export const metadata: Metadata = {
     creator: siteHandle,
   },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    // Google Search prefers a stable square PNG ≥48×48 (SVG alone often shows as a globe).
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
     apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
   },
 };
