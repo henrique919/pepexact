@@ -10,6 +10,7 @@ const tools = [
 const compounds = allRoutes.filter((r) => r.kind === "compound");
 const guides = [
   ...allRoutes.filter((r) => r.kind === "guide"),
+  ...allRoutes.filter((r) => r.kind === "peptide"),
   ...allRoutes.filter((r) => r.kind === "regulatory"),
 ];
 const info = allRoutes.filter((r) => r.kind === "info");

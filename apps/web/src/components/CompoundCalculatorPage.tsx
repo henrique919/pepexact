@@ -35,6 +35,7 @@ export default function CompoundCalculatorPage({
     sections = [],
     sources = [],
     faqs = [],
+    evidenceGuide,
   } = compound;
 
   const path = `/calculator/${slug}`;
@@ -64,6 +65,16 @@ export default function CompoundCalculatorPage({
           {h1 ?? `${name} calculator`}
         </h1>
         <p className="max-w-xl text-ink-soft">{intro}</p>
+        {evidenceGuide ? (
+          <p>
+            <Link
+              href={evidenceGuide.href}
+              className="inline-flex min-h-11 items-center text-sm font-medium text-accent-deep hover:underline"
+            >
+              {evidenceGuide.label}
+            </Link>
+          </p>
+        ) : null}
       </header>
 
       {example && (

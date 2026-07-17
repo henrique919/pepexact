@@ -1,4 +1,5 @@
 import { compounds } from "./compounds";
+import { peptideProfiles } from "./peptides";
 
 /**
  * Single source of truth for every route: nav, footer, breadcrumbs,
@@ -12,6 +13,7 @@ export type RouteKind =
   | "converter"
   | "compound"
   | "guide"
+  | "peptide"
   | "regulatory"
   | "info";
 
@@ -70,6 +72,34 @@ const GUIDES: RouteEntry[] = [
   },
 ];
 
+const PEPTIDES_HUB: RouteEntry = {
+  path: "/peptides",
+  label: "Peptide evidence",
+  kind: "peptide",
+};
+
+// Paths must be string literals so scripts/audit-routes.mjs can discover them.
+const PEPTIDE_PROFILES: RouteEntry[] = [
+  { path: "/peptides/bpc-157", label: "BPC-157 evidence", kind: "peptide" },
+  {
+    path: "/peptides/retatrutide",
+    label: "Retatrutide evidence",
+    kind: "peptide",
+  },
+];
+
+// Keep content registry in lockstep with the static routes above.
+if (
+  peptideProfiles.length !== PEPTIDE_PROFILES.length ||
+  peptideProfiles.some(
+    (p, i) => p.path !== PEPTIDE_PROFILES[i]?.path,
+  )
+) {
+  throw new Error(
+    "routes.ts: peptideProfiles paths must match PEPTIDE_PROFILES literals",
+  );
+}
+
 const REGULATORY: RouteEntry[] = [
   {
     path: "/au/are-peptides-legal",
@@ -99,6 +129,8 @@ export const allRoutes: RouteEntry[] = [
   ...CONVERTERS,
   ...COMPOUND_ROUTES,
   ...GUIDES,
+  PEPTIDES_HUB,
+  ...PEPTIDE_PROFILES,
   ...REGULATORY,
   ...INFO,
 ];
@@ -133,6 +165,23 @@ export function breadcrumbTrail(path: string): BreadcrumbItem[] {
       { name: "Home", path: "/" },
       { name: HUB.label, path: HUB.path },
       { name: entry.label, path: entry.path },
+    ];
+  }
+  if (entry.kind === "peptide") {
+    if (path === PEPTIDES_HUB.path) {
+      return [
+        { name: "Home", path: "/" },
+        { name: "Peptides", path: PEPTIDES_HUB.path },
+      ];
+    }
+    const profile = peptideProfiles.find((p) => p.path === path);
+    return [
+      { name: "Home", path: "/" },
+      { name: "Peptides", path: PEPTIDES_HUB.path },
+      {
+        name: profile?.breadcrumbLabel ?? entry.label,
+        path: entry.path,
+      },
     ];
   }
   return [
@@ -171,6 +220,15 @@ const REFERENCED_TOOLS: Record<string, RouteEntry[]> = {
   "/contact": [HUB],
   "/privacy": [HUB],
   "/terms": [HUB],
+  "/peptides": [HUB],
+  "/peptides/bpc-157": [
+    COMPOUND_ROUTES.find((c) => c.path === "/calculator/bpc-157")!,
+    HUB,
+  ],
+  "/peptides/retatrutide": [
+    COMPOUND_ROUTES.find((c) => c.path === "/calculator/retatrutide")!,
+    HUB,
+  ],
 };
 
 /**
@@ -196,6 +254,15 @@ export function relatedFor(path: string): RelatedLinks {
     return { tools: [HUB], guides: [CONVERTER_GUIDE[path]] };
   }
 
+  if (entry.kind === "peptide") {
+    return {
+      tools: REFERENCED_TOOLS[path] ?? [HUB],
+      guides: [GUIDES[4], PEPTIDES_HUB].filter(
+        (g, i, arr) => arr.findIndex((x) => x.path === g.path) === i,
+      ),
+    };
+  }
+
   if (
     entry.kind === "guide" ||
     entry.kind === "regulatory" ||
@@ -205,7 +272,10 @@ export function relatedFor(path: string): RelatedLinks {
   }
 
   if (entry.kind === "hub") {
-    return { tools: [...CONVERTERS], guides: [...GUIDES] };
+    return {
+      tools: [...CONVERTERS],
+      guides: [...GUIDES, PEPTIDES_HUB, ...PEPTIDE_PROFILES],
+    };
   }
 
   return { tools: [], guides: [] };

@@ -104,9 +104,11 @@ export function articleJsonLd(opts: {
   headline: string;
   path: string;
   description: string;
+  datePublished?: string;
+  dateModified?: string;
 }) {
   const url = `${siteUrl}${opts.path}`;
-  return {
+  const node: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": `${url}#article`,
@@ -115,5 +117,9 @@ export function articleJsonLd(opts: {
     url,
     author: { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${url}#webpage` },
   };
+  if (opts.datePublished) node.datePublished = opts.datePublished;
+  if (opts.dateModified) node.dateModified = opts.dateModified;
+  return node;
 }

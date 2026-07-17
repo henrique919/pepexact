@@ -62,6 +62,8 @@ export interface Compound {
   /** Primary-source links backing any status/fact claim above. */
   sources?: CompoundSource[];
   faqs?: CompoundFaq[];
+  /** Link to a separate evidence/status guide (not the calculator page). */
+  evidenceGuide?: { href: string; label: string };
 }
 
 /**
@@ -94,6 +96,10 @@ export const compounds: Compound[] = [
       "Retatrutide reconstitution calculator for vial mg, water mL and a supplied amount. Calculate concentration, draw volume and U-100 syringe units.",
     intro:
       "Use this retatrutide measurement calculator when you already have a vial size, a water volume, and a target amount from an authorized source. PepExact returns concentration, draw volume, and U-100 syringe units — and shows the arithmetic. It does not choose a dose or protocol.",
+    evidenceGuide: {
+      href: "/peptides/retatrutide",
+      label: "Read the retatrutide evidence and status guide",
+    },
     summary:
       "Retatrutide reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
     example: GENERIC_EXAMPLE,
@@ -162,6 +168,10 @@ export const compounds: Compound[] = [
       "BPC-157 calculator for vial, water and supplied-amount conversions. See concentration, draw volume and U-100 syringe units. No dosing advice.",
     intro:
       "Use this BPC-157 (BPC 157) measurement calculator when you already have a vial size, a water volume, and a target amount from an authorized source. PepExact returns concentration, draw volume, and U-100 syringe units — with the math shown. It does not choose a dose or protocol.",
+    evidenceGuide: {
+      href: "/peptides/bpc-157",
+      label: "Read the BPC-157 evidence and status guide",
+    },
     summary:
       "BPC-157 reconstitution and syringe-unit calculator: vial mg, water mL, and dose in — exact U-100 units out, with the math shown.",
     example: GENERIC_EXAMPLE,

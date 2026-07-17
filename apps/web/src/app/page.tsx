@@ -287,25 +287,39 @@ export default function HomePage() {
           Popular calculators
         </h3>
         <ul className="space-y-3 border-t border-line pt-4 text-sm">
-          <li className="flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-line pb-3">
-            <Link
-              href="/calculator/bpc-157"
-              className="font-medium text-accent-deep hover:underline"
-            >
-              BPC-157 calculator
-            </Link>
-            <span className="text-ink-soft">
-              reconstitution &amp; syringe units
-            </span>
+          <li className="space-y-1 border-b border-line pb-3">
+            <p className="font-medium text-ink">BPC-157</p>
+            <p className="flex flex-wrap gap-x-4 gap-y-1">
+              <Link
+                href="/calculator/bpc-157"
+                className="text-accent-deep hover:underline"
+              >
+                Calculator
+              </Link>
+              <Link
+                href="/peptides/bpc-157"
+                className="text-accent-deep hover:underline"
+              >
+                Evidence guide
+              </Link>
+            </p>
           </li>
-          <li className="flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-line pb-3">
-            <Link
-              href="/calculator/retatrutide"
-              className="font-medium text-accent-deep hover:underline"
-            >
-              Retatrutide calculator
-            </Link>
-            <span className="text-ink-soft">also searched as reta peptide</span>
+          <li className="space-y-1 border-b border-line pb-3">
+            <p className="font-medium text-ink">Retatrutide</p>
+            <p className="flex flex-wrap gap-x-4 gap-y-1">
+              <Link
+                href="/calculator/retatrutide"
+                className="text-accent-deep hover:underline"
+              >
+                Calculator
+              </Link>
+              <Link
+                href="/peptides/retatrutide"
+                className="text-accent-deep hover:underline"
+              >
+                Evidence guide
+              </Link>
+            </p>
           </li>
         </ul>
         <CompoundLinks
