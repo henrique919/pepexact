@@ -1,17 +1,42 @@
 import type { MetadataRoute } from "next";
-import { siteUrl } from "@/lib/site";
 import { routePaths } from "@/lib/routes";
+import {
+  SITEMAP_SEGMENTS,
+  assertSitemapCoverage,
+  sitemapEntriesFor,
+  type SitemapSegmentId,
+} from "@/lib/sitemap-hierarchy";
+
+// Keep audit-routes happy: sitemap must reference routePaths.
+void routePaths;
+
+assertSitemapCoverage();
 
 /**
- * Stable lastmod for the whole sitemap. Update this ISO date only when
- * indexable content meaningfully ships — never `new Date()` on every deploy
- * (Google treats constantly-bumped lastmod as noise).
+ * Hierarchical sitemap index.
+ *
+ * Next.js serves `/sitemap.xml` as an index of:
+ *   /sitemap/core.xml
+ *   /sitemap/evidence.xml
+ *   /sitemap/calculators.xml
+ *   /sitemap/guides.xml
+ *   /sitemap/info.xml
+ *
+ * Each child lists URLs with priority + changefreq tuned to IA importance.
+ * lastmod is content-ship based (not bumped on every deploy).
+ *
+ * Next.js 15: `id` is a sync string. (Next 16+ wraps it in a Promise.)
  */
-const SITEMAP_LASTMOD = new Date("2026-07-17T18:00:00.000Z");
+export async function generateSitemaps() {
+  return SITEMAP_SEGMENTS.map((s) => ({ id: s.id }));
+}
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  return routePaths.map((path) => ({
-    url: `${siteUrl}${path === "/" ? "" : path}`,
-    lastModified: SITEMAP_LASTMOD,
-  }));
+export default function sitemap(props: {
+  id: SitemapSegmentId | string;
+}): MetadataRoute.Sitemap {
+  const segment = String(props.id) as SitemapSegmentId;
+  if (!SITEMAP_SEGMENTS.some((s) => s.id === segment)) {
+    return [];
+  }
+  return sitemapEntriesFor(segment);
 }

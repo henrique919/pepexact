@@ -56,17 +56,16 @@ npm run build   # production build (all routes static)
   For http(s) URLs, `AppCta` appends UTM params:
   `utm_source=pepexact&utm_medium=web&utm_campaign=waitlist&utm_content=[route]`
   (route = pathname without leading slash).
-- `NEXT_PUBLIC_GA_MEASUREMENT_ID` — optional Google Analytics 4 ID (e.g.
-  `G-XXXXXXXX`). When unset, **no** analytics scripts load. When set, GA4 loads
-  via `Analytics` in the root layout. Prefer a privacy-respecting setup and keep
-  the privacy policy accurate if you enable tracking.
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` — Google Analytics 4 ID. Defaults to
+  `G-6B35Q3CXCT` in `Analytics` (root layout, every page). Set to an empty
+  string to disable scripts. Prefer keeping the privacy policy accurate.
 
   Example (Vercel → Project → Settings → Environment Variables):
 
   ```
   NEXT_PUBLIC_SITE_URL=https://pepexact.com
   NEXT_PUBLIC_WAITLIST_URL=https://forms.gle/your-form-id
-  # NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXX
+  # NEXT_PUBLIC_GA_MEASUREMENT_ID=G-6B35Q3CXCT
   ```
 
   After changing `NEXT_PUBLIC_*` vars, redeploy so the client bundle picks them up.

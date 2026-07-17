@@ -1,12 +1,17 @@
 import Script from "next/script";
 
 /**
- * Optional GA4. Loads only when NEXT_PUBLIC_GA_MEASUREMENT_ID is set
- * (e.g. G-XXXXXXXX). Absent env → no scripts, no network calls.
+ * Google Analytics 4 (gtag.js) — PepExact property G-6B35Q3CXCT.
+ * Mounted once in the root layout so every page loads a single tag.
+ * Override with NEXT_PUBLIC_GA_MEASUREMENT_ID if needed; set that env to
+ * an empty string to disable scripts entirely (local/privacy testing).
  */
+const DEFAULT_GA_ID = "G-6B35Q3CXCT";
+
 export default function Analytics() {
-  const id = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
-  if (!id) return null;
+  const raw = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  if (raw !== undefined && raw.trim() === "") return null;
+  const id = raw?.trim() || DEFAULT_GA_ID;
 
   return (
     <>

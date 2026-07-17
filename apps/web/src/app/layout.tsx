@@ -4,6 +4,10 @@ import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Analytics from "@/components/Analytics";
+import {
+  GoogleTagManagerBody,
+  GoogleTagManagerHead,
+} from "@/components/GoogleTagManager";
 import { siteHandle, siteName, siteUrl } from "@/lib/site";
 
 // Self-hosted at build time by next/font — no external request, no CLS.
@@ -70,13 +74,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${archivo.variable} ${splineMono.variable}`}>
+      <GoogleTagManagerHead />
       <body className="flex min-h-screen flex-col bg-paper font-sans text-ink antialiased">
+        <GoogleTagManagerBody />
+        <Analytics />
         <SiteHeader />
         <main className="mx-auto w-full max-w-3xl flex-1 px-5 pb-24 pt-10">
           {children}
         </main>
         <SiteFooter />
-        <Analytics />
       </body>
     </html>
   );

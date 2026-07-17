@@ -55,11 +55,10 @@ export default function Page() {
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">Analytics</h2>
         <p className="text-ink-soft">
-          Optional Google Analytics 4 may be enabled by the site operator via an
-          environment variable. When it is not configured, no analytics scripts
-          load. When it is configured, aggregate usage data may be collected by
-          Google under their terms. Calculator inputs are not sent to PepExact as
-          a stored user profile.
+          PepExact uses Google Tag Manager (container GTM-NQRJ9KN4) and Google
+          Analytics 4 (measurement ID G-6B35Q3CXCT) to understand aggregate
+          traffic. Google may collect usage data under their terms. Calculator
+          inputs are not sent to PepExact as a stored user profile.
         </p>
       </section>
 

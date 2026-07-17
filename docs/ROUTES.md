@@ -47,8 +47,21 @@ links live at `/guides/peptide-regulators` (FDA + MHRA + TGA).
 | `/privacy` | Trust | Privacy | self | BreadcrumbList | |
 | `/terms` | Trust | Terms of use | self | BreadcrumbList | |
 
-**Sitemap:** `sitemap.ts` maps `routePaths` 1:1 with a **stable** `SITEMAP_LASTMOD`
-(not `new Date()` on every deploy). `robots.txt` references the sitemap.
+**Sitemap (hierarchical):** `/sitemap.xml` is a sitemap *index* listing five
+child files (priority / changefreq / stable lastmod — never `new Date()` on
+every deploy). Source: `lib/sitemap-hierarchy.ts` + `app/sitemap.ts`
+(`generateSitemaps`) + `app/sitemap.xml/route.ts` (index). Coverage is 1:1
+with `routePaths`.
+
+| Child | Contents | Priority band |
+|---|---|---|
+| `/sitemap/core.xml` | Home, hub, converters | 0.85–1.0 |
+| `/sitemap/evidence.xml` | `/peptides` + evidence guides | 0.92–0.94 |
+| `/sitemap/calculators.xml` | `/calculator/*` compound presets | 0.75–0.88 |
+| `/sitemap/guides.xml` | Measurement guides + AU regulatory | 0.65–0.70 |
+| `/sitemap/info.xml` | About, methodology, policy, legal | 0.30–0.60 |
+
+`robots.txt` points at the index. After deploy, resubmit `/sitemap.xml` in GSC.
 
 **Brand / social:** `/icon.svg`, `/apple-icon`, `/opengraph-image`, `/twitter-image`.
 Organization JSON-LD includes `logo`.
