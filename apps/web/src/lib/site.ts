@@ -26,19 +26,37 @@ export function webAppJsonLd(opts: {
   path: string;
   description: string;
 }) {
-  const url = `${siteUrl}${opts.path}`;
+  const url = `${siteUrl}${opts.path === "/" ? "" : opts.path}`;
   return {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "@id": `${url}#webapplication`,
+    "@id": `${url || siteUrl}#webapplication`,
     name: opts.name,
-    url,
+    url: url || siteUrl,
     applicationCategory: "UtilitiesApplication",
     operatingSystem: "Any",
     description: opts.description,
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     publisher: { "@id": ORG_ID },
+  };
+}
+
+export function webPageJsonLd(opts: {
+  name: string;
+  path: string;
+  description: string;
+}) {
+  const url = opts.path === "/" ? siteUrl : `${siteUrl}${opts.path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    name: opts.name,
+    description: opts.description,
+    url,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": ORG_ID },
   };
 }
 

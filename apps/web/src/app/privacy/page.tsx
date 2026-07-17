@@ -53,6 +53,17 @@ export default function Page() {
       </section>
 
       <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Analytics</h2>
+        <p className="text-ink-soft">
+          Optional Google Analytics 4 may be enabled by the site operator via an
+          environment variable. When it is not configured, no analytics scripts
+          load. When it is configured, aggregate usage data may be collected by
+          Google under their terms. Calculator inputs are not sent to PepExact as
+          a stored user profile.
+        </p>
+      </section>
+
+      <section className="space-y-4">
         <h2 className="text-xl font-semibold">Waitlist</h2>
         <p className="text-ink-soft">
           If you join an external waitlist (Google Form or similar), that

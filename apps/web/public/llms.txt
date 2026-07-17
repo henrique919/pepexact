@@ -1,0 +1,32 @@
+# PepExact
+
+> Independent educational measurement utility: vial + water + dose → U-100 syringe units, with the arithmetic shown.
+
+Site: https://pepexact.com
+Purpose: Transparent peptide reconstitution and syringe-unit arithmetic. Not a clinic, marketplace, or dosing advisor. Does not sell peptides and does not provide medical advice.
+
+## Principal tools
+
+- https://pepexact.com/peptide-calculator — peptide calculator (flagship)
+- https://pepexact.com/reconstitution-calculator — peptide reconstitution calculator (target draw → water)
+- https://pepexact.com/syringe-units-calculator — U-100 syringe units ⇄ mL
+- https://pepexact.com/mg-to-mcg-converter — mg to mcg converter
+
+## Compound calculators (same engine)
+
+- https://pepexact.com/calculator/bpc-157
+- https://pepexact.com/calculator/retatrutide
+
+## Guides & policy
+
+- https://pepexact.com/methodology — calculation methodology
+- https://pepexact.com/editorial-policy — what we publish and omit
+- https://pepexact.com/guides/mg-vs-mcg
+- https://pepexact.com/guides/how-to-read-an-insulin-syringe
+- https://pepexact.com/guides/why-calculators-disagree
+- https://pepexact.com/guides/peptide-regulators
+
+## Contact
+
+- https://pepexact.com/contact
+- https://x.com/pepexact

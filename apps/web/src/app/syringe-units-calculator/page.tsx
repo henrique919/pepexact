@@ -4,12 +4,15 @@ import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedTools from "@/components/RelatedTools";
 import Link from "next/link";
-import { webAppJsonLd } from "@/lib/site";
+import { webAppJsonLd, webPageJsonLd } from "@/lib/site";
+
+const TITLE = "Syringe Units Calculator — U-100 units to mL";
+const DESCRIPTION =
+  "Convert insulin syringe units to millilitres and back. On a U-100 syringe, 100 units = 1 mL. Includes a visual syringe and conversion table.";
 
 export const metadata: Metadata = {
-  title: "Syringe Units Calculator — U-100 units to mL",
-  description:
-    "Convert insulin syringe units to millilitres and back. On a U-100 syringe, 100 units = 1 mL. Includes a visual syringe and conversion table.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/syringe-units-calculator" },
 };
 
@@ -18,6 +21,13 @@ const table = [5, 10, 15, 20, 25, 30, 40, 50, 75, 100];
 export default function Page() {
   return (
     <div className="space-y-10">
+      <JsonLd
+        data={webPageJsonLd({
+          name: TITLE,
+          path: "/syringe-units-calculator",
+          description: DESCRIPTION,
+        })}
+      />
       <JsonLd
         data={webAppJsonLd({
           name: "PepExact Syringe Units Calculator",

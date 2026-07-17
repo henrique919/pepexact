@@ -4,7 +4,7 @@ import { Note } from "./ui";
 import JsonLd from "./JsonLd";
 import Breadcrumbs from "./Breadcrumbs";
 import RelatedTools from "./RelatedTools";
-import { faqJsonLd, webAppJsonLd } from "@/lib/site";
+import { faqJsonLd, webAppJsonLd, webPageJsonLd } from "@/lib/site";
 import type { Compound } from "@/lib/compounds";
 
 /**
@@ -41,6 +41,13 @@ export default function CompoundCalculatorPage({
 
   return (
     <article className="space-y-10">
+      <JsonLd
+        data={webPageJsonLd({
+          name: h1 ?? `${name} calculator`,
+          path,
+          description: summary,
+        })}
+      />
       <JsonLd
         data={webAppJsonLd({
           name: `PepExact ${name} Calculator`,

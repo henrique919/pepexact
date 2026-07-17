@@ -3,18 +3,28 @@ import ReconstitutionCalculator from "@/components/ReconstitutionCalculator";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedTools from "@/components/RelatedTools";
-import { webAppJsonLd } from "@/lib/site";
+import { webAppJsonLd, webPageJsonLd } from "@/lib/site";
+
+const TITLE = "Reconstitution Calculator — how much water to add";
+const DESCRIPTION =
+  "Work backwards from the draw you want: enter vial size, dose, and target syringe units to get the exact bacteriostatic water volume to add. Free, with the math shown.";
 
 export const metadata: Metadata = {
-  title: "Reconstitution Calculator — how much water to add",
-  description:
-    "Work backwards from the draw you want: enter vial size, dose, and target syringe units to get the exact bacteriostatic water volume to add. Free, with the math shown.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/reconstitution-calculator" },
 };
 
 export default function Page() {
   return (
     <div className="space-y-10">
+      <JsonLd
+        data={webPageJsonLd({
+          name: TITLE,
+          path: "/reconstitution-calculator",
+          description: DESCRIPTION,
+        })}
+      />
       <JsonLd
         data={webAppJsonLd({
           name: "PepExact Reconstitution Calculator",

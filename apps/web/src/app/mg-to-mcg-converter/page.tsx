@@ -4,12 +4,15 @@ import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedTools from "@/components/RelatedTools";
 import Link from "next/link";
-import { webAppJsonLd } from "@/lib/site";
+import { webAppJsonLd, webPageJsonLd } from "@/lib/site";
+
+const TITLE = "mg to mcg Converter — milligrams to micrograms";
+const DESCRIPTION =
+  "Convert milligrams to micrograms and back, instantly. 1 mg = 1,000 mcg. Includes a quick-reference table for common peptide amounts.";
 
 export const metadata: Metadata = {
-  title: "mg to mcg Converter — milligrams to micrograms",
-  description:
-    "Convert milligrams to micrograms and back, instantly. 1 mg = 1,000 mcg. Includes a quick-reference table for common peptide amounts.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/mg-to-mcg-converter" },
 };
 
@@ -27,6 +30,13 @@ const table = [
 export default function Page() {
   return (
     <div className="space-y-10">
+      <JsonLd
+        data={webPageJsonLd({
+          name: TITLE,
+          path: "/mg-to-mcg-converter",
+          description: DESCRIPTION,
+        })}
+      />
       <JsonLd
         data={webAppJsonLd({
           name: "PepExact mg to mcg Converter",

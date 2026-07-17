@@ -5,23 +5,25 @@ import CompoundLinks from "@/components/CompoundLinks";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedTools from "@/components/RelatedTools";
-import { faqJsonLd, siteName, webAppJsonLd } from "@/lib/site";
+import { faqJsonLd, siteName, webAppJsonLd, webPageJsonLd } from "@/lib/site";
+
+const TITLE = "Peptide Calculator — Reconstitution & Syringe Units";
+const DESCRIPTION =
+  "Enter vial size, water volume and a user-supplied target amount to calculate concentration, draw volume and U-100 syringe units, with every step shown. No dosing advice.";
 
 export const metadata: Metadata = {
-  title: "Peptide Calculator — Reconstitution & Syringe Units",
-  description:
-    "Enter vial size, water volume and a user-supplied target amount to calculate concentration, draw volume and U-100 syringe units, with every step shown. No dosing advice.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/peptide-calculator" },
   openGraph: {
-    title: "Peptide Calculator — Reconstitution & Syringe Units",
-    description:
-      "Enter vial size, water volume and a user-supplied target amount to calculate concentration, draw volume and U-100 syringe units, with every step shown.",
+    title: TITLE,
+    description: DESCRIPTION,
     url: "/peptide-calculator",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Peptide Calculator — Reconstitution & Syringe Units",
+    title: TITLE,
     description:
       "Vial, water, and a user-supplied amount → concentration, draw volume, and U-100 syringe units, with the math shown.",
   },
@@ -49,6 +51,13 @@ const faqs = [
 export default function Page() {
   return (
     <article className="space-y-10">
+      <JsonLd
+        data={webPageJsonLd({
+          name: TITLE,
+          path: "/peptide-calculator",
+          description: DESCRIPTION,
+        })}
+      />
       <JsonLd
         data={webAppJsonLd({
           name: "PepExact Peptide Calculator",

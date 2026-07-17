@@ -3,6 +3,7 @@ import { Archivo, Spline_Sans_Mono } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import Analytics from "@/components/Analytics";
 import { siteHandle, siteName, siteUrl } from "@/lib/site";
 
 // Self-hosted at build time by next/font — no external request, no CLS.
@@ -62,6 +63,7 @@ export default function RootLayout({
           {children}
         </main>
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );
