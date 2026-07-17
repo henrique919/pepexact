@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Card } from "@/components/ui";
 import CompoundLinks from "@/components/CompoundLinks";
 import JsonLd from "@/components/JsonLd";
 import { organizationJsonLd, siteName, websiteJsonLd } from "@/lib/site";
@@ -16,7 +15,7 @@ const tools = [
   {
     href: "/peptide-calculator",
     title: "Peptide calculator",
-    body: "Vial, water, dose → exact units on your syringe, with every step of the math shown.",
+    body: "Vial, water, dose → exact units on your syringe, with every step shown.",
   },
   {
     href: "/reconstitution-calculator",
@@ -26,7 +25,7 @@ const tools = [
   {
     href: "/mg-to-mcg-converter",
     title: "mg ⇄ mcg converter",
-    body: "The conversion behind most dosing mistakes, done instantly and correctly.",
+    body: "The 1,000× conversion behind most measurement slips.",
   },
   {
     href: "/syringe-units-calculator",
@@ -37,146 +36,144 @@ const tools = [
 
 export default function HomePage() {
   return (
-    <div className="space-y-14">
+    <div className="space-y-16">
       <JsonLd data={organizationJsonLd()} />
       <JsonLd data={websiteJsonLd()} />
 
-      <section className="pt-6 text-center">
-        <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-          Get the draw right.
+      <section className="space-y-6 border-b border-line pb-14 pt-4">
+        <p className="font-mono text-[11px] font-medium uppercase tracking-wider text-ink-soft">
+          Independent measurement utility
+        </p>
+        <h1 className="max-w-xl text-4xl font-semibold tracking-tight sm:text-5xl">
+          Read the exact number.
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">
-          {siteName} turns vial, water, and dose into an exact syringe
-          measurement — with the math shown, every time.
+        <p className="max-w-xl text-lg text-ink-soft">
+          {siteName} turns vial size, water, and a user-supplied dose into U-100
+          syringe units — with the arithmetic shown. Not a clinic. Not a seller.
+          Not dosing advice.
         </p>
-        <Link
-          href="/peptide-calculator"
-          className="mt-8 inline-block rounded-xl bg-accent px-6 py-3.5 font-medium text-white transition-opacity hover:opacity-90"
-        >
-          Open the peptide calculator
-        </Link>
-        <p className="mt-3 text-xs text-ink-soft">
-          Free · no login · nothing to sell you
-        </p>
-      </section>
-
-      <section>
-        <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-ink-soft">
-          Calculators
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {tools.map((t) => (
-            <Link key={t.href} href={t.href} className="group">
-              <Card className="h-full transition-colors group-hover:border-accent">
-                <h3 className="font-semibold">{t.title}</h3>
-                <p className="mt-1.5 text-sm text-ink-soft">{t.body}</p>
-              </Card>
-            </Link>
-          ))}
+        <div className="flex flex-wrap items-center gap-4">
+          <Link
+            href="/peptide-calculator"
+            className="inline-flex min-h-11 items-center rounded-xl bg-accent px-6 py-3 font-medium text-white transition-colors hover:bg-accent-deep"
+          >
+            Open the peptide calculator
+          </Link>
+          <Link
+            href="/methodology"
+            className="inline-flex min-h-11 items-center text-sm font-medium text-ink-soft hover:text-ink"
+          >
+            How the math works
+          </Link>
         </div>
       </section>
 
-      <section>
-        <h2 className="mb-2 text-xs font-semibold uppercase tracking-wider text-ink-soft">
+      <section className="space-y-0 divide-y divide-line border-y border-line">
+        <h2 className="sr-only">Calculators</h2>
+        {tools.map((t) => (
+          <Link
+            key={t.href}
+            href={t.href}
+            className="group flex min-h-14 flex-col justify-center gap-1 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+          >
+            <span className="font-semibold text-ink group-hover:text-accent-deep">
+              {t.title}
+            </span>
+            <span className="max-w-md text-sm text-ink-soft sm:text-right">
+              {t.body}
+            </span>
+          </Link>
+        ))}
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="font-mono text-[11px] font-medium uppercase tracking-wider text-ink-soft">
           Compound calculators
         </h2>
-        <p className="mb-4 max-w-xl text-sm text-ink-soft">
-          The same calculator, opened on a specific compound name. Each shows
-          the working and never suggests a dose. High-interest entry pages:
+        <p className="max-w-xl text-sm text-ink-soft">
+          Same engine, compound-specific context. Measurement only — never a
+          recommended dose.
         </p>
-        <ul className="mb-4 space-y-2 text-sm">
-          <li>
+        <ul className="space-y-3 border-t border-line pt-4 text-sm">
+          <li className="flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-line pb-3">
             <Link
               href="/calculator/bpc-157"
-              className="font-medium text-accent hover:underline"
+              className="font-medium text-accent-deep hover:underline"
             >
               BPC-157 calculator
             </Link>
             <span className="text-ink-soft">
-              {" "}
-              — reconstitution &amp; syringe units
+              reconstitution &amp; syringe units
             </span>
           </li>
-          <li>
+          <li className="flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-line pb-3">
             <Link
               href="/calculator/retatrutide"
-              className="font-medium text-accent hover:underline"
+              className="font-medium text-accent-deep hover:underline"
             >
               Retatrutide calculator
             </Link>
-            <span className="text-ink-soft">
-              {" "}
-              — also searched as reta peptide
-            </span>
+            <span className="text-ink-soft">also searched as reta peptide</span>
           </li>
         </ul>
         <CompoundLinks />
       </section>
 
-      <section>
-        <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-ink-soft">
-          Why trust the number
+      <section className="space-y-4 border-t border-line pt-10">
+        <h2 className="font-mono text-[11px] font-medium uppercase tracking-wider text-ink-soft">
+          Why the number is trustworthy
         </h2>
-        <div className="grid gap-4 sm:grid-cols-3">
-          <Card>
-            <h3 className="font-semibold">The math is shown</h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Every result expands into its working steps, so you can check it
-              yourself.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="font-semibold">One engine everywhere</h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              The website and the app share the same calculation engine —
-              identical inputs, identical results.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="font-semibold">Independent</h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              {siteName} sells no peptides and gives no dosing advice. It
-              exists to make the measurement trustworthy.
-            </p>
-          </Card>
-        </div>
+        <ul className="space-y-4 text-sm text-ink-soft">
+          <li>
+            <strong className="text-ink">The math is shown</strong> — every
+            result expands into working steps you can check.
+          </li>
+          <li>
+            <strong className="text-ink">One shared engine</strong> — web and
+            future app clients use <code>@pepexact/engine</code>.
+          </li>
+          <li>
+            <strong className="text-ink">Independent</strong> — no peptides for
+            sale, no dosing advice, no affiliates.
+          </li>
+        </ul>
       </section>
 
-      <section>
-        <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-ink-soft">
+      <section className="space-y-3 border-t border-line pt-10">
+        <h2 className="font-mono text-[11px] font-medium uppercase tracking-wider text-ink-soft">
           Guides
         </h2>
-        <ul className="space-y-2">
+        <ul className="space-y-3 text-sm">
           <li>
             <Link
               href="/guides/mg-vs-mcg"
-              className="text-accent hover:underline"
+              className="text-accent-deep hover:underline"
             >
-              mg vs mcg — the 1,000× difference behind most dosing mistakes
+              mg vs mcg — the 1,000× difference
             </Link>
           </li>
           <li>
             <Link
               href="/guides/how-to-read-an-insulin-syringe"
-              className="text-accent hover:underline"
+              className="text-accent-deep hover:underline"
             >
-              How to read an insulin syringe (U-100, units, and tick marks)
+              How to read an insulin syringe
             </Link>
           </li>
           <li>
             <Link
               href="/guides/why-calculators-disagree"
-              className="text-accent hover:underline"
+              className="text-accent-deep hover:underline"
             >
-              Why two calculators give different answers for the same dose
+              Why two calculators disagree
             </Link>
           </li>
           <li>
             <Link
               href="/guides/syringe-units-chart"
-              className="text-accent hover:underline"
+              className="text-accent-deep hover:underline"
             >
-              Printable U-100 syringe units chart (units → mL)
+              Printable U-100 syringe units chart
             </Link>
           </li>
         </ul>

@@ -41,7 +41,7 @@ export default function AppCta() {
         {...(isHttpWaitlist
           ? { target: "_blank", rel: "noopener noreferrer" }
           : {})}
-        className="shrink-0 rounded-xl bg-accent px-4 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+        className="inline-flex min-h-11 shrink-0 items-center rounded-xl bg-accent px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-deep"
       >
         Join waitlist
       </a>
