@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-label="PepExact">
+  <rect width="16" height="16" rx="3.5" fill="#15181A"></rect>
+  <line x1="8" y1="13" x2="8" y2="6" stroke="#FF4D2E" stroke-width="2.2" stroke-linecap="round"></line>
+  <path d="M8 5 L6 1 L10 1 Z" fill="#FF4D2E"></path>
+</svg>

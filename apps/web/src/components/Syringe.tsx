@@ -115,12 +115,13 @@ export default function Syringe({
           y={yBot + 26}
           textAnchor="middle"
           fontSize="12"
+          fontFamily="var(--font-mono), ui-monospace, monospace"
           fill="var(--color-ink-soft)"
         >
           {u}
         </text>
       ))}
-      {/* fill marker */}
+      {/* Index marker at exact fill */}
       {clamped > 0 && (
         <>
           <line
@@ -130,14 +131,20 @@ export default function Syringe({
             y2={yBot + 8}
             stroke="var(--color-accent)"
             strokeWidth="2.5"
+            strokeLinecap="round"
+          />
+          <polygon
+            points={`${fx - 5},${yTop - 22} ${fx + 5},${yTop - 22} ${fx},${yTop - 14}`}
+            fill="var(--color-accent)"
           />
           <text
             x={fx}
-            y={yTop - 20}
+            y={yTop - 28}
             textAnchor="middle"
             fontSize="13"
             fontWeight="600"
-            fill="var(--color-accent)"
+            fontFamily="var(--font-mono), ui-monospace, monospace"
+            fill="var(--color-accent-deep)"
           >
             {fmt(clamped, 1)} u
           </text>

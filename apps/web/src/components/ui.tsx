@@ -9,7 +9,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-2xl border border-line bg-surface p-6 shadow-[0_1px_2px_rgba(28,35,33,0.05)] ${className}`}
+      className={`rounded-2xl border border-line bg-surface p-5 sm:p-6 ${className}`}
     >
       {children}
     </div>
@@ -31,20 +31,22 @@ export function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-ink-soft">
+      <span className="mb-1.5 block font-mono text-[11px] font-medium uppercase tracking-wider text-ink-soft">
         {label}
       </span>
-      <span className="flex items-center rounded-xl border border-line bg-surface transition-colors focus-within:border-accent">
+      <span className="flex min-h-11 items-center rounded-xl border border-line bg-surface transition-colors focus-within:border-accent focus-within:ring-2 focus-within:ring-accent-soft">
         <input
           type="text"
           inputMode="decimal"
-          className="w-full min-w-0 rounded-xl bg-transparent px-4 py-3 text-lg outline-none"
+          className="w-full min-w-0 rounded-xl bg-transparent px-4 py-3 font-mono text-lg text-ink outline-none"
           value={value}
           placeholder={placeholder}
           onChange={(e) => onChange(e.target.value)}
         />
         {suffix ? (
-          <span className="shrink-0 pr-3 text-sm text-ink-soft">{suffix}</span>
+          <span className="shrink-0 pr-3 font-mono text-sm text-ink-soft">
+            {suffix}
+          </span>
         ) : null}
       </span>
     </label>
@@ -73,7 +75,7 @@ export function Segmented<T extends string>({
           key={o.value}
           type="button"
           onClick={() => onChange(o.value)}
-          className={`rounded-lg px-3 py-1.5 text-sm transition-colors ${
+          className={`min-h-10 rounded-lg px-3 py-2 font-mono text-sm transition-colors ${
             o.value === value
               ? "bg-accent font-medium text-white"
               : "text-ink-soft hover:text-ink"
@@ -96,19 +98,21 @@ export function Stat({
   sub?: string;
 }) {
   return (
-    <div className="rounded-xl bg-accent-soft/60 px-4 py-3">
-      <p className="text-xs font-semibold uppercase tracking-wider text-ink-soft">
+    <div className="rounded-xl border border-line bg-paper/80 px-4 py-3">
+      <p className="font-mono text-[11px] font-medium uppercase tracking-wider text-ink-soft">
         {label}
       </p>
-      <p className="mt-0.5 text-lg font-semibold text-ink">{value}</p>
-      {sub ? <p className="text-xs text-ink-soft">{sub}</p> : null}
+      <p className="mt-0.5 font-mono text-lg font-semibold text-ink">{value}</p>
+      {sub ? (
+        <p className="font-mono text-xs text-ink-soft">{sub}</p>
+      ) : null}
     </div>
   );
 }
 
 export function Note({ children }: { children: ReactNode }) {
   return (
-    <p className="rounded-xl bg-accent-soft/60 px-4 py-3 text-sm text-ink-soft">
+    <p className="rounded-xl border border-line bg-paper px-4 py-3 text-sm text-ink-soft">
       {children}
     </p>
   );
@@ -143,13 +147,13 @@ export function ShowMath({
 }) {
   return (
     <details className="group rounded-xl border border-line bg-surface px-4 py-3">
-      <summary className="cursor-pointer select-none text-sm font-medium text-accent">
+      <summary className="cursor-pointer select-none text-sm font-medium text-accent-deep">
         Show the math
       </summary>
-      <ol className="mt-3 space-y-3">
+      <ol className="mt-3 space-y-3 font-mono text-sm">
         {steps.map((s, i) => (
-          <li key={s.label} className="text-sm">
-            <span className="font-medium">
+          <li key={s.label}>
+            <span className="font-medium text-ink">
               {i + 1}. {s.label}:
             </span>{" "}
             <span className="text-ink-soft">{s.expression}</span>{" "}

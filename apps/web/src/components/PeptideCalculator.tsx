@@ -166,18 +166,24 @@ export default function PeptideCalculator({
       {result && result.ok && (
         <>
           <Card className="space-y-5">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-ink-soft">
-                Your draw
+            <div className="border-b border-line pb-5">
+              <p className="font-mono text-[11px] font-medium uppercase tracking-wider text-ink-soft">
+                Exact draw
               </p>
-              <p className="mt-1 text-5xl font-semibold tracking-tight">
-                {fmt(result.units, 1)}{" "}
-                <span className="text-2xl font-normal text-ink-soft">
+              <p className="mt-2 flex flex-wrap items-baseline gap-x-2 font-mono text-5xl font-semibold tracking-tight text-ink">
+                <span className="relative">
+                  <span
+                    aria-hidden
+                    className="absolute -top-2 left-0 h-2.5 w-0.5 bg-accent"
+                  />
+                  {fmt(result.units, 1)}
+                </span>
+                <span className="text-2xl font-medium text-ink-soft">
                   units
                 </span>
               </p>
-              <p className="mt-1 text-sm text-ink-soft">
-                on a U-100 insulin syringe · {fmt(result.volumeMl, 3)} mL
+              <p className="mt-1 font-mono text-sm text-ink-soft">
+                U-100 · {fmt(result.volumeMl, 3)} mL
               </p>
             </div>
 
@@ -207,9 +213,9 @@ export default function PeptideCalculator({
               <button
                 type="button"
                 onClick={copyLink}
-                className="rounded-xl border border-line bg-surface px-4 py-2.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+                className="min-h-11 rounded-xl border border-line bg-surface px-4 py-2.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent-deep"
               >
-                {copied ? "Link copied ✓" : "Copy link to this result"}
+                {copied ? "Link copied" : "Copy link to this result"}
               </button>
               <span className="text-xs text-ink-soft">
                 The link carries your numbers — save it or share it.

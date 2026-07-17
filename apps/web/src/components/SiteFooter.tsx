@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandLogo from "./BrandLogo";
 import { siteHandle, siteName } from "@/lib/site";
 import { allRoutes } from "@/lib/routes";
 
@@ -17,6 +18,9 @@ export default function SiteFooter() {
   return (
     <footer className="no-print border-t border-line bg-surface">
       <div className="mx-auto w-full max-w-3xl px-5 py-10">
+        <div className="mb-8">
+          <BrandLogo />
+        </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-ink-soft">

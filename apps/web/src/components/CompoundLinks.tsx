@@ -16,7 +16,7 @@ export default function CompoundLinks() {
         <Link
           key={c.path}
           href={c.path}
-          className="rounded-lg border border-line bg-surface px-3 py-1.5 text-sm text-ink-soft transition-colors hover:border-accent hover:text-accent"
+          className="inline-flex min-h-11 items-center rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink-soft transition-colors hover:border-accent hover:text-accent-deep"
         >
           {c.label.replace(/ calculator$/, "")}
         </Link>

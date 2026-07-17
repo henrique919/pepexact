@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-label="PepExact mark">
+  <g stroke="#8A9299" stroke-width="4" stroke-linecap="round">
+    <line x1="20" y1="78" x2="20" y2="62"></line>
+    <line x1="35" y1="78" x2="35" y2="53"></line>
+    <line x1="65" y1="78" x2="65" y2="53"></line>
+    <line x1="80" y1="78" x2="80" y2="62"></line>
+  </g>
+  <line x1="50" y1="80" x2="50" y2="30" stroke="#FF4D2E" stroke-width="7" stroke-linecap="round"></line>
+  <path d="M50 23 L41 5 L59 5 Z" fill="#FF4D2E"></path>
+</svg>
