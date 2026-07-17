@@ -20,8 +20,12 @@ export async function generateMetadata({
   const compound = compoundBySlug.get(slug);
   if (!compound) return {};
   const path = `/calculator/${compound.slug}`;
+  // Titles ending in "| PepExact" are absolute; others use the root template.
+  const title = compound.title.endsWith("| PepExact")
+    ? { absolute: compound.title }
+    : compound.title;
   return {
-    title: compound.title,
+    title,
     description: compound.metaDescription,
     alternates: { canonical: path },
     openGraph: {

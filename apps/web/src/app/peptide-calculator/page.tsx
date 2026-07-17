@@ -7,12 +7,12 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedTools from "@/components/RelatedTools";
 import { faqJsonLd, siteName, webAppJsonLd, webPageJsonLd } from "@/lib/site";
 
-const TITLE = "Peptide Calculator — Reconstitution & Syringe Units";
+const TITLE = "Peptide Calculator: Reconstitution & Syringe Units | PepExact";
 const DESCRIPTION =
   "Enter vial size, water volume and a user-supplied target amount to calculate concentration, draw volume and U-100 syringe units, with every step shown. No dosing advice.";
 
 export const metadata: Metadata = {
-  title: TITLE,
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   alternates: { canonical: "/peptide-calculator" },
   openGraph: {
@@ -24,8 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: TITLE,
-    description:
-      "Vial, water, and a user-supplied amount → concentration, draw volume, and U-100 syringe units, with the math shown.",
+    description: DESCRIPTION,
   },
 };
 

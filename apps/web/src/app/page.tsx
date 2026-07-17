@@ -11,9 +11,9 @@ import {
   websiteJsonLd,
 } from "@/lib/site";
 
-const HOME_TITLE = "Peptide Calculator & Syringe Units Tool | PepExact";
+const HOME_TITLE = "Peptide Calculator, BPC-157 & Retatrutide Tool | PepExact";
 const HOME_DESCRIPTION =
-  "Calculate peptide reconstitution, syringe units and mg-to-mcg conversions with transparent formulas. Free tools with no sales or dosing advice.";
+  "Calculate peptide reconstitution, BPC-157, retatrutide and syringe units with transparent formulas. Free tools with no sales or dosing advice.";
 
 export const metadata: Metadata = {
   title: { absolute: HOME_TITLE },
@@ -71,7 +71,7 @@ export default function HomePage() {
       />
       <JsonLd
         data={webAppJsonLd({
-          name: "PepExact Peptide Calculator & Syringe Units Tool",
+          name: HOME_TITLE,
           path: "/",
           description: HOME_DESCRIPTION,
         })}
@@ -79,10 +79,10 @@ export default function HomePage() {
 
       <section className="space-y-6 border-b border-line pb-14 pt-4">
         <p className="font-mono text-[11px] font-medium uppercase tracking-wider text-ink-soft">
-          Independent measurement utility
+          Independent peptide measurement tools
         </p>
-        <h1 className="max-w-xl text-4xl font-semibold tracking-tight sm:text-5xl">
-          Read the exact number.
+        <h1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+          Free Peptide Calculator for Reconstitution &amp; Syringe Units
         </h1>
         <p className="max-w-xl text-lg text-ink-soft">
           {siteName} is a free{" "}
@@ -144,7 +144,7 @@ export default function HomePage() {
         <p className="max-w-xl text-sm text-ink-soft">
           A peptide reconstitution calculation is ordinary arithmetic: concentration
           from vial milligrams ÷ water millilitres, draw volume from your amount ÷
-          concentration, then U-100 insulin syringe units from millilitres × 100.
+          concentration, then U-100 insulin syringe units from millilitres × 100.{" "}
           {siteName} shows those steps so you can verify the result instead of
           trusting a black box. Details live in the{" "}
           <Link
@@ -200,7 +200,7 @@ export default function HomePage() {
           a dose.
         </p>
         <h3 className="font-mono text-[11px] font-medium uppercase tracking-wider text-ink-soft">
-          High-interest entry pages
+          BPC-157 and retatrutide calculators
         </h3>
         <ul className="space-y-3 border-t border-line pt-4 text-sm">
           <li className="flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-line pb-3">
