@@ -1,0 +1,54 @@
+{
+  "reviewDate": "2026-07-17",
+  "canonicalPage": "https://pepexact.com/peptides/bpc-157",
+  "rows": [
+    {
+      "date": "Early 1990s",
+      "jurisdiction": "Research literature",
+      "event": "Researchers describe a gastric-juice-related protective compound and characterise BPC-157 as a 15-amino-acid fragment.",
+      "source": "Early BPC research indexed by PubMed",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/8298609/",
+      "status": "Historical"
+    },
+    {
+      "date": "2022",
+      "jurisdiction": "Sport / WADA",
+      "event": "WADA explicitly identifies BPC-157 under the S0 non-approved-substances category.",
+      "source": "World Anti-Doping Agency: 2026 Prohibited List",
+      "sourceUrl": "https://www.wada-ama.org/en/resources/world-anti-doping-program/prohibited-list",
+      "status": "Prohibited at all times"
+    },
+    {
+      "date": "2023",
+      "jurisdiction": "United States / FDA",
+      "event": "FDA publicly lists concerns involving limited safety information, potential immunogenicity, peptide impurities and product characterisation for compounded BPC-157.",
+      "source": "FDA: bulk drug substances that may present significant safety risks",
+      "sourceUrl": "https://www.fda.gov/drugs/human-drug-compounding/certain-bulk-drug-substances-use-compounding-may-present-significant-safety-risks",
+      "status": "Safety concerns listed"
+    },
+    {
+      "date": "11 May 2026",
+      "jurisdiction": "United States / FDA",
+      "event": "FDA evaluation of BPC-157-related bulk drug substances finds insufficient evidence for nominated use and notes characterisation and safety gaps.",
+      "source": "FDA evaluation of BPC-157-related bulk drug substances, 11 May 2026",
+      "sourceUrl": "https://www.fda.gov/media/193343/download",
+      "status": "Not FDA approved"
+    },
+    {
+      "date": "19 June 2026",
+      "jurisdiction": "Australia / TGA",
+      "event": "TGA and Australia's Chief Medical Officer include BPC-157 among unapproved peptide products of public-health concern.",
+      "source": "TGA and Australian Chief Medical Officer: unapproved peptide products, 19 June 2026",
+      "sourceUrl": "https://www.tga.gov.au/news/media-releases/concerns-regarding-public-health-risks-associated-unapproved-peptide-products",
+      "status": "Unapproved / public-health warning"
+    },
+    {
+      "date": "23–24 July 2026",
+      "jurisdiction": "United States / FDA PCAC",
+      "event": "Pharmacy Compounding Advisory Committee meeting scheduled to consider whether BPC-157 free base and acetate should be included on the 503A Bulks List. Briefing materials proposed not including them.",
+      "source": "FDA Pharmacy Compounding Advisory Committee briefing, July 2026",
+      "sourceUrl": "https://www.fda.gov/media/193342/download",
+      "status": "Scheduled — requires update after meeting"
+    }
+  ]
+}

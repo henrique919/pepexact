@@ -9,11 +9,29 @@ import {
   RelatedCalculatorPanel,
   ResearchTimeline,
 } from "@/components/peptide/PeptideArticleParts";
-import type { PeptideBullet, PeptideProfile, PeptideSection } from "@/lib/peptides/types";
+import CiteThisPage from "@/components/peptide/CiteThisPage";
+import CopyHeadingLink from "@/components/peptide/CopyHeadingLink";
+import { EvidenceGraphic } from "@/components/peptide/EvidenceGraphic";
+import {
+  BpcEvidenceTracker,
+  EvidenceUpdateLog,
+  ResearcherContactNote,
+  RetatrutideClinicalTracker,
+} from "@/components/peptide/EvidenceTrackers";
+import {
+  bpcEvidenceTracker,
+  retatrutideClinicalTracker,
+} from "@/lib/peptides/trackers";
+import type {
+  PeptideBullet,
+  PeptideProfile,
+  PeptideSection,
+} from "@/lib/peptides/types";
 import {
   flattenProfileText,
   readingTimeMinutes,
 } from "@/lib/peptides/types";
+import { slugifyHeading } from "@/lib/slugify";
 
 function Bullets({ items }: { items: PeptideBullet[] }) {
   return (
@@ -33,10 +51,31 @@ function Bullets({ items }: { items: PeptideBullet[] }) {
   );
 }
 
+function SectionHeading({
+  level,
+  text,
+}: {
+  level: 2 | 3;
+  text: string;
+}) {
+  const id = slugifyHeading(text);
+  const className =
+    level === 2
+      ? "group scroll-mt-24 text-xl font-semibold tracking-tight"
+      : "group scroll-mt-24 text-base font-semibold";
+  const Tag = level === 2 ? "h2" : "h3";
+  return (
+    <Tag id={id} className={className}>
+      <span className="inline">{text}</span>
+      <CopyHeadingLink fragment={id} label={text} />
+    </Tag>
+  );
+}
+
 function SectionBody({ section }: { section: PeptideSection }) {
   return (
-    <section className="space-y-4">
-      <h2 className="text-xl font-semibold tracking-tight">{section.heading}</h2>
+    <section className="space-y-4" aria-labelledby={slugifyHeading(section.heading)}>
+      <SectionHeading level={2} text={section.heading} />
       {section.paragraphs?.map((p) => (
         <p key={p.slice(0, 48)} className="text-ink-soft">
           {p}
@@ -47,9 +86,7 @@ function SectionBody({ section }: { section: PeptideSection }) {
       ) : null}
       {section.subsections?.map((sub, i) => (
         <div key={`${section.id}-${sub.heading || i}`} className="space-y-3">
-          {sub.heading ? (
-            <h3 className="text-base font-semibold">{sub.heading}</h3>
-          ) : null}
+          {sub.heading ? <SectionHeading level={3} text={sub.heading} /> : null}
           {sub.paragraphs.map((p) => (
             <p key={p.slice(0, 48)} className="text-ink-soft">
               {p}
@@ -66,8 +103,6 @@ function SectionBody({ section }: { section: PeptideSection }) {
 
 /**
  * Shared shell for /peptides/[slug] evidence profiles.
- * Renders status, glance, body sections, evidence table (after "potential"),
- * timeline, FAQ, sources, calculator panel and closing disclaimer.
  */
 export default function PeptideEvidenceArticle({
   profile,
@@ -76,9 +111,7 @@ export default function PeptideEvidenceArticle({
 }) {
   const minutes = readingTimeMinutes(flattenProfileText(profile));
   const afterId = profile.evidenceTableAfter ?? "potential";
-
-  // Editorial TODOs live on the profile object / FDA status helper for humans.
-  // Do not surface them in the rendered page.
+  const isBpc = profile.slug === "bpc-157";
 
   return (
     <article className="space-y-10">
@@ -114,9 +147,44 @@ export default function PeptideEvidenceArticle({
         </div>
       ))}
 
+      {isBpc ? (
+        <EvidenceGraphic
+          title="BPC-157: evidence by research level"
+          svgHref="/graphics/bpc-157-evidence-by-research-level.svg"
+          pngHref="/graphics/bpc-157-evidence-by-research-level.png"
+          pageHref="/peptides/bpc-157"
+          textEquivalent="Qualitative bars: extensive laboratory and animal research; small limited human reports; no approved clinical use as of 17 July 2026."
+        />
+      ) : (
+        <EvidenceGraphic
+          title="Retatrutide: clinical development timeline"
+          svgHref="/graphics/retatrutide-clinical-development-timeline.svg"
+          pngHref="/graphics/retatrutide-clinical-development-timeline.png"
+          pageHref="/peptides/retatrutide"
+          textEquivalent="Timeline from early clinical studies through 2023 Phase 2 peer review, 2025 TRIUMPH-4 completion, May–June 2026 TRIUMPH-1 sponsor topline and TRANSCEND peer review, remaining investigational as of 17 July 2026."
+        />
+      )}
+
+      {isBpc ? (
+        <BpcEvidenceTracker rows={bpcEvidenceTracker} />
+      ) : (
+        <RetatrutideClinicalTracker rows={retatrutideClinicalTracker} />
+      )}
+
+      <EvidenceUpdateLog />
       <ResearchTimeline items={profile.timeline} />
       <PeptideFaqList faqs={profile.faqs} />
+
+      <CiteThisPage
+        title={profile.h1}
+        path={profile.path}
+        datePublished={profile.datePublished}
+        dateReviewed={profile.evidenceReviewedDisplay}
+      />
+
       <PeptideReferences sources={profile.sources} />
+      <ResearcherContactNote />
+
       <RelatedCalculatorPanel
         href={profile.calculator.href}
         title={profile.calculator.title}

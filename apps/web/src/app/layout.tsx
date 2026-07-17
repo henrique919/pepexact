@@ -7,18 +7,24 @@ import Analytics from "@/components/Analytics";
 import { siteHandle, siteName, siteUrl } from "@/lib/site";
 
 // Self-hosted at build time by next/font — no external request, no CLS.
+// Weights limited to those used above the fold / body (400/500/600) to cut
+// preload bytes. Mono only needs regular + medium for labels.
 const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600"],
   variable: "--font-archivo",
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const splineMono = Spline_Sans_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
   variable: "--font-spline-mono",
   display: "swap",
+  preload: false,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {

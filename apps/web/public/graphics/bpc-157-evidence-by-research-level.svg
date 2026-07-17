@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">BPC-157: evidence by research level</title>
+  <desc id="desc">Bar chart comparing research levels discussed on the PepExact BPC-157 evidence page: extensive animal and laboratory research, small limited human reports, and no established approved clinical use as of 17 July 2026.</desc>
+  <rect width="960" height="540" fill="#f4f2ec"/>
+  <text x="48" y="56" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="600" fill="#15181a">BPC-157: evidence by research level</text>
+  <text x="48" y="88" font-family="Archivo, Arial, sans-serif" font-size="16" fill="#565349">Qualitative summary from the PepExact evidence guide · Reviewed 17 July 2026</text>
+  <rect x="48" y="140" width="720" height="52" rx="8" fill="#c73a1f"/>
+  <text x="64" y="173" font-family="Archivo, Arial, sans-serif" font-size="18" fill="#ffffff">Laboratory and animal research  extensive preclinical footprint</text>
+  <rect x="48" y="220" width="280" height="52" rx="8" fill="#a82f18"/>
+  <text x="64" y="253" font-family="Archivo, Arial, sans-serif" font-size="18" fill="#ffffff">Human reports  small / limited</text>
+  <rect x="48" y="300" width="96" height="52" rx="8" fill="#8a9299"/>
+  <text x="64" y="333" font-family="Archivo, Arial, sans-serif" font-size="18" fill="#ffffff">Approved use  none</text>
+  <text x="48" y="400" font-family="Archivo, Arial, sans-serif" font-size="14" fill="#565349">Bars are illustrative of relative evidence volume described on the page, not effect sizes.</text>
+  <text x="48" y="430" font-family="Archivo, Arial, sans-serif" font-size="14" fill="#565349">Source: https://pepexact.com/peptides/bpc-157</text>
+  <text x="48" y="500" font-family="Archivo, Arial, sans-serif" font-size="13" fill="#565349">Publishers may reuse this graphic with a visible source credit to PepExact. Please link to the original evidence page so readers can inspect the sources and current status.</text>
+</svg>

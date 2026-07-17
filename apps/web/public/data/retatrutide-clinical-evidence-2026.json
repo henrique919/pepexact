@@ -1,0 +1,60 @@
+{
+  "reviewDate": "2026-07-17",
+  "canonicalPage": "https://pepexact.com/peptides/retatrutide",
+  "rows": [
+    {
+      "study": "Phase 2 obesity trial (NEJM 2023)",
+      "population": "Adults with obesity, or overweight plus at least one weight-related condition, without diabetes",
+      "phase": "Phase 2",
+      "statusAtReview": "Completed",
+      "evidenceAvailability": "Peer reviewed",
+      "source": "Phase 2 obesity trial, New England Journal of Medicine",
+      "sourceUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2301972"
+    },
+    {
+      "study": "TRANSCEND-T2D-1",
+      "population": "Adults with type 2 diabetes inadequately controlled with diet and exercise alone (n=537)",
+      "phase": "Phase 3",
+      "statusAtReview": "Completed",
+      "evidenceAvailability": "Peer reviewed",
+      "source": "TRANSCEND-T2D-1 Phase 3 trial, The Lancet, indexed by PubMed",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42250575/"
+    },
+    {
+      "study": "TRIUMPH-1",
+      "population": "Adults in Phase 3 obesity programme (n=2,339 reported by sponsor)",
+      "phase": "Phase 3",
+      "statusAtReview": "Topline announced 21 May 2026",
+      "evidenceAvailability": "Sponsor topline",
+      "source": "Lilly: TRIUMPH-1 Phase 3 topline results, 21 May 2026",
+      "sourceUrl": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-powerful-weight-loss"
+    },
+    {
+      "study": "TRIUMPH-1 registry",
+      "population": "Obesity / overweight research population (registry record)",
+      "phase": "Phase 3",
+      "statusAtReview": "Registry record",
+      "evidenceAvailability": "Registry record",
+      "source": "ClinicalTrials.gov: TRIUMPH-1",
+      "sourceUrl": "https://clinicaltrials.gov/study/NCT05929066"
+    },
+    {
+      "study": "TRIUMPH-4",
+      "population": "Obesity or overweight with knee osteoarthritis",
+      "phase": "Phase 3",
+      "statusAtReview": "Completed (2025)",
+      "evidenceAvailability": "Registry record",
+      "source": "ClinicalTrials.gov: TRIUMPH-4",
+      "sourceUrl": "https://clinicaltrials.gov/study/NCT05931367"
+    },
+    {
+      "study": "TRIUMPH-8",
+      "population": "Defined Phase 3 research population (registry)",
+      "phase": "Phase 3",
+      "statusAtReview": "Registry record",
+      "evidenceAvailability": "Registry record",
+      "source": "ClinicalTrials.gov: TRIUMPH-8",
+      "sourceUrl": "https://clinicaltrials.gov/study/NCT07232719"
+    }
+  ]
+}

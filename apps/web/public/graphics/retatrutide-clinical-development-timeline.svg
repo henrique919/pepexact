@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Retatrutide: clinical development timeline</title>
+  <desc id="desc">Timeline of retatrutide clinical development milestones cited on the PepExact evidence page from early 2020s through 17 July 2026, distinguishing peer-reviewed trials from sponsor topline announcements.</desc>
+  <rect width="960" height="540" fill="#f4f2ec"/>
+  <text x="48" y="56" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="600" fill="#15181a">Retatrutide: clinical development timeline</text>
+  <text x="48" y="88" font-family="Archivo, Arial, sans-serif" font-size="16" fill="#565349">Milestones cited on the PepExact evidence guide · Reviewed 17 July 2026</text>
+  <line x1="80" y1="180" x2="880" y2="180" stroke="#e2ded3" stroke-width="4"/>
+  <circle cx="120" cy="180" r="10" fill="#c73a1f"/>
+  <text x="120" y="220" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="13" fill="#15181a">Early 2020s</text>
+  <text x="120" y="240" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="12" fill="#565349">Early clinical</text>
+  <circle cx="300" cy="180" r="10" fill="#c73a1f"/>
+  <text x="300" y="220" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="13" fill="#15181a">2023</text>
+  <text x="300" y="240" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="12" fill="#565349">Phase 2 peer reviewed</text>
+  <circle cx="480" cy="180" r="10" fill="#c73a1f"/>
+  <text x="480" y="220" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="13" fill="#15181a">2025</text>
+  <text x="480" y="240" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="12" fill="#565349">TRIUMPH-4 completed</text>
+  <circle cx="660" cy="180" r="10" fill="#a82f18"/>
+  <text x="660" y="220" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="13" fill="#15181a">MayJun 2026</text>
+  <text x="660" y="240" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="12" fill="#565349">TRIUMPH-1 topline</text>
+  <text x="660" y="258" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="12" fill="#565349">TRANSCEND peer reviewed</text>
+  <circle cx="820" cy="180" r="10" fill="#8a9299"/>
+  <text x="820" y="220" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="13" fill="#15181a">17 Jul 2026</text>
+  <text x="820" y="240" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="12" fill="#565349">Still investigational</text>
+  <text x="48" y="320" font-family="Archivo, Arial, sans-serif" font-size="14" fill="#565349">Peer-reviewed and sponsor-topline milestones are labelled separately on the evidence page. This graphic does not compare efficacy percentages across trials.</text>
+  <text x="48" y="350" font-family="Archivo, Arial, sans-serif" font-size="14" fill="#565349">Source: https://pepexact.com/peptides/retatrutide</text>
+  <text x="48" y="500" font-family="Archivo, Arial, sans-serif" font-size="13" fill="#565349">Publishers may reuse this graphic with a visible source credit to PepExact. Please link to the original evidence page so readers can inspect the sources and current status.</text>
+</svg>

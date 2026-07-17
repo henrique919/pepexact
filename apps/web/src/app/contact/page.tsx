@@ -6,7 +6,7 @@ import { siteHandle, siteName } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact PepExact",
   description:
-    "How to reach PepExact. We are an independent peptide measurement tool — not a clinic or seller.",
+    "How to reach PepExact for evidence corrections, citation requests and product questions. Independent measurement tool — not a clinic or seller.",
   alternates: { canonical: "/contact" },
 };
 
@@ -33,16 +33,55 @@ export default function Page() {
             href={`https://x.com/${siteHandle.replace(/^@/, "")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent hover:underline"
+            className="text-accent-deep hover:underline"
           >
             {siteHandle}
           </a>{" "}
           on X.
         </p>
         <p className="text-ink-soft">
-          Product waitlist links appear on calculator pages after a result when
-          configured. Those forms are hosted externally and follow their own
-          privacy policies.
+          For waitlist forms configured on calculator pages, those forms are
+          hosted externally and follow their own privacy policies. When{" "}
+          {siteName} falls back to email, messages use{" "}
+          <a
+            href="mailto:hello@pepexact.com"
+            className="text-accent-deep hover:underline"
+          >
+            hello@pepexact.com
+          </a>
+          .
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">
+          Evidence corrections and citation requests
+        </h2>
+        <p className="text-ink-soft">
+          Researchers, clinicians and journalists can use this contact route to:
+        </p>
+        <ul className="list-disc space-y-2 pl-5 text-ink-soft">
+          <li>Flag a source update on an evidence guide</li>
+          <li>Request the underlying citation list for a published page</li>
+          <li>Ask about reusing evidence graphics with source credit</li>
+        </ul>
+        <p className="text-ink-soft">
+          Start from the relevant guide —{" "}
+          <Link
+            href="/peptides/bpc-157"
+            className="text-accent-deep hover:underline"
+          >
+            BPC-157 evidence
+          </Link>{" "}
+          or{" "}
+          <Link
+            href="/peptides/retatrutide"
+            className="text-accent-deep hover:underline"
+          >
+            retatrutide evidence
+          </Link>{" "}
+          — then message {siteHandle} with the page URL and the correction or
+          request.
         </p>
       </section>
 
@@ -55,11 +94,14 @@ export default function Page() {
         </ul>
         <p className="text-ink-soft">
           For measurement questions, start with the{" "}
-          <Link href="/peptide-calculator" className="text-accent hover:underline">
+          <Link
+            href="/peptide-calculator"
+            className="text-accent-deep hover:underline"
+          >
             peptide calculator
           </Link>{" "}
           and{" "}
-          <Link href="/methodology" className="text-accent hover:underline">
+          <Link href="/methodology" className="text-accent-deep hover:underline">
             methodology
           </Link>
           .

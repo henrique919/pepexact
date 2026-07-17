@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import ArithmeticDemo from "@/components/ArithmeticDemo";
 import CompoundLinks from "@/components/CompoundLinks";
-import HeroCalculatorPreview from "@/components/HeroCalculatorPreview";
 import JsonLd from "@/components/JsonLd";
 import {
   organizationJsonLd,
@@ -78,46 +78,45 @@ export default function HomePage() {
         })}
       />
 
-      <section className="border-b border-line pb-14 pt-4">
-        <div className="grid items-start gap-10 lg:grid-cols-2">
-          <div className="space-y-6">
-            <p className="font-mono text-xs font-medium uppercase tracking-wider text-ink-soft">
-              Independent peptide measurement tools
-            </p>
-            <h1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
-              Free Peptide Calculator for Reconstitution &amp; Syringe Units
-            </h1>
-            <p className="max-w-xl text-lg text-ink-soft">
-              {siteName} is a free{" "}
-              <Link
-                href="/peptide-calculator"
-                className="text-accent-deep hover:underline"
-              >
-                peptide calculator
-              </Link>{" "}
-              and syringe-units toolkit. Enter a vial size, the water you added,
-              and a target amount you already have — get U-100 insulin syringe
-              units with the arithmetic shown. Not a clinic. Not a seller. Not
-              dosing advice.
-            </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <Link
-                href="/peptide-calculator"
-                className="inline-flex min-h-12 items-center rounded-xl bg-accent px-6 py-3 font-medium text-white transition-colors hover:bg-accent-deep"
-              >
-                Open the peptide calculator
-              </Link>
-              <Link
-                href="/methodology"
-                className="inline-flex min-h-11 items-center text-sm font-medium text-ink-soft hover:text-ink"
-              >
-                How the math works
-              </Link>
-            </div>
+      <section className="space-y-7 pb-2 pt-4 sm:space-y-8">
+        <div className="mx-auto w-full max-w-3xl space-y-7 sm:space-y-8" style={{ maxWidth: "48rem" }}>
+          <p className="font-mono text-xs font-medium uppercase tracking-wider text-ink-soft">
+            Independent peptide measurement tools
+          </p>
+          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+            Free Peptide Calculator for Reconstitution &amp; Syringe Units
+          </h1>
+          <p className="max-w-2xl text-lg text-ink-soft">
+            {siteName} is a free{" "}
+            <Link
+              href="/peptide-calculator"
+              className="text-accent-deep hover:underline"
+            >
+              peptide calculator
+            </Link>{" "}
+            and syringe-units toolkit. Enter a vial size, the water you added,
+            and a target amount you already have — get U-100 insulin syringe
+            units with the arithmetic shown. Not a clinic. Not a seller. Not
+            dosing advice.
+          </p>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              href="/peptide-calculator"
+              className="inline-flex min-h-12 items-center rounded-xl bg-accent px-6 py-3 font-medium text-white transition-colors hover:bg-accent-deep"
+            >
+              Open the peptide calculator
+            </Link>
+            <Link
+              href="/methodology"
+              className="inline-flex min-h-11 items-center text-sm font-medium text-ink-soft hover:text-ink"
+            >
+              How the math works
+            </Link>
           </div>
-          <HeroCalculatorPreview />
         </div>
       </section>
+
+      <ArithmeticDemo />
 
       <section className="space-y-6">
         <h2 className="text-xl font-semibold tracking-tight">
@@ -287,45 +286,87 @@ export default function HomePage() {
           Popular calculators
         </h3>
         <ul className="space-y-3 border-t border-line pt-4 text-sm">
-          <li className="space-y-1 border-b border-line pb-3">
-            <p className="font-medium text-ink">BPC-157</p>
-            <p className="flex flex-wrap gap-x-4 gap-y-1">
-              <Link
-                href="/calculator/bpc-157"
-                className="text-accent-deep hover:underline"
-              >
-                Calculator
-              </Link>
-              <Link
-                href="/peptides/bpc-157"
-                className="text-accent-deep hover:underline"
-              >
-                Evidence guide
-              </Link>
-            </p>
+          <li className="flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-line pb-3">
+            <Link
+              href="/calculator/bpc-157"
+              className="font-medium text-accent-deep hover:underline"
+            >
+              BPC-157 calculator
+            </Link>
+            <span className="text-ink-soft">
+              reconstitution &amp; syringe units
+            </span>
           </li>
-          <li className="space-y-1 border-b border-line pb-3">
-            <p className="font-medium text-ink">Retatrutide</p>
-            <p className="flex flex-wrap gap-x-4 gap-y-1">
-              <Link
-                href="/calculator/retatrutide"
-                className="text-accent-deep hover:underline"
-              >
-                Calculator
-              </Link>
-              <Link
-                href="/peptides/retatrutide"
-                className="text-accent-deep hover:underline"
-              >
-                Evidence guide
-              </Link>
-            </p>
+          <li className="flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-line pb-3">
+            <Link
+              href="/calculator/retatrutide"
+              className="font-medium text-accent-deep hover:underline"
+            >
+              Retatrutide calculator
+            </Link>
+            <span className="text-ink-soft">also searched as reta peptide</span>
           </li>
         </ul>
         <CompoundLinks
           labelled
           excludeSlugs={["bpc-157", "retatrutide"]}
         />
+      </section>
+
+      <section className="space-y-6 border-t border-line pt-10">
+        <p className="font-mono text-xs font-medium uppercase tracking-wider text-ink-soft">
+          Research summaries
+        </p>
+        <h2 className="text-xl font-semibold tracking-tight">
+          Peptide evidence guides
+        </h2>
+        <p className="max-w-xl text-sm text-ink-soft">
+          Clear summaries of what published research shows, what remains
+          uncertain, and where each compound currently stands with regulators. No
+          sales, protocols or medical advice.
+        </p>
+        <div className="divide-y divide-line border-y border-line">
+          <div className="py-5">
+            <h3 className="text-base font-semibold text-ink">
+              BPC-157 evidence and status
+            </h3>
+            <p className="mt-1 max-w-xl text-sm text-ink-soft">
+              Review BPC-157&apos;s research history, claims involving tissue
+              repair and gastrointestinal health, limited human evidence, safety
+              uncertainties, and current FDA, TGA and WADA status.
+            </p>
+            <p className="mt-3">
+              <Link
+                href="/peptides/bpc-157"
+                className="inline-flex min-h-11 items-center text-sm font-medium text-accent-deep hover:underline"
+              >
+                Read the BPC-157 evidence guide
+              </Link>
+            </p>
+          </div>
+          <div className="py-5">
+            <h3 className="text-base font-semibold text-ink">
+              Retatrutide research and Phase 3 status
+            </h3>
+            <p className="mt-1 max-w-xl text-sm text-ink-soft">
+              See how retatrutide&apos;s triple-receptor mechanism works, what
+              Phase 2 and Phase 3 trials have reported, its possible future uses,
+              known side effects, and why it remains investigational.
+            </p>
+            <p className="mt-3">
+              <Link
+                href="/peptides/retatrutide"
+                className="inline-flex min-h-11 items-center text-sm font-medium text-accent-deep hover:underline"
+              >
+                Read the retatrutide evidence guide
+              </Link>
+            </p>
+          </div>
+        </div>
+        <p className="text-xs text-ink-soft">
+          Evidence reviewed 17 July 2026. Regulatory and trial status can change;
+          each guide includes its sources and update history.
+        </p>
       </section>
 
       <section className="space-y-4 border-t border-line pt-10">

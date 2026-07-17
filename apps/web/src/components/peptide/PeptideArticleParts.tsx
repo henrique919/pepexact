@@ -29,8 +29,13 @@ export function PeptideStatusPanel({
 
 export function PeptideGlance({ items }: { items: PeptideGlanceItem[] }) {
   return (
-    <section className="space-y-3">
-      <h2 className="text-xl font-semibold tracking-tight">At a glance</h2>
+    <section className="space-y-3" aria-labelledby="at-a-glance">
+      <h2
+        id="at-a-glance"
+        className="scroll-mt-24 text-xl font-semibold tracking-tight"
+      >
+        At a glance
+      </h2>
       <ul className="space-y-2 text-sm text-ink-soft">
         {items.map((item) => (
           <li key={item.label}>
@@ -149,8 +154,13 @@ export function ResearchTimeline({
   items: { when: string; text: string }[];
 }) {
   return (
-    <section className="space-y-4">
-      <h2 className="text-xl font-semibold tracking-tight">Research timeline</h2>
+    <section className="space-y-4" aria-labelledby="research-timeline">
+      <h2
+        id="research-timeline"
+        className="scroll-mt-24 text-xl font-semibold tracking-tight"
+      >
+        Research timeline
+      </h2>
       <ol className="space-y-3 border-l border-line pl-4">
         {items.map((item) => (
           <li key={`${item.when}-${item.text.slice(0, 24)}`} className="text-sm">
@@ -169,22 +179,33 @@ export function PeptideFaqList({
   faqs: { q: string; a: string }[];
 }) {
   return (
-    <section className="space-y-4">
-      <h2 className="text-xl font-semibold tracking-tight">
+    <section className="space-y-4" aria-labelledby="frequently-asked-questions">
+      <h2
+        id="frequently-asked-questions"
+        className="scroll-mt-24 text-xl font-semibold tracking-tight"
+      >
         Frequently asked questions
       </h2>
       <div className="space-y-3">
-        {faqs.map((f) => (
-          <details
-            key={f.q}
-            className="group rounded-xl border border-line bg-surface px-4 py-3"
-          >
-            <summary className="cursor-pointer select-none text-sm font-medium text-ink">
-              {f.q}
-            </summary>
-            <p className="mt-2 text-sm text-ink-soft">{f.a}</p>
-          </details>
-        ))}
+        {faqs.map((f) => {
+          const id = f.q
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "")
+            .slice(0, 80);
+          return (
+            <details
+              key={f.q}
+              id={id}
+              className="group scroll-mt-24 rounded-xl border border-line bg-surface px-4 py-3"
+            >
+              <summary className="cursor-pointer select-none text-sm font-medium text-ink">
+                {f.q}
+              </summary>
+              <p className="mt-2 text-sm text-ink-soft">{f.a}</p>
+            </details>
+          );
+        })}
       </div>
     </section>
   );
@@ -196,8 +217,11 @@ export function PeptideReferences({
   sources: { label: string; url: string }[];
 }) {
   return (
-    <section className="space-y-4">
-      <h2 className="text-xl font-semibold tracking-tight">
+    <section className="space-y-4" aria-labelledby="sources-and-further-reading">
+      <h2
+        id="sources-and-further-reading"
+        className="scroll-mt-24 text-xl font-semibold tracking-tight"
+      >
         Sources and further reading
       </h2>
       <ol className="list-decimal space-y-2 pl-5 text-sm text-ink-soft">

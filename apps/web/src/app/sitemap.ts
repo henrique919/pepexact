@@ -7,7 +7,7 @@ import { routePaths } from "@/lib/routes";
  * indexable content meaningfully ships — never `new Date()` on every deploy
  * (Google treats constantly-bumped lastmod as noise).
  */
-const SITEMAP_LASTMOD = new Date("2026-07-17T16:00:00.000Z");
+const SITEMAP_LASTMOD = new Date("2026-07-17T18:00:00.000Z");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routePaths.map((path) => ({
