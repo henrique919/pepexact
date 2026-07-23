@@ -8,7 +8,7 @@ import { faqJsonLd, webAppJsonLd, webPageJsonLd } from "@/lib/site";
 
 const TITLE = "Peptide Reconstitution Calculator | PepExact";
 const DESCRIPTION =
-  "Calculate reconstitution water volume from a supplied target amount and U-100 syringe mark. See concentration, draw volume and every formula used.";
+  "Calculate how much bacteriostatic water to add from a supplied target amount and U-100 syringe mark. See concentration, draw volume and every formula used. No dosing advice.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -38,6 +38,10 @@ const EXAMPLE = {
 const exampleResult = calculateDiluent(EXAMPLE);
 
 const faqs = [
+  {
+    q: "How much bacteriostatic water should I add?",
+    a: "That is exactly what this calculator solves for. Enter the vial amount, a target amount supplied by an authorised source, and the U-100 syringe mark you want one draw to reach; it returns the millilitres of bacteriostatic water (BAC water) that produce that result, and shows every step. PepExact does not recommend a water volume — it only does the arithmetic on the numbers you provide, and physical vial capacity and product instructions must be considered separately.",
+  },
   {
     q: "What does a peptide reconstitution calculator calculate?",
     a: "It calculates concentration and measurement values from the vial amount, water volume and user-supplied target amount. This reverse calculator can instead solve for water volume from a selected U-100 syringe mark.",
@@ -95,8 +99,9 @@ export default function Page() {
         <p className="max-w-xl text-ink-soft">
           Enter the vial amount and a target amount supplied by an authorised
           source, then choose the U-100 syringe mark you want the arithmetic to
-          reach. PepExact calculates the corresponding water volume and resulting
-          concentration, with every formula shown.
+          reach. PepExact calculates the corresponding volume of bacteriostatic
+          water (BAC water) and the resulting concentration, with every formula
+          shown.
         </p>
         <p className="max-w-xl text-ink-soft">
           This calculator works backwards from values you provide. It does not

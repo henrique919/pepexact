@@ -3,7 +3,14 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedTools from "@/components/RelatedTools";
-import { articleJsonLd, faqJsonLd, siteName } from "@/lib/site";
+import ReviewedOn from "@/components/ReviewedOn";
+import {
+  articleJsonLd,
+  faqJsonLd,
+  GUIDE_MODIFIED_ISO,
+  GUIDE_PUBLISHED_ISO,
+  siteName,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Peptide regulators — FDA, MHRA, and TGA (facts only)",
@@ -65,9 +72,11 @@ export default function Page() {
           path: "/guides/peptide-regulators",
           description:
             "Facts-only links to primary medicine regulators in the US, UK, and Australia. PepExact is a measurement tool, not a legal adviser.",
+          datePublished: GUIDE_PUBLISHED_ISO,
+          dateModified: GUIDE_MODIFIED_ISO,
         })}
       />
-      <JsonLd data={faqJsonLd(faqs)} />
+      <JsonLd data={faqJsonLd(faqs, "/guides/peptide-regulators")} />
       <Breadcrumbs path="/guides/peptide-regulators" />
 
       <header>
@@ -80,6 +89,8 @@ export default function Page() {
           United Kingdom, and Australia.
         </p>
       </header>
+
+      <ReviewedOn />
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">What {siteName} is — and isn&apos;t</h2>

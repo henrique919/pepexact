@@ -4,7 +4,12 @@ import JsonLd from "@/components/JsonLd";
 import Syringe from "@/components/Syringe";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedTools from "@/components/RelatedTools";
-import { articleJsonLd } from "@/lib/site";
+import ReviewedOn from "@/components/ReviewedOn";
+import {
+  articleJsonLd,
+  GUIDE_MODIFIED_ISO,
+  GUIDE_PUBLISHED_ISO,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "How to read an insulin syringe — U-100, units, and tick marks",
@@ -23,6 +28,8 @@ export default function Page() {
           path: "/guides/how-to-read-an-insulin-syringe",
           description:
             "What U-100 means, how syringe sizes differ, and how to read the markings accurately.",
+          datePublished: GUIDE_PUBLISHED_ISO,
+          dateModified: GUIDE_MODIFIED_ISO,
         })}
       />
       <Breadcrumbs path="/guides/how-to-read-an-insulin-syringe" />
@@ -36,6 +43,8 @@ export default function Page() {
           actually means.
         </p>
       </header>
+
+      <ReviewedOn />
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">What U-100 means</h2>

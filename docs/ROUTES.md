@@ -44,8 +44,16 @@ links live at `/guides/peptide-regulators` (FDA + MHRA + TGA).
 | `/au/are-peptides-legal` | AU facts hub | Are peptides legal in Australia? | self | Article, BreadcrumbList, FAQPage | Cross-links global regulators guide. |
 | `/about` | Trust | About PepExact | self | BreadcrumbList | |
 | `/methodology` | Trust | Calculation methodology | self | BreadcrumbList | |
+| `/editorial-policy` | Trust | Editorial policy | self | BreadcrumbList | Sourcing rules; org-level authorship. |
+| `/contact` | Trust | Contact PepExact | self | BreadcrumbList | X + mailto. |
 | `/privacy` | Trust | Privacy | self | BreadcrumbList | |
 | `/terms` | Trust | Terms of use | self | BreadcrumbList | |
+
+> **Note (SEO sprint):** guide + AU Article JSON-LD now carries
+> `datePublished`/`dateModified` mirrored by a visible "Reviewed" dateline
+> (`ReviewedOn`); the reconstitution calculator owns the "bacteriostatic water"
+> query. Some `Title` cells above pre-date the current `<title>` copy — treat
+> `apps/web` source as canonical and resync this table in a follow-up.
 
 **Sitemap (hierarchical):** `/sitemap.xml` is a sitemap *index* listing five
 child files (priority / changefreq / stable lastmod — never `new Date()` on

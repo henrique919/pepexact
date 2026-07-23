@@ -5,6 +5,18 @@ export const siteName = "PepExact";
 
 export const siteHandle = "@pepexact";
 
+/**
+ * Review dates for the informational guide / regulatory pages. These are the
+ * real launch ship date (single launch commit, 2026-07-17). Bump
+ * `GUIDE_MODIFIED_ISO` (and the display string) only when a page's indexable
+ * copy actually changes, so the Article `dateModified` stays honest. The same
+ * value is rendered visibly on the page (see ReviewedOn) so structured-data
+ * dates always mirror a date the reader can see.
+ */
+export const GUIDE_PUBLISHED_ISO = "2026-07-17";
+export const GUIDE_MODIFIED_ISO = "2026-07-17";
+export const GUIDE_REVIEWED_DISPLAY = "17 July 2026";
+
 const ORG_ID = `${siteUrl}/#organization`;
 const WEBSITE_ID = `${siteUrl}/#website`;
 

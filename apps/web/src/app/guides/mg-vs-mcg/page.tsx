@@ -3,7 +3,12 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedTools from "@/components/RelatedTools";
-import { articleJsonLd } from "@/lib/site";
+import ReviewedOn from "@/components/ReviewedOn";
+import {
+  articleJsonLd,
+  GUIDE_MODIFIED_ISO,
+  GUIDE_PUBLISHED_ISO,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "mg vs mcg — the 1,000× difference, explained",
@@ -21,6 +26,8 @@ export default function Page() {
           path: "/guides/mg-vs-mcg",
           description:
             "Milligrams and micrograms differ by a factor of 1,000. How to keep them straight when doing dose arithmetic.",
+          datePublished: GUIDE_PUBLISHED_ISO,
+          dateModified: GUIDE_MODIFIED_ISO,
         })}
       />
       <Breadcrumbs path="/guides/mg-vs-mcg" />
@@ -34,6 +41,8 @@ export default function Page() {
           units relate and how to stop them tripping you up.
         </p>
       </header>
+
+      <ReviewedOn />
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">The relationship</h2>
