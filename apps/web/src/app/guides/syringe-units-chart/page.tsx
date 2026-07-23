@@ -4,7 +4,13 @@ import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedTools from "@/components/RelatedTools";
 import PrintButton from "@/components/PrintButton";
-import { articleJsonLd, faqJsonLd } from "@/lib/site";
+import ReviewedOn from "@/components/ReviewedOn";
+import {
+  articleJsonLd,
+  faqJsonLd,
+  GUIDE_MODIFIED_ISO,
+  GUIDE_PUBLISHED_ISO,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Printable U-100 syringe units chart — units to mL",
@@ -83,9 +89,11 @@ export default function Page() {
           path: "/guides/syringe-units-chart",
           description:
             "U-100 insulin syringe unit marks converted to millilitres. Measurement reference only.",
+          datePublished: GUIDE_PUBLISHED_ISO,
+          dateModified: GUIDE_MODIFIED_ISO,
         })}
       />
-      <JsonLd data={faqJsonLd(faqs)} />
+      <JsonLd data={faqJsonLd(faqs, "/guides/syringe-units-chart")} />
       <Breadcrumbs path="/guides/syringe-units-chart" />
 
       <header className="space-y-3">
@@ -107,6 +115,8 @@ export default function Page() {
           </Link>
         </div>
       </header>
+
+      <ReviewedOn />
 
       <section className="space-y-3 rounded-xl border border-line bg-accent-soft/40 px-4 py-3 print:border-0 print:bg-transparent print:px-0">
         <h2 className="text-lg font-semibold">The only rule</h2>

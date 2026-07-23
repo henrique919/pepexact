@@ -3,7 +3,13 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedTools from "@/components/RelatedTools";
-import { articleJsonLd, faqJsonLd } from "@/lib/site";
+import ReviewedOn from "@/components/ReviewedOn";
+import {
+  articleJsonLd,
+  faqJsonLd,
+  GUIDE_MODIFIED_ISO,
+  GUIDE_PUBLISHED_ISO,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Why two peptide calculators give different answers",
@@ -36,9 +42,11 @@ export default function Page() {
           path: "/guides/why-calculators-disagree",
           description:
             "The five reasons peptide calculators disagree — water volume, mg vs mcg, syringe type, rounding, and the meaning of 'units' — explained with measurement math only.",
+          datePublished: GUIDE_PUBLISHED_ISO,
+          dateModified: GUIDE_MODIFIED_ISO,
         })}
       />
-      <JsonLd data={faqJsonLd(faqs)} />
+      <JsonLd data={faqJsonLd(faqs, "/guides/why-calculators-disagree")} />
       <Breadcrumbs path="/guides/why-calculators-disagree" />
 
       <header>
@@ -51,6 +59,8 @@ export default function Page() {
           each one, and how to tell which result matches your vial.
         </p>
       </header>
+
+      <ReviewedOn />
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">

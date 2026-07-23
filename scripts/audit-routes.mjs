@@ -116,6 +116,33 @@ if (!/twitter:\s*\{/.test(layoutSrc) || !layoutSrc.includes("summary_large_image
   errors.push("root layout.tsx missing twitter.card summary_large_image");
 }
 
+// Article JSON-LD on informational pages must carry visible + structured dates
+// (freshness / E-E-A-T). Every page that emits articleJsonLd must pass both
+// datePublished and dateModified so the Article node is never dateless.
+const articlePages = [
+  "guides/mg-vs-mcg",
+  "guides/how-to-read-an-insulin-syringe",
+  "guides/why-calculators-disagree",
+  "guides/syringe-units-chart",
+  "guides/peptide-regulators",
+  "au/are-peptides-legal",
+  "peptides",
+];
+for (const rel of articlePages) {
+  const src = read(path.join(webApp, rel, "page.tsx"));
+  if (src.includes("articleJsonLd(") &&
+      (!src.includes("datePublished") || !src.includes("dateModified"))) {
+    errors.push(`${rel}/page.tsx: articleJsonLd missing datePublished/dateModified`);
+  }
+}
+
+// The reconstitution calculator owns the "bacteriostatic water" intent; keep
+// the priority term present on that page (and off competing pages by design).
+const reconSrc = read(path.join(webApp, "reconstitution-calculator/page.tsx"));
+if (!/bacteriostatic water/i.test(reconSrc)) {
+  errors.push("reconstitution-calculator/page.tsx: missing 'bacteriostatic water' coverage");
+}
+
 if (errors.length) {
   console.error("audit-routes FAILED:");
   for (const e of errors) console.error(`  - ${e}`);
