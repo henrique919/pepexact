@@ -32,3 +32,4 @@ Agents: after each task, add one row (newest at the bottom).
 | 2026-07-17 | Hierarchical sitemap | — | `/sitemap.xml` index → core / evidence / calculators / guides / info children; priority + changefreq + ship-dated lastmod via `lib/sitemap-hierarchy.ts`. Audit still gates on `routePaths`. |
 | 2026-07-18 | GA4 gtag G-6B35Q3CXCT | — | Root-layout `Analytics` defaults to production GA4 ID on every page; privacy copy updated. |
 | 2026-07-18 | GTM GTM-NQRJ9KN4 | — | Root-layout head + body noscript install for Google Tag Manager on every page. |
+| 2026-07-24 | GTM-only analytics ownership | — | Removed the direct root-layout `gtag.js` loader and its environment override. GA4 configuration is now owned exclusively by GTM to prevent duplicate page views. |
