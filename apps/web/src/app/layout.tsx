@@ -30,6 +30,11 @@ const splineMono = Spline_Sans_Mono({
   adjustFontFallback: true,
 });
 
+const searchAtlasScriptAttributes = {
+  nowprocket: "",
+  "nitro-exclude": "",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -73,7 +78,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${archivo.variable} ${splineMono.variable}`}>
-      <GoogleTagManagerHead />
+      <head>
+        <GoogleTagManagerHead />
+        <script
+          {...searchAtlasScriptAttributes}
+          type="text/javascript"
+          id="sa-dynamic-optimization"
+          src="https://dashboard.searchatlas.com/scripts/dynamic_optimization.js"
+          data-uuid="aa8d1d14-8178-4ce7-be4c-eafd66ee3684"
+        />
+      </head>
       <body className="flex min-h-screen flex-col bg-paper font-sans text-ink antialiased">
         <GoogleTagManagerBody />
         <SiteHeader />
