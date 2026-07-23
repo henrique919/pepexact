@@ -12,9 +12,15 @@ import {
   websiteJsonLd,
 } from "@/lib/site";
 
-const HOME_TITLE = "Peptide Calculator, BPC-157 & Retatrutide Tool | PepExact";
+// Homepage is the brand + router. It intentionally does NOT compete for the
+// bare "peptide calculator" head term or for "BPC-157"/"retatrutide" — those
+// are owned by /peptide-calculator and the dedicated compound/evidence pages
+// respectively. Keeping the home title brand/umbrella-led avoids the homepage
+// and the hub cannibalising each other for the same query.
+const HOME_TITLE =
+  "PepExact — Independent Peptide Calculators & Measurement Tools";
 const HOME_DESCRIPTION =
-  "Calculate peptide reconstitution, BPC-157, retatrutide and syringe units with transparent formulas. Free tools with no sales or dosing advice.";
+  "PepExact is an independent set of free peptide measurement tools — reconstitution, mg-to-mcg and U-100 syringe units — with every formula shown. No sales, no dosing advice.";
 
 export const metadata: Metadata = {
   title: { absolute: HOME_TITLE },
@@ -84,7 +90,7 @@ export default function HomePage() {
             Independent peptide measurement tools
           </p>
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Free Peptide Calculator for Reconstitution &amp; Syringe Units
+            Independent peptide calculators, with the math shown
           </h1>
           <p className="max-w-2xl text-lg text-ink-soft">
             {siteName} is a free{" "}
